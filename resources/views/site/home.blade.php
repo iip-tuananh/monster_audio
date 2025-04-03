@@ -397,13 +397,8 @@
             <div class="section-stack section-stack--center ">
                 <div class="section-stack__intro">
                     <div class="prose text-center">
-                        <h2 class="h2">On Any Occasion</h2>
-                        <p>Whether you're hosting a backyard barbecue, enjoying a day at the beach, or simply unwinding at
-                            home, this speaker delivers exceptional sound quality and reliability. With its compact and
-                            portable design, you can take the party wherever you go, while easy Bluetooth connectivity
-                            ensures seamless streaming from your favorite devices. Equipped with long-lasting battery life,
-                            durable construction, and intuitive controls, our Any Occasion Speaker is ready to elevate any
-                            moment, making it the ideal choice for every occasion.</p>
+                        <h2 class="h2">About us</h2>
+                        <p>{!! $config->introduction !!}</p>
                     </div>
                 </div>
                 <div class="section-stack__main">
