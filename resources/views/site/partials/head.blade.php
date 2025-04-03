@@ -1,48 +1,41 @@
 <head>
-    <meta charset="utf-8">
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0"
-    >
-    <meta name="theme-color" content="#f0f0f0">
+    <meta charset="UTF-8"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="#"/>
 
-    <title>
-        Lifestyle Series
-    </title>
-    <meta name="description"
-          content="Monster Lifestyle Series, where innovation meets aesthetic appeal. Designed to seamlessly integrate into any modern living space, these speakers boast not only superior sound quality but also an exquisite blend of style and functionality. Whether you&#39;re entertaining guests or enjoying a quiet evening at home, these sle">
-    <link rel="canonical" href="https://mymonsteraudio.com/collections/lifestyle">
-    <link rel="shortcut icon" href="//mymonsteraudio.com/cdn/shop/files/monster_favicon.png?v=1727201172&width=96">
-    <link rel="apple-touch-icon" href="//mymonsteraudio.com/cdn/shop/files/monster_favicon.png?v=1727201172&width=180">
-    <link rel="preconnect" href="https://cdn.shopify.com">
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
-    <link rel="preload"
-          href="//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n7.57888b0b2051a4dba7d02aad7ca64db99eca3cf1.woff2?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=456533717e1191bccfd91d26d6ad9710bb9892b42c39571c446cacd8833d396d"
-          as="font" type="font/woff2" crossorigin>
-    <link rel="preload"
-          href="//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n4.438c249fdbceeefafa64221353c5ece2fdb8ae14.woff2?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=3079e2cf4031494f362c38076c619fd7d3df7f838872a52ecf75193d7db84807"
-          as="font" type="font/woff2" crossorigin>
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Lifestyle Series">
-    <meta property="og:image"
-          content="http://mymonsteraudio.com/cdn/shop/collections/pf-46ad4b86--homelifestyle1.jpg?v=1708556382&width=2048">
-    <meta property="og:image:secure_url"
-          content="https://mymonsteraudio.com/cdn/shop/collections/pf-46ad4b86--homelifestyle1.jpg?v=1708556382&width=2048">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="720">
-    <meta property="og:description"
-          content="Monster Lifestyle Series, where innovation meets aesthetic appeal. Designed to seamlessly integrate into any modern living space, these speakers boast not only superior sound quality but also an exquisite blend of style and functionality. Whether you&#39;re entertaining guests or enjoying a quiet evening at home, these sle">
-    <meta property="og:url" content="https://mymonsteraudio.com/collections/lifestyle">
-    <meta property="og:site_name" content="My Monster Audio">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lifestyle Series">
-    <meta name="twitter:description"
-          content="Monster Lifestyle Series, where innovation meets aesthetic appeal. Designed to seamlessly integrate into any modern living space, these speakers boast not only superior sound quality but also an exquisite blend of style and functionality. Whether you&#39;re entertaining guests or enjoying a quiet evening at home, these sleek and chic speakers elevate the ambiance of any room. With wireless connectivity, convenience is at your fingertips, allowing you to stream your favorite playlists effortlessly from any Bluetooth-enabled device. Elevate your lifestyle and immerse yourself in rich, immersive sound with the Lifestyle Bluetooth Speakers collection.">
-    <meta name="twitter:image"
-          content="https://mymonsteraudio.com/cdn/shop/collections/pf-46ad4b86--homelifestyle1.jpg?crop=center&height=1200&v=1708556382&width=1200">
-    <meta name="twitter:image:alt" content="Lifestyle Series">
-
+    <script>(function (html) {
+            html.className = html.className.replace(/\bno-js\b/, 'js')
+        })(document.documentElement);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!-- This site is optimized with the Yoast SEO plugin v21.7 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>@yield('title')</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="@yield('title')" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="description" content="@yield('description')" />
+    <link rel="canonical" href="{{ url()->current() }}" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:description" content="@yield('description')" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:site_name" content="{{ url()->current() }}" />
+    <meta property="og:updated_time" content="2021-08-28T22:06:30+07:00" />
+    <meta property="og:image" content="@yield('image')" />
+    <meta property="og:image:secure_url" content="@yield('image')" />
+    <meta property="og:image:width" content="598" />
+    <meta property="og:image:height" content="333" />
+    <meta property="og:image:alt" content="" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('title')" />
+    <meta name="twitter:description" content="@yield('description')" />
+    <meta name="twitter:image" content="@yield('image')" />
+    <!-- Fav Icon -->
+    <link rel="icon" href="{{$config->favicon->path ?? ''}}" type="image/x-icon">
+    <!-- / Yoast SEO plugin. -->
 
     <script type="application/ld+json">
         {
@@ -71,8 +64,8 @@
             font-weight: 700;
             font-style: normal;
             font-display: fallback;
-            src: url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n7.57888b0b2051a4dba7d02aad7ca64db99eca3cf1.woff2?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=456533717e1191bccfd91d26d6ad9710bb9892b42c39571c446cacd8833d396d") format("woff2"),
-            url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n7.8ca52ee0f403ce0c89c90387f16284e4637c1b10.woff?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=15a43cfa0f78e3fe47dcf2be50e8facc1c137c43bb33e703e2200a1a312e4fe8") format("woff");
+            src: url("{{ asset('site/fonts/dinnext_n7.57888b0b2051a4dba7d02aad7ca64db99eca3cf1.woff2') }}") format("woff2"),
+            url("{{ asset('site/fonts/dinnext_n7.8ca52ee0f403ce0c89c90387f16284e4637c1b10.woff') }}") format("woff");
         }
 
         @font-face {
@@ -90,8 +83,8 @@
             font-weight: 400;
             font-style: normal;
             font-display: fallback;
-            src: url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n4.438c249fdbceeefafa64221353c5ece2fdb8ae14.woff2?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=3079e2cf4031494f362c38076c619fd7d3df7f838872a52ecf75193d7db84807") format("woff2"),
-            url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n4.ba1a214c52f07ec250a5179209eb84e73639e1c9.woff?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=ed0f6a3ad17b8310326a452f153ff6d56a285ee81b97fbf55e1da4c495ae84a5") format("woff");
+            src: url("{{ asset('site/fonts/dinnext_n4.438c249fdbceeefafa64221353c5ece2fdb8ae14.woff2') }}") format("woff2"),
+            url("{{ asset('site/fonts/dinnext_n4.ba1a214c52f07ec250a5179209eb84e73639e1c9.woff') }}") format("woff");
         }
 
         @font-face {
@@ -108,8 +101,8 @@
             font-weight: 700;
             font-style: normal;
             font-display: fallback;
-            src: url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n7.57888b0b2051a4dba7d02aad7ca64db99eca3cf1.woff2?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=456533717e1191bccfd91d26d6ad9710bb9892b42c39571c446cacd8833d396d") format("woff2"),
-            url("//mymonsteraudio.com/cdn/fonts/din_next/dinnext_n7.8ca52ee0f403ce0c89c90387f16284e4637c1b10.woff?h1=bXltb25zdGVyYXVkaW8uY29t&h2=bXltb25zdGVyYXVkaW8uYWNjb3VudC5teXNob3BpZnkuY29t&hmac=15a43cfa0f78e3fe47dcf2be50e8facc1c137c43bb33e703e2200a1a312e4fe8") format("woff");
+            src: url("{{ asset('site/fonts/dinnext_n7.57888b0b2051a4dba7d02aad7ca64db99eca3cf1.woff2') }}") format("woff2"),
+            url("{{ asset('site/fonts/dinnext_n7.8ca52ee0f403ce0c89c90387f16284e4637c1b10.woff') }}") format("woff");
         }
 
         @font-face {
@@ -479,14 +472,11 @@
             }
         });// For detecting native share
         document.documentElement.classList.add(`native-share--${navigator.share ? 'enabled' : 'disabled'}`);</script>
-    <script type="module" src="/site/js/vendor.min.js?v=114992621884149252901723046902"></script>
-    <script type="module" src="/site/js/theme.js?v=45785366765952398841723047854"></script>
+    {{-- <script type="module" src="/site/js/vendor.min.js?v=114992621884149252901723046902"></script> --}}
+    {{-- <script type="module" src="/site/js/theme.js?v=45785366765952398841723047854"></script> --}}
     <script type="module" src="/site/js/sections.js?v=94856139559083518311723047868"></script>
 
     <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>
-    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/31987892355/digital_wallets/dialog">
-    <link rel="alternate" type="application/atom+xml" title="Feed" href="/collections/lifestyle.atom"/>
-    <link rel="alternate" type="application/json+oembed" href="https://mymonsteraudio.com/collections/lifestyle.oembed">
     <script async="async" src="/site/js/preloads.js?locale=en-US"></script>
     <script id="shopify-features" type="application/json">{
         "accessToken": "608492a350ff55aa15167cb8daea5c6f",
@@ -538,7 +528,7 @@
     <script id="shop-js-analytics" type="application/json">{
         "pageType": "collection"
     }</script>
-    <script>(function () {
+    {{-- <script>(function () {
             function asyncLoad() {
                 var urls = ["https:\/\/chimpstatic.com\/mcjs-connected\/js\/users\/c94fb8058058008f0419b5ef7\/6863c9020098fc3cc24d6094e.js?shop=mymonsteraudio.myshopify.com", "\/\/cdn.shopify.com\/proxy\/991344abe5399c2a22aaea25c50d75ef94a9c7b21a862fc2e1c73cdad9a16d61\/apps.bazaarvoice.com\/deployments\/monster\/main_site\/production\/en_US\/bv.js?shop=mymonsteraudio.myshopify.com\u0026sp-cache-control=cHVibGljLCBtYXgtYWdlPTkwMA"];
                 for (var i = 0; i < urls.length; i++) {
@@ -555,155 +545,25 @@
             } else {
                 window.addEventListener('load', asyncLoad, false);
             }
-        })();</script>
-    <script id="__st">var __st = {
-            "a": 31987892355,
-            "offset": -25200,
-            "reqid": "c6caae7c-5dab-4bf0-89ca-f05af0813d91-1743340428",
-            "pageurl": "mymonsteraudio.com\/collections\/lifestyle",
-            "u": "14403fb0bad4",
-            "p": "collection",
-            "rtyp": "collection",
-            "rid": 299650023582
-        };</script>
-    <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
-    <script id="captcha-bootstrap">!function () {
-            'use strict';
-            const t = 'contact', e = 'account', n = 'new_comment',
-                o = [[t, t], ['blogs', n], ['comments', n], [t, 'customer']],
-                c = [[e, 'customer_login'], [e, 'guest_login'], [e, 'recover_customer_password'], [e, 'create_customer']],
-                r = t => t.map((([t, e]) => `form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),
-                a = t => () => t ? [...document.querySelectorAll(t)].map((t => t.form)) : [];
-
-            function s() {
-                const t = [...o], e = r(t);
-                return a(e)
-            }
-
-            const i = 'password', u = 'form_key',
-                d = ['recaptcha-v3-token', 'g-recaptcha-response', 'h-captcha-response', i], f = () => {
-                    try {
-                        return window.sessionStorage
-                    } catch {
-                        return
-                    }
-                }, m = '__shopify_v', _ = t => t.elements[u];
-
-            function p(t, e, n = !1) {
-                try {
-                    const o = window.sessionStorage, c = JSON.parse(o.getItem(e)), {data: r} = function (t) {
-                        const {data: e, action: n} = t;
-                        return t[m] || n ? {data: e, action: n} : {data: t, action: n}
-                    }(c);
-                    for (const [e, n] of Object.entries(r)) t.elements[e] && (t.elements[e].value = n);
-                    n && o.removeItem(e)
-                } catch (o) {
-                    console.error('form repopulation failed', {error: o})
-                }
-            }
-
-            const l = 'form_type', E = 'cptcha';
-
-            function T(t) {
-                t.dataset[E] = !0
-            }
-
-            const w = window, h = w.document, L = 'Shopify', v = 'ce_forms', y = 'captcha';
-            let A = !1;
-            ((t, e) => {
-                const n = (g = 'f06e6c50-85a8-45c8-87d0-21a2b65856fe', I = 'https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.2.iife.js', D = {
-                    infoText: 'Protected by hCaptcha',
-                    privacyText: 'Privacy',
-                    termsText: 'Terms'
-                }, (t, e, n) => {
-                    const o = w[L][v], c = o.bindForm;
-                    if (c) return c(t, g, e, D).then(n);
-                    var r;
-                    o.q.push([[t, g, e, D], n]), r = I, A || (h.body.append(Object.assign(h.createElement('script'), {
-                        id: 'captcha-provider',
-                        async: !0,
-                        src: r
-                    })), A = !0)
-                });
-                var g, I, D;
-                w[L] = w[L] || {}, w[L][v] = w[L][v] || {}, w[L][v].q = [], w[L][y] = w[L][y] || {}, w[L][y].protect = function (t, e) {
-                    n(t, void 0, e), T(t)
-                }, Object.freeze(w[L][y]), function (t, e, n, w, h, L) {
-                    const [v, y, A, g] = function (t, e, n) {
-                        const i = e ? o : [], u = t ? c : [], d = [...i, ...u], f = r(d), m = r(i),
-                            _ = r(d.filter((([t, e]) => n.includes(e))));
-                        return [a(f), a(m), a(_), s()]
-                    }(w, h, L), I = t => {
-                        const e = t.target;
-                        return e instanceof HTMLFormElement ? e : e && e.form
-                    }, D = t => v().includes(t);
-                    t.addEventListener('submit', (t => {
-                        const e = I(t);
-                        if (!e) return;
-                        const n = D(e) && !e.dataset.hcaptchaBound && !e.dataset.recaptchaBound, o = _(e),
-                            c = g().includes(e) && (!o || !o.value);
-                        (n || c) && t.preventDefault(), c && !n && (function (t) {
-                            try {
-                                if (!f()) return;
-                                !function (t) {
-                                    const e = f();
-                                    if (!e) return;
-                                    const n = _(t);
-                                    if (!n) return;
-                                    const o = n.value;
-                                    o && e.removeItem(o)
-                                }(t);
-                                const e = Array.from(Array(32), (() => Math.random().toString(36)[2])).join('');
-                                !function (t, e) {
-                                    _(t) || t.append(Object.assign(document.createElement('input'), {
-                                        type: 'hidden',
-                                        name: u
-                                    })), t.elements[u].value = e
-                                }(t, e), function (t, e) {
-                                    const n = f();
-                                    if (!n) return;
-                                    const o = [...t.querySelectorAll(`input[type='${i}']`)].map((({name: t}) => t)),
-                                        c = [...d, ...o], r = {};
-                                    for (const [a, s] of new FormData(t).entries()) c.includes(a) || (r[a] = s);
-                                    n.setItem(e, JSON.stringify({[m]: 1, action: t.action, data: r}))
-                                }(t, e)
-                            } catch (e) {
-                                console.error('failed to persist form', e)
-                            }
-                        }(e), e.submit())
-                    }));
-                    const S = (t, e) => {
-                        t && !t.dataset[E] && (n(t, e.some((e => e === t))), T(t))
-                    };
-                    for (const o of ['focusin', 'change']) t.addEventListener(o, (t => {
-                        const e = I(t);
-                        D(e) && S(e, y())
-                    }));
-                    const B = e.get('form_key'), M = e.get(l), P = B && M;
-                    t.addEventListener('DOMContentLoaded', (() => {
-                        const t = y();
-                        if (P) for (const e of t) e.elements[l].value === M && p(e, B);
-                        [...new Set([...A(), ...v().filter((t => 'true' === t.dataset.shopifyCaptcha))])].forEach((e => S(e, t)))
-                    }))
-                }(h, new URLSearchParams(w.location.search), n, t, e, ['guest_login'])
-            })(!0, !0)
-        }();</script>
-    <script integrity="sha256-EGCDRYTvIEOXsReXgqGwkAR+5Dl8tickSrieA/ZcQwc="
+        })();</script> --}}
+    {{-- <script integrity="sha256-EGCDRYTvIEOXsReXgqGwkAR+5Dl8tickSrieA/ZcQwc="
             data-source-attribution="shopify.loadfeatures" defer="defer"
             src="/site/js/load_feature-1060834584ef204397b1179782a1b090047ee4397cb627244ab89e03f65c4307.js"
             crossorigin="anonymous"></script>
     <script integrity="sha256-HAs5a9TQVLlKuuHrahvWuke+s1UlxXohfHeoYv8G2D8="
             data-source-attribution="shopify.dynamic-checkout" defer="defer"
             src="/site/js/features-1c0b396bd4d054b94abae1eb6a1bd6ba47beb35525c57a217c77a862ff06d83f.js"
-            crossorigin="anonymous"></script>
-    <script id='scb4127' type='text/javascript' async='' src='/site/js/storefront-banner.js'></script>
+            crossorigin="anonymous"></script> --}}
+    {{-- <script id='scb4127' type='text/javascript' async='' src='/site/js/storefront-banner.js'></script> --}}
     <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
     <link href="/site/css/theme.css?v=171648844962393731081723464103" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/site/css/main.css?v=171648844962393731081723464103" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/site/css/pagefly-animation.css?v=171648844962393731081723464103" rel="stylesheet" type="text/css" media="all"/>
     <!-- Start of esiaudio Zendesk Widget script -->
-    <script
+    {{-- <script
             id="ze-snippet"
             src="/site/js/snippet.js?key=b55ae7fb-6466-4925-86f5-dccf949533a5"
-    ></script>
+    ></script> --}}
     <!-- End of esiaudio Zendesk Widget script -->
 
 
@@ -724,12 +584,12 @@
 
     <script src="/site/js/pagefly-slideshow-v1-v2.js" defer="defer"></script>
 
-    <script src="/site/js/pagefly-product-media.js" defer="defer"></script>
+    {{-- <script src="/site/js/pagefly-product-media.js" defer="defer"></script>
 
     <script src="/site/js/pagefly-product.js" defer="defer"></script>
 
 
-    <script id='pagefly-helper-data' type='application/json'>
+    {{-- <script id='pagefly-helper-data' type='application/json'>
         {
             "page_optimization": {
                 "assets_prefetching": false
@@ -779,9 +639,9 @@
                 "pf-dialog-element": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-dialog-element.js"
             }
         }
-    </script>
+    </script> --}}
     <!-- END app block -->
-    <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+    {{-- <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
     <script>(function () {
             if ("sendBeacon" in navigator && "performance" in window) {
                 var session_token = document.cookie.match(/_shopify_s=([^;]*)/);
@@ -812,8 +672,8 @@
 
                 window.addEventListener('pagehide', handle_abandonment_event);
             }
-        }());</script>
-    <script id="web-pixels-manager-setup">(function e(e, d, r, n, o, i) {
+        }());</script> --}}
+    {{-- <script id="web-pixels-manager-setup">(function e(e, d, r, n, o, i) {
             if (void 0 === i && (i = {}), !Boolean(null === (t = null === (a = window.Shopify) || void 0 === a ? void 0 : a.analytics) || void 0 === t ? void 0 : t.replayQueue)) {
                 var a, t;
                 window.Shopify = window.Shopify || {};
@@ -919,7 +779,7 @@
             shopId: 31987892355,
             storefrontBaseUrl: "https://mymonsteraudio.com",
             extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",
-            monorailEndpoint: "https://monorail-edge.shopifysvc.com/unstable/produce_batch",
+            // monorailEndpoint: "https://monorail-edge.shopifysvc.com/unstable/produce_batch",
             surface: "storefront-renderer",
             enabledBetaFlags: [],
             webPixelsConfigList: [{
@@ -1279,5 +1139,5 @@
             data-theme-instance-id="139435016350"
             data-monorail-region="shop_domain"
             data-resource-timing-sampling-rate="10"
-    ></script>
+    ></script> --}}
 </head>

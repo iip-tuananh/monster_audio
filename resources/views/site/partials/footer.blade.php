@@ -12,7 +12,7 @@
     <div class="footer">
         <div class="container">
             <div class="footer__wrapper">
-                <div class="footer__block-list empty:hidden">
+                <div class="footer__block-list">
                     <div class="footer__block footer__block--newsletter">
                         <div class="v-stack gap-6"><p class="h3">Be the first one to know</p>
                             <div class="prose text-subdued"><p>Subscribe to newsletter</p></div>
@@ -117,7 +117,7 @@
                                 those of their respective owners.</p></div>
                     </div>
                 </div>
-                <div class="footer__aside empty:hidden">
+                <div class="footer__aside">
                     <div class="footer__aside-bottom"><p class="footer__copyright text-sm text-subdued">© 2025, My
                             Monster Audio. <a target="_blank" rel="nofollow"
                                               href="https://www.shopify.com?utm_campaign=poweredby&amp;utm_medium=shopify&amp;utm_source=onlinestore">Powered

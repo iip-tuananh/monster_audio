@@ -5,7 +5,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/{categorySlug}','FrontController@getProductList')->name('front.show-product-detail');
     Route::get('/products/search','FrontController@searchProducts')->name('front.ajax-search-products');
     // Route::get('/load-product-home-page','FrontController@loadProductHomePage')->name('front.load-product-home-page');
-    Route::get('/danh-muc/{categorySlug}.html','FrontController@showProductCategory')->name('front.show-product-category');
+    Route::get('/category/{categorySlug}.html','FrontController@showProductCategory')->name('front.show-product-category');
     Route::get('/load-more/product','FrontController@loadMoreProduct')->name('front.product-load-more');
     Route::get('/get-product-quick-view','FrontController@getProductQuickView')->name('front.get-product-quick-view');
     Route::get('/tao-thiet-ke.html','FrontController@productCustom')->name('front.product-custom');
