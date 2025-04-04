@@ -67,7 +67,7 @@
                         <nav class="header__link-list justify-center wrap" role="navigation">
                             <ul class="contents" role="list">
 
-                                <li><a href="/" class="bold link-faded-reverse">Home</a></li>
+                                <li><a href="/" class="bold link-faded-reverse">Trang chủ</a></li>
 
                                 <li>
                                     <details class="relative" is="dropdown-disclosure" trigger="click">
@@ -82,122 +82,47 @@
 
                                         <div class="dropdown-menu ">
                                             <ul class="contents" role="list">
-                                                <li>
-                                                    <details class="relative" is="dropdown-disclosure" trigger="click">
-                                                        <summary class="dropdown-menu__item group"
-                                                                 data-url="/collections/featured">
+                                                @foreach($categories as $category)
+                                                    <li>
+                                                        <details class="relative" is="dropdown-disclosure" trigger="click">
+                                                            <summary class="dropdown-menu__item group">
                                                             <span><span
-                                                                        class="reversed-link">Featured Products</span></span>
-                                                            <svg role="presentation" focusable="false" width="7"
-                                                                 height="10" class="icon icon-chevron-right"
-                                                                 viewBox="0 0 7 10">
-                                                                <path d="m1 9 4-4-4-4" fill="none" stroke="currentColor"
-                                                                      stroke-width="2"></path>
-                                                            </svg>
-                                                        </summary>
+                                                                        class="reversed-link">{{ $category->name }}</span></span>
+                                                                <svg role="presentation" focusable="false" width="7"
+                                                                     height="10" class="icon icon-chevron-right"
+                                                                     viewBox="0 0 7 10">
+                                                                    <path d="m1 9 4-4-4-4" fill="none" stroke="currentColor"
+                                                                          stroke-width="2"></path>
+                                                                </svg>
+                                                            </summary>
 
-                                                        <div class="dropdown-menu">
-                                                            <ul class="contents" role="list">
-                                                                <li>
-                                                                    <a href="/products/rockin-roller-360"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span class="reversed-link">Rockin Roller 360</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/products/monster-vision156"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span class="reversed-link">Rockin Vision 156</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/products/monster-x6"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">Monster X6</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/products/monster-luna"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">Monster Luna</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/products/rockin-roller-4max"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">Rockin 4MAX</span></span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </details>
-                                                </li>
-                                                <li>
-                                                    <details class="relative" is="dropdown-disclosure" trigger="click">
-                                                        <summary class="dropdown-menu__item group"
-                                                                 data-url="/collections">
-                                                            <span><span class="reversed-link">Series</span></span>
-                                                            <svg role="presentation" focusable="false" width="7"
-                                                                 height="10" class="icon icon-chevron-right"
-                                                                 viewBox="0 0 7 10">
-                                                                <path d="m1 9 4-4-4-4" fill="none" stroke="currentColor"
-                                                                      stroke-width="2"></path>
-                                                            </svg>
-                                                        </summary>
+                                                            <div class="dropdown-menu">
+                                                                <ul class="contents" role="list">
+                                                                    @foreach($category->childs as $child)
+                                                                        <li>
+                                                                            <a href="{{ route('front.show-product-list', ['categorySlug' => $child->slug]) }}"
+                                                                               class="dropdown-menu__item group">
+                                                                                <span><span class="reversed-link">{{ $child->name }}</span></span>
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </details>
+                                                    </li>
+                                                @endforeach
 
-                                                        <div class="dropdown-menu">
-                                                            <ul class="contents" role="list">
-                                                                <li>
-                                                                    <a href="/collections/rockin"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">Rockin' Series</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/collections/lifestyle"
-                                                                       class="dropdown-menu__item group"
-                                                                       aria-current="page">
-                                                                        <span><span class="reversed-link">Lifestyle Series</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/collections/ez-play"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">EZ-Play Series</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/collections/companion"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span class="reversed-link">Companion Series</span></span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/collections/concert"
-                                                                       class="dropdown-menu__item group">
-                                                                        <span><span
-                                                                                    class="reversed-link">Concert Series</span></span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </details>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </details>
                                 </li>
 
-                                <li><a href="/collections" class="bold link-faded-reverse">Collections</a></li>
+                                <li><a href="#" class="bold link-faded-reverse">Collections</a></li>
 
-                                <li><a href="/pages/support" class="bold link-faded-reverse">Support</a></li>
+                                <li><a href="#" class="bold link-faded-reverse">Support</a></li>
 
-                                <li><a href="/pages/contact" class="bold link-faded-reverse">Contact</a></li>
+                                <li><a href="#" class="bold link-faded-reverse">Contact</a></li>
                             </ul>
                         </nav>
                     </div>

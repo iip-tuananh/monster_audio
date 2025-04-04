@@ -44,7 +44,7 @@ class FrontController extends Controller
         $data['banners'] = Banner::with(['image'])->get();
         $data['partners'] = Partner::with(['image'])->get();
         $data['reviews'] = Review::with(['image'])->get();
-        $data['newProducts'] = Product::with(['image'])->where('status', 1)->limit(4)->orderBy('id','DESC')->inRandomOrder()->get();
+        $data['newProducts'] = Product::with(['image'])->where('state', 1)->limit(4)->orderBy('id','DESC')->inRandomOrder()->get();
         $data['arrImageNewProducts'] = $data['newProducts']->reduce(function ($carry, $product) {
             $carry[] = $product->image ? $product->image->path : '';
             return $carry;
@@ -101,11 +101,19 @@ class FrontController extends Controller
         return view('site.product_category', compact('products', 'category'));
     }
 
+    public function getProductDetail($slug)
+    {
+        $product = Product::findBySlug($slug);
+
+
+        return view('site.product_detail', compact('product'));
+    }
+
     public function searchProducts(Request $request) {
         $inStock = $request->get('availability') == 'true' ? 1 : 2;
         $priceGte = $request->get('priceGte');
         $priceLte = $request->get('priceLte');
-        $sortBy = $request->input('sort_by');
+        $sortBy = $request->get('sortOption');
 
         $products = Product::query();
 
@@ -141,6 +149,11 @@ class FrontController extends Controller
                 $products->orderBy('created_at', 'desc');
                 break;
         }
+
+        if($request->categoryId) {
+            $products->where('cate_id', $request->categoryId);
+        }
+
 
         $products = $products->get();
 

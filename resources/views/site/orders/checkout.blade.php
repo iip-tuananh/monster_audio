@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <title>Checkout - My Monster Audio</title>
+    <title>Checkout - {{ $config->web_title }}</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height"/>
     <meta name="referrer" content="origin"/>
@@ -719,12 +719,16 @@
         display: flex;
         justify-content: flex-end;
     }
+
+    ._7ozb2u6{
+        margin-bottom: 10px;
+    }
 </style>
 <div class="LoadingShell LoadingShellConfig-Header-positionStart LoadingShell-variantOneStepCheckout colorSchemeScheme1 backgroundColorBase">
     <header class="LoadingShellHeader LoadingShellHeader-containerFill LoadingShellHeader-positionStart">
         <div class="LoadingShellHeaderContent">
             <div class="LoadingHeader LoadingHeader-alignmentStart">
-                <h1 class="LoadingHeaderHeading">My Monster Audio</h1>
+                <h1 class="LoadingHeaderHeading">{{ $config->web_title  }}</h1>
             </div>
         </div>
     </header>
@@ -824,7 +828,7 @@
 <meta name="serialized-session-finished" content="false"/>
 <meta name="serialized-api-client-id" content="580111"/>
 <meta name="serialized-redesign-enabled" content="true"/>
-<meta name="serialized-shop" content="{&quot;id&quot;:&quot;gid://shopify/Shop/31987892355&quot;,&quot;name&quot;:&quot;My Monster Audio&quot;,&quot;domain&quot;:&quot;mymonsteraudio.com&quot;,&quot;myshopifyDomain&quot;:&quot;mymonsteraudio.myshopify.com&quot;,&quot;origins&quot;:[&quot;https://mymonsteraudio.myshopify.com&quot;,&quot;https://mymonsteraudio.com&quot;,&quot;https://www.mymonsteraudio.com&quot;,&quot;https://mymonsteraudio.account.myshopify.com&quot;]}"/>
+<meta name="serialized-shop" content="{&quot;id&quot;:&quot;gid://shopify/Shop/31987892355&quot;,&quot;name&quot;:&quot;{{ $config->web_title }}&quot;,&quot;domain&quot;:&quot;mymonsteraudio.com&quot;,&quot;myshopifyDomain&quot;:&quot;mymonsteraudio.myshopify.com&quot;,&quot;origins&quot;:[&quot;https://mymonsteraudio.myshopify.com&quot;,&quot;https://mymonsteraudio.com&quot;,&quot;https://www.mymonsteraudio.com&quot;,&quot;https://mymonsteraudio.account.myshopify.com&quot;]}"/>
 <meta name="serialized-login-url" content="&quot;https://mymonsteraudio.com/account/login?checkout_url=%2Fcheckouts%2Fcn%2FZ2NwLWFzaWEtc291dGhlYXN0MTowMUpRS0owNkQ4QzZOWkFWUjNKSDRXSkM2UA%3Fcompany_location_id%26locale%3Den-VN&quot;"/>
 <meta name="serialized-logout-url" content="&quot;https://mymonsteraudio.com/account/logout?return_url=%2Fcheckouts%2Fcn%2FZ2NwLWFzaWEtc291dGhlYXN0MTowMUpRS0owNkQ4QzZOWkFWUjNKSDRXSkM2UA%3Fcompany_location_id%3D%26locale%3Den-VN&quot;"/>
 <meta name="serialized-invoice-login-type" content="null"/>
@@ -834,7 +838,7 @@
 <div id="app" ng-app="App" ng-controller="checkout" ng-cloak>
     <div style="--swn0j0:rgb(240,196,23);--swn0j1:rgb(0,0,0);--swn0j2:rgb(208,169,18);--swn0j3:rgb(255,252,246);--swn0j4:rgb(255,245,228);--swn0j5:rgb(255,236,198);--swn0j8:rgb(111,104,90);--swn0j9:rgb(26,26,26);--swn0jb:rgb(0,0,0);--swn0ja:rgb(0,0,0);--swn0jc:rgb(255,255,255);--swn0jd:rgb(255,255,255);--swn0j1z:rgba(240,196,23,0.05);--swn0j2o:rgba(240,196,23,0.05);--swn0j39:rgba(240,196,23,0.05);--swn0j5c:rgba(240,196,23,0.05);--swn0j61:rgba(240,196,23,0.05);--swn0j6m:rgba(240,196,23,0.05);--swn0j8p:rgba(240,196,23,0.05);--swn0j9e:rgba(240,196,23,0.05);--swn0j9z:rgba(240,196,23,0.05);--swn0jc2:rgba(240,196,23,0.05);--swn0jcr:rgba(240,196,23,0.05);--swn0jdc:rgba(240,196,23,0.05);">
         <div class="g9gqqf1 g9gqqf0 _1fragemo8 g9gqqfc g9gqqfa _1fragemth g9gqqf6 g9gqqf2 _1fragemni _1fragemnm">
-            <h1 class="n8k95wf _1fragemsk">My Monster Audio Checkout</h1>
+            <h1 class="n8k95wf _1fragemsk">{{ $config->web_title }}</h1>
             <div class="cm5pp U3Rye FeQiM oYrwu _1fragemnm _1fragemni _1fragemth">
                 <header class="EAjaz _8wrz5 d5pfT _1fragemth _1fragemnm _1fragemni">
                     <div class="i8Dpn">
@@ -842,7 +846,8 @@
                             <div>
                                 <div class="_1ip0g651 _1ip0g650 _1fragemlt _1fragem41 _1fragem5u _1fragem2s">
                                     <div style="--_16s97g7a:1fr;--_16s97g7k:minmax(0, 1fr);--_16s97g71e:minmax(0, 1fr) minmax(auto, max-content);--_16s97g71o:minmax(0, 1fr);" class="_1mrl40q0 _1fragemlt _1fragem4l _1fragem6e _1fragemmi _1fragemmn _1fragem2s _1fragemmd _16s97g7f _16s97g7p _16s97g71j _16s97g71t    _16s97g79l">
-                                        <span><a href="https://mymonsteraudio.com" class="s2kwpi1 s2kwpi0 _1fragemlt _1fragemsy _1fragemt4 _1fragemss s2kwpi3 s2kwpi7 s2kwpi5 _1fragemso"><span class="pJt3c"><span class="n8k95w1 n8k95w0 _1fragemlt n8k95w2">My Monster Audio</span></span></a></span>
+                                        <span><a href="https://mymonsteraudio.com" class="s2kwpi1 s2kwpi0 _1fragemlt _1fragemsy _1fragemt4 _1fragemss s2kwpi3 s2kwpi7 s2kwpi5 _1fragemso"><span class="pJt3c"><span class="n8k95w1 n8k95w0 _1fragemlt n8k95w2">
+                                                        {{ $config->web_title }}</span></span></a></span>
                                         <span>
                       <a aria-label="Cart" id="cart-link" href="https://mymonsteraudio.com/cart?logged_in=true" class="s2kwpi1 s2kwpi0 _1fragemlt _1fragemsy _1fragemt4 _1fragemss s2kwpi2 s2kwpi6 s2kwpi4 _1fragemsp">
                         <span class="a8x1wu2 a8x1wu1 _1fragemor _1fragem1t _1fragemkp _1fragemkf a8x1wug a8x1wuj a8x1wuh _1fragem1y a8x1wup a8x1wul a8x1wut">
@@ -952,10 +957,15 @@
                                                                                                             <div class="_7ozb2u2 _7ozb2u1 _1fragem3c _1fragem55 _1fragemlt _1fragem2s _10vrn9p1 _10vrn9p0 _10vrn9p4 _7ozb2u4 _7ozb2u3 _1fragemnn">
                                                                                                                 <div class="cektnc0 _1fragemlt cektnc5">
                                                                                                                     <label id="TextField842-label" for="TextField842" class="cektnc3 cektnc1 _1fragemlj _1fragemsj _1fragemtc _1fragemsy _1fragemst _1fragemt8 _1fragemt9"><span class="cektnca"><span class="rermvf1 rermvf0 _1fragemk0 _1fragemka _1fragem1y">Email</span></span></label>
-                                                                                                                    <div class="_7ozb2u6 _7ozb2u5 _1fragemlt _1fragem2s _1fragemnx _1fragemsy _1fragemst _1fragemt8 _1fragemtb _7ozb2uc _7ozb2ua _1fragemnn _1fragemth _7ozb2ul _7ozb2uh"><input id="TextField842" name="email" ng-model="form.customer_email" placeholder="Email" type="text" aria-required="false" aria-labelledby="TextField842-label" value autocomplete="shipping address-line2" class="_7ozb2uq _7ozb2up _1fragemlt _1fragemtc _1fragemor _1fragemsi _7ozb2ut _7ozb2us _1fragemsy _1fragemst _1fragemt8 _7ozb2u11 _7ozb2u1h _7ozb2ur"/></div>
+                                                                                                                    <div class="_7ozb2u6 _7ozb2u5 _1fragemlt _1fragem2s _1fragemnx _1fragemsy _1fragemst _1fragemt8 _1fragemtb _7ozb2uc _7ozb2ua _1fragemnn _1fragemth _7ozb2ul _7ozb2uh">
+                                                                                                                        <input id="TextField842" name="email"
+                                                                                                                               ng-model="form.customer_email"
+                                                                                                                               placeholder="Email" type="text"
+                                                                                                                               aria-required="false" aria-labelledby="TextField842-label" value autocomplete="shipping address-line2" class="_7ozb2uq _7ozb2up _1fragemlt _1fragemtc _1fragemor _1fragemsi _7ozb2ut _7ozb2us _1fragemsy _1fragemst _1fragemt8 _7ozb2u11 _7ozb2u1h _7ozb2ur"/></div>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
+
                                                                                                         <div style="--_16s97g7a:minmax(0, 1fr);--_16s97g7k:minmax(auto, max-content);--_16s97g71e:minmax(0, 1fr);--_16s97g71o:minmax(auto, max-content);" class="_1mrl40q0 _1fragemlt _1fragem3w _1fragem5p _1fragem2s _1fragemmd _1fragemm9 _16s97g7f _16s97g7p _16s97g71j _16s97g71t">
                                                                                                         </div>
                                                                                                     </div>

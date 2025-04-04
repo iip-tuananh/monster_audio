@@ -62,7 +62,8 @@
                                 data-image="{{ $product->image->path ?? '' }}"
                                 data-price="{{ $product->price }}"
                                 data-name="{{ $product->name }}"
-                                ng-click="addToCart({{ $product->id }},  $event)">
+                                ng-click="addToCart({{ $product->id }},  $event)"
+                        >
                             <div>+ Quick add</div>
                             <span class="button__loader">
                             <span></span>
@@ -77,7 +78,7 @@
     </div>
     <div class="product-card__info ">
         <div class="v-stack gap-0.5 w-full "><span class="product-card__title"><a
-                        href="/products/monster-decora" class="bold"
+                        href="{{ route('front.show-product-detail', ['slug' => $product->slug]) }}" class="bold"
                         data-instant>{{ $product->name }}</a></span>
             <price-list class="price-list  ">
                 <sale-price class="text-subdued">

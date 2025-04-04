@@ -11,8 +11,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/checkout','CartController@checkoutSubmit')->name('cart.submit.order');
     Route::get('/dat-hang-thanh-cong.html','CartController@checkoutSuccess')->name('cart.checkout.success');
 
-    Route::get('/{categorySlug}','FrontController@getProductList')->name('front.show-product-detail');
+    Route::get('/{categorySlug}','FrontController@getProductList')->name('front.show-product-list');
     Route::get('/products/search','FrontController@searchProducts')->name('front.ajax-search-products');
+    Route::get('/products/{slug}','FrontController@getProductDetail')->name('front.show-product-detail');
     // Route::get('/load-product-home-page','FrontController@loadProductHomePage')->name('front.load-product-home-page');
     Route::get('/category/{categorySlug}.html','FrontController@showProductCategory')->name('front.show-product-category');
     Route::get('/load-more/product','FrontController@loadMoreProduct')->name('front.product-load-more');

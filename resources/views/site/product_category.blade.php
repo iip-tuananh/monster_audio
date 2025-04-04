@@ -228,7 +228,7 @@
                             <div class="accordion">
                                 <div class="accordion__toggle"><label
                                             for="facets-drawer-template--17549462175902__main-filter.v.availability"
-                                            class="bold">In stock only</label>
+                                            class="bold">Còn hàng</label>
                                     <input id="facets-drawer-template--17549462175902__main-filter.v.availability"
                                            type="checkbox" class="switch" name="filter.v.availability" value="1"></div>
                             </div>
@@ -358,7 +358,7 @@
                                 <div class="accordion">
                                     <div class="accordion__toggle"><label
                                                 for="facets-sidebar-template--17549462175902__main-filter.v.availability"
-                                                class="bold">In stock only</label>
+                                                class="bold">Còn hàng</label>
                                         <input id="facets-sidebar-template--17549462175902__main-filter.v.availability"
                                                ng-model="availability"
                                                ng-change="filterProduct()"
@@ -454,13 +454,21 @@
                                     <span class="sr-only">Sale price</span><% product.price | number:0 %> đ</sale-price></price-list></div></div>
                 </div>
 
-                <form action="/cart" method="post" class="buy-buttons buy-buttons--compact">
-                    <a class="button button--secondary" href="/cart">Xem giỏ hàng</a>
-                    <button type="submit" class="button" name="checkout" is="custom-button"><div>Thanh toán</div><span class="button__loader">
+                <form class="buy-buttons buy-buttons--compact">
+                    <a class="button button--secondary" href="/gio-hang.html">Xem giỏ hàng</a>
+
+
+                    <button type="submit" class="button" name="checkout" is="custom-button">
+
+                        <a href="/thanh-toan.html">Thanh toán</a>
+
+                        <span class="button__loader">
         <span></span>
         <span></span>
         <span></span>
-      </span></button></form>
+      </span></button>
+                </form>
+
             </div>
         </cart-notification-drawer>
 
@@ -500,6 +508,7 @@
             $scope.searching = false;
             $scope.priceGte = 0;
             $scope.priceLte = 20000000;
+            $scope.availability = true;
 
             $scope.filterProduct = function () {
                 $scope.searchProduct();
@@ -517,6 +526,7 @@
                         'X-CSRF-TOKEN': "{{csrf_token()}}"
                     },
                     data: {
+                        categoryId: {{ $category->id }},
                         availability: $scope.availability,
                         priceGte: $scope.priceGte,
                         priceLte: $scope.priceLte,

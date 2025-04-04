@@ -61,6 +61,7 @@
                 name: this.name,
                 price: this._price,
                 body: this.body,
+                intro: this.intro,
                 state: this.state,
             }
 

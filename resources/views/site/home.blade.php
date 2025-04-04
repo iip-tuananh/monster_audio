@@ -503,13 +503,13 @@
                 <div class="multiple-images-with-text__content-with-nav">
                     <multiple-images-with-text-content-list swipeable="false"
                         class="multiple-images-with-text__content-list">
-                        @foreach ($newProducts as $key => $product)
-                        <div class="prose is-selected" image-id="{{$product->image ? $product->image->path : ''}}">
+                        @foreach ($newProducts as $key1 => $product)
+                        <div class="prose {{ $loop->first ? 'is-selected' : 'reveal-invisible' }}" image-id="{{$product->image ? $product->image->path : ''}}">
                             <p class="subheading">{{$product->category->name}}</p>
                             <p class="h1" reveal-on-scroll="true">
                                 <split-lines>{{$product->name}}</split-lines>
                             </p>
-                            <p>{{$product->intro}}</p>
+                            {!! $product->intro !!}
                             <a class="button button--xl" href="{{route('front.show-product-detail', $product->slug)}}">Buy Now</a>
                         </div>
                         @endforeach
@@ -1728,7 +1728,9 @@
                                                                         <p class="sc-kMriOJ cVLihF pf-66_ pf-text-1"
                                                                             data-pf-type="Paragraph"><span
                                                                                 data-pf-type="Text"
-                                                                                class="sc-dQEsWe LHlFs pf-68_">{{ $product->intro}}</span></p>
+                                                                                class="sc-dQEsWe LHlFs pf-68_">
+                                                                               {!! $product->intro !!}
+                                                                            </span></p>
                                                                         <a href="{{ route('front.show-product-detail', $product->slug) }}"
                                                                             target="_self" data-pf-type="Button"
                                                                             class="sc-fXSgRJ faABcD pf-69_ pf-button-1"><span

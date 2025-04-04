@@ -64,6 +64,16 @@
         </div>
 
         <div class="form-group custom-group mb-4">
+            <label class="form-label">Thông số kỹ thuật</label>
+            <textarea class="form-control ck-editor" ck-editor rows="5" ng-model="form.intro"></textarea>
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>
+                    <% intro.body[0] %>
+                </strong>
+            </span>
+        </div>
+
+        <div class="form-group custom-group mb-4">
             <label class="form-label">Mô tả</label>
             <textarea class="form-control ck-editor" ck-editor rows="5" ng-model="form.body"></textarea>
             <span class="invalid-feedback d-block" role="alert">

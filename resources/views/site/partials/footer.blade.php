@@ -51,70 +51,42 @@
                         </div>
                     </div>
                     <div class="footer__block footer__block--menu"><p class="bold">Products Menu</p>
+                        @php
+                            $productCategories = \App\Model\Admin\Category::query()->with(['childs'])
+                                       ->where(['type' => 1, 'parent_id' => 0])
+                                       ->orderBy('sort_order')
+                                       ->get();
+                               $allChilds = collect($productCategories)
+                                   ->pluck('childs')
+                                   ->flatten(1)
+                                   ->all();
+                            @endphp
                         <ul class="v-stack gap-3" role="list">
+                            @foreach($allChilds as $child)
+                                <li>
+                                    <a href="{{ route('front.show-product-list', ['categorySlug' => $child->slug]) }}" class="inline-block link-faded break-all">{{ $child->name }}</a>
+                                </li>
+                            @endforeach
                             <li>
-                                <a href="/collections/all" class="inline-block link-faded break-all">EZ-Play</a>
-                            </li>
-                            <li>
-                                <a href="/collections/all" class="inline-block link-faded break-all">Companion</a>
-                            </li>
-                            <li>
-                                <a href="/collections/all" class="inline-block link-faded break-all">Rockin'</a>
-                            </li>
-                            <li>
-                                <a href="/collections/all" class="inline-block link-faded break-all">Lifestyle</a>
-                            </li>
-                            <li>
-                                <a href="/collections/all" class="inline-block link-faded break-all">Concert</a>
-                            </li>
-                            <li>
-                                <a href="/policies/privacy-policy" class="inline-block link-faded break-all">Privacy
+                                <a href="#" class="inline-block link-faded break-all">Privacy
                                     Policy</a>
                             </li>
                         </ul>
                     </div>
                     <div class="footer__block footer__block--menu"><p class="bold">New Products</p>
                         <ul class="v-stack gap-3" role="list">
-                            <li>
-                                <a href="/products/rockin-roller-4max" class="inline-block link-faded break-all">Rockin
-                                    4MAX</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-luna" class="inline-block link-faded break-all">Monster
-                                    Luna</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-x6" class="inline-block link-faded break-all">Monster
-                                    X6</a>
-                            </li>
-                            <li>
-                                <a href="/products/rockin-roller-360" class="inline-block link-faded break-all">Rockin
-                                    Roller 360</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-rockin-roller-270"
-                                   class="inline-block link-faded break-all">Rockin Roller 270</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-36-dolby-atmos-soundbar"
-                                   class="inline-block link-faded break-all">SBA36G Soundbar</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-gi30" class="inline-block link-faded break-all">Monster
-                                    GI30</a>
-                            </li>
-                            <li>
-                                <a href="/products/monster-rock-n-roller-x"
-                                   class="inline-block link-faded break-all">Monster RRX</a>
-                            </li>
+                            @foreach($newProducts as $newProduct)
+                                <li>
+                                    <a href="{{ route('front.show-product-detail', ['slug' => $newProduct->slug]) }}" class="inline-block link-faded break-all">{{ $newProduct->name }}</a>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
                     <div class="footer__block footer__block--text"><p class="bold">About</p>
-                        <div class="prose text-subdued"><p>© 2019 My Monster Audio. All rights reserved. Monster and
-                                the "M" Monster logo are registered trademarks of Monster, Inc. and its subsidiaries in
-                                the U.S. and other countries, used under license. The Bluetooth® word mark and logos are
-                                registered trademarks owned by Bluetooth SIG Inc. Other trademarks and trade names are
-                                those of their respective owners.</p></div>
+                        <div class="prose text-subdued">
+                            <p>{{ $config->web_des }}
+                            </p></div>
                     </div>
                 </div>
                 <div class="footer__aside">

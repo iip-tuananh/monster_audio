@@ -85,7 +85,9 @@ class CartController extends Controller
         $cartItems = \Cart::getContent();
         $totalPriceCart = \Cart::getTotal();
 
-        return view('site.orders.checkout', compact('cartCollection', 'total' ,'cartItems', 'totalPriceCart'));
+        $config = Config::query()->find(1);
+
+        return view('site.orders.checkout', compact('cartCollection', 'total' ,'cartItems', 'totalPriceCart', 'config'));
     }
 
     // áp dụng mã giảm giá (boolean)

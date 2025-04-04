@@ -104,6 +104,7 @@ class ProductController extends Controller
 			$object->name = $request->name;
 			$object->cate_id = $request->cate_id;
 			$object->body = $request->body;
+			$object->intro = $request->intro;
 			$object->price = $request->price;
             $object->state = $request->state ?? Product::CON_HANG;
 
@@ -147,7 +148,8 @@ class ProductController extends Controller
 			$object->name = $request->name;
 			$object->cate_id = $request->cate_id;
 			$object->body = $request->body;
-			$object->price = $request->price;
+            $object->intro = $request->intro;
+            $object->price = $request->price;
             $object->state = $request->state ?? Product::CON_HANG;
 
 			$object->save();

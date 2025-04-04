@@ -8,6 +8,7 @@ use App\Model\Admin\Consultant;
 use App\Model\Admin\Partner;
 use App\Model\Admin\Policy;
 use App\Model\Admin\PostCategory;
+use App\Model\Admin\Product;
 use App\Model\Admin\Store;
 use Illuminate\View\View;
 
@@ -38,6 +39,10 @@ class FooterComposer
         $allProductCategories = Category::query()->orderBy('sort_order')->get();
 
 
-        $view->with(['config' => $config, 'policies' => $policies, 'product_categories' => $productCategories, 'post_categories' => $postCategories, 'partners' => $partners, 'store' => $store, 'nhanvien' => $nhanvien, 'allProductCategories' => $allProductCategories]);
+        $newProducts = Product::query()->latest()->limit('5')->get();
+
+        $view->with(['config' => $config, 'policies' => $policies, 'product_categories' => $productCategories,
+            'newProducts' => $newProducts,
+            'post_categories' => $postCategories, 'partners' => $partners, 'store' => $store, 'nhanvien' => $nhanvien, 'allProductCategories' => $allProductCategories]);
     }
 }

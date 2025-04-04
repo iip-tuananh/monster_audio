@@ -21,7 +21,7 @@ class HeaderComposer
         $totalPriceCart = \Cart::getTotal();
 
         // danh mục sản phẩm
-        $categories = Category::query()->where('parent_id', 0)->orderBy('sort_order')->get();
+        $categories = Category::query()->with(['childs'])->where('parent_id', 0)->orderBy('sort_order')->get();
 
         $view->with(['config' => $config, 'cartItems' => $cartItems, 'totalPriceCart' => $totalPriceCart, 'categories' => $categories]);
     }
