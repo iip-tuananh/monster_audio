@@ -44,7 +44,11 @@ class FrontController extends Controller
         $data['banners'] = Banner::with(['image'])->get();
         $data['partners'] = Partner::with(['image'])->get();
         $data['reviews'] = Review::with(['image'])->get();
-        $data['newProducts'] = Product::with(['image'])->where('status', 1)->limit(6)->orderBy('id','DESC')->inRandomOrder()->get();
+        $data['newProducts'] = Product::with(['image'])->where('status', 1)->limit(4)->orderBy('id','DESC')->inRandomOrder()->get();
+        $data['arrImageNewProducts'] = $data['newProducts']->reduce(function ($carry, $product) {
+            $carry[] = $product->image ? $product->image->path : '';
+            return $carry;
+        }, []);
         // $data['categorySpecialPost'] = CategorySpecial::query()->with([
         //         'posts' => function($q) {
         //             $q->where('status', 1);
