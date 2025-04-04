@@ -1,4 +1,4 @@
-<header id="shopify-section-sections--17549455556766__header"
+<header id="shopify-section-sections--17549455556766__header" ng-controller="headerPartial"
         class="shopify-section shopify-section-group-header-group shopify-section--header">
     <style>
         :root {
@@ -240,7 +240,9 @@
                                       stroke-linejoin="round"></path>
                             </svg>
                             <div class="header__cart-count">
-                                <cart-count class="count-bubble opacity-0" aria-hidden="true">0</cart-count>
+                                <cart-count class="count-bubble"
+                                            ng-class="{'opacity-0': cart.count === 0}"
+                                            aria-hidden="true"> <% cart.count %></cart-count>
                             </div>
                         </a>
                     </div>

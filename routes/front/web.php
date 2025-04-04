@@ -2,6 +2,15 @@
 
 Route::group(['namespace' => 'Front'], function () {
     Route::get('/','FrontController@homePage')->name('front.home-page');
+    // giỏ hàng
+    Route::get('/gio-hang.html','CartController@index')->name('cart.index');
+    Route::post('/{productId}/add-product-to-cart','CartController@addItem')->name('cart.add.item');
+    Route::get('/remove-product-to-cart','CartController@removeItem')->name('cart.remove.item');
+    Route::post('/update-cart','CartController@updateItem')->name('cart.update.item');
+    Route::get('/thanh-toan.html','CartController@checkout')->name('cart.checkout');
+    Route::post('/checkout','CartController@checkoutSubmit')->name('cart.submit.order');
+    Route::get('/dat-hang-thanh-cong.html','CartController@checkoutSuccess')->name('cart.checkout.success');
+
     Route::get('/{categorySlug}','FrontController@getProductList')->name('front.show-product-detail');
     Route::get('/products/search','FrontController@searchProducts')->name('front.ajax-search-products');
     // Route::get('/load-product-home-page','FrontController@loadProductHomePage')->name('front.load-product-home-page');
@@ -10,15 +19,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/get-product-quick-view','FrontController@getProductQuickView')->name('front.get-product-quick-view');
     Route::get('/tao-thiet-ke.html','FrontController@productCustom')->name('front.product-custom');
 
-    // giỏ hàng
-    Route::post('/{productId}/add-product-to-cart','CartController@addItem')->name('cart.add.item');
-    Route::get('/remove-product-to-cart','CartController@removeItem')->name('cart.remove.item');
-    Route::get('/gio-hang.html','CartController@index')->name('cart.index');
-    Route::post('/update-cart','CartController@updateItem')->name('cart.update.item');
-    Route::get('/thanh-toan.html','CartController@checkout')->name('cart.checkout');
-    Route::post('/checkout','CartController@checkoutSubmit')->name('cart.submit.order');
-    Route::get('/dat-hang-thanh-cong.html','CartController@checkoutSuccess')->name('cart.checkout.success');
-    Route::post('/apply-voucher','CartController@applyVoucher')->name('cart.apply.voucher');
+
 
     // đặt hàng thiết kế
     Route::post('/design-order','FrontController@designOrder')->name('front.design_order');

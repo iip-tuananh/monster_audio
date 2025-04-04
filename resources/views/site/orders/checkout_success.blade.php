@@ -2157,18 +2157,13 @@
                                     <td class="total-line-name">Tạm tính</td>
                                     <td class="total-line-price">
                                     <span class="order-summary-emphasis">
-                                    {{formatCurrency($order->total_before_discount)}}₫
+                                   {{number_format($order->details->sum(function ($item) {
+                                                                                    return $item->price * $item->qty;
+                                                                            }))}} đ
                                     </span>
                                     </td>
                                 </tr>
-                                <tr class="total-line total-line-shipping">
-                                    <td class="total-line-name">Giảm giá</td>
-                                    <td class="total-line-price">
-                                    <span class="order-summary-emphasis">
-                                    {{formatCurrency($order->discount_value)}}₫
-                                    </span>
-                                    </td>
-                                </tr>
+
                             </tbody>
                             <tfoot class="total-line-table-footer">
                                 <tr class="total-line">
@@ -2178,7 +2173,9 @@
                                     <td class="total-line-name payment-due">
                                     <span class="payment-due-currency">VND</span>
                                     <span class="payment-due-price">
-                                    {{formatCurrency($order->total_after_discount)}}₫
+                                 {{number_format($order->details->sum(function ($item) {
+                                                                                    return $item->price * $item->qty;
+                                                                            }))}} đ
                                     </span>
                                     <span class="checkout_version" display:none data_checkout_version="0">
                                     </span>

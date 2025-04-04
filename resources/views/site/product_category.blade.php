@@ -46,6 +46,16 @@
             outline: none;
             border-color: #999;
         }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
     </style>
 @endsection
 
@@ -420,8 +430,47 @@
                 </div>
             </div>
         </section>
-    </div>
 
+
+        <cart-notification-drawer open-from="bottom" ng-if="showCartNotification"
+                                  class="quick-buy-drawer drawer show-close-cursor"
+                                  role="dialog" aria-modal="true" style="display: block; right: 0px; bottom: 0px;
+                                   opacity: 1; visibility: visible; background-color: white" open="">
+            <div class="quick-buy-drawer__info"><div class="banner banner--success  justify-center">
+                    <svg role="presentation" focusable="false"
+                         stroke-width="2" width="18" height="18" class="offset-icon icon icon-success"
+                         style="--icon-height: 18px" viewBox="0 0 18 18">
+                        <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
+                        <path d="M5 8.8L7.62937 11.6L13 6" stroke="#ffffff" fill="none"></path>
+                    </svg>Đã thêm vào giỏ hàng!</div><div class="quick-buy-drawer__variant text-start h-stack gap-6">
+                    <img src="<% product.image %>" alt="Monster Torch"
+
+                         width="900" height="900" loading="lazy" sizes="80px" class="quick-buy-drawer__media rounded-xs"><div class="v-stack gap-1">
+                        <div class="v-stack gap-0.5">
+                            <a href="/products/monster-torch?variant=39466293067934"
+                               class="bold justify-self-start"><% product.name %></a>
+                            <price-list class="price-list  ">
+                                <sale-price class="text-subdued">
+                                    <span class="sr-only">Sale price</span><% product.price | number:0 %> đ</sale-price></price-list></div></div>
+                </div>
+
+                <form action="/cart" method="post" class="buy-buttons buy-buttons--compact">
+                    <a class="button button--secondary" href="/cart">Xem giỏ hàng</a>
+                    <button type="submit" class="button" name="checkout" is="custom-button"><div>Thanh toán</div><span class="button__loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span></button></form>
+            </div>
+        </cart-notification-drawer>
+
+
+
+
+
+
+
+    </div>
 
     <template id="popover-default-template">
         <button part="outside-close-button" is="close-button" aria-label="Close">
@@ -447,7 +496,7 @@
 
 @push('scripts')
     <script>
-        app.controller('productCategory', function ($rootScope, $scope, $sce) {
+        app.controller('productCategory', function ($rootScope, $scope, $sce, $interval, cartItemSync) {
             $scope.searching = false;
             $scope.priceGte = 0;
             $scope.priceLte = 20000000;
@@ -500,6 +549,52 @@
             }
 
 
+            $scope.addToCart = function (productId, event) {
+                url = "{{route('cart.add.item', ['productId' => 'productId'])}}";
+                url = url.replace('productId', productId);
+                var element = event.currentTarget;
+
+                var product = {
+                    image: element.getAttribute('data-image'),
+                    price: element.getAttribute('data-price'),
+                    name: element.getAttribute('data-name')
+                };
+
+                jQuery.ajax({
+                    type: 'POST',
+                    url: url,
+                    headers: {
+                        'X-CSRF-TOKEN': "{{csrf_token()}}"
+                    },
+                    data: {
+                        'qty': 1
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $interval.cancel($rootScope.promise);
+
+                            $scope.showCartNotification = true;
+
+                            setTimeout(function() {
+                                $scope.showCartNotification = false;
+                            }, 3000);
+
+                            $scope.product = product;
+                            $rootScope.promise = $interval(function () {
+                                cartItemSync.items = response.items;
+                                cartItemSync.total = response.total;
+                                cartItemSync.count = response.count;
+                            }, 1000);
+                        }
+                    },
+                    error: function () {
+                        jQuery.toast('Thao tác thất bại !')
+                    },
+                    complete: function () {
+                        $scope.$applyAsync();
+                    }
+                });
+            }
         })
 
     </script>
