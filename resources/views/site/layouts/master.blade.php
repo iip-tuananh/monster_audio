@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 @include('site.partials.head')
-
+@yield('css')
 
 <body ng-app="App" ng-cloak class="page-transition zoom-image--enabled">
     @include('site.partials.header')

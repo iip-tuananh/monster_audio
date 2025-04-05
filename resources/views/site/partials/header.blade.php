@@ -118,11 +118,11 @@
                                     </details>
                                 </li>
 
-                                <li><a href="#" class="bold link-faded-reverse">Collections</a></li>
+                                <li><a href="{{ route('front.collections') }}" class="bold link-faded-reverse">Collections</a></li>
 
-                                <li><a href="#" class="bold link-faded-reverse">Support</a></li>
+                                <li><a href="{{ route('front.support') }}" class="bold link-faded-reverse">Support</a></li>
 
-                                <li><a href="#" class="bold link-faded-reverse">Contact</a></li>
+                                <li><a href="{{ route('front.contact') }}" class="bold link-faded-reverse">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -139,7 +139,8 @@
                             class="header__logo-image header__logo-image--transparent"></a>
 
                 <div class="header__secondary-nav">
-                    <div class="header__icon-list"><a href="/search" class="hidden tap-area sm:block"
+                    <div class="header__icon-list">
+                        <a href="#" class="hidden tap-area sm:block"
                                                       aria-controls="search-drawer">
                             <span class="sr-only">Open search</span>
                             <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
@@ -148,15 +149,9 @@
                                 <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round"
                                       stroke-linejoin="round"></path>
                             </svg>
-                        </a><a href="/account/login" class="hidden tap-area sm:block">
-                            <span class="sr-only">Open account page</span>
-                            <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
-                                 class="icon icon-account" viewBox="0 0 22 22">
-                                <circle cx="11" cy="7" r="4" fill="none" stroke="currentColor"></circle>
-                                <path d="M3.5 19c1.421-2.974 4.247-5 7.5-5s6.079 2.026 7.5 5" fill="none"
-                                      stroke="currentColor" stroke-linecap="round"></path>
-                            </svg>
-                        </a><a href="/cart" data-no-instant class="relative tap-area" aria-controls="cart-drawer">
+                        </a>
+
+                        <a href="/gio-hang.html" data-no-instant class="relative tap-area" aria-controls="cart-drawer">
                             <span class="sr-only">Open cart</span>
                             <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
                                  class="icon icon-cart" viewBox="0 0 22 22">
@@ -176,7 +171,7 @@
         </store-header>
     </height-observer>
     <navigation-drawer mobile-opening="left" open-from="left" id="header-sidebar-menu"
-                       class="navigation-drawer drawer lg:hidden">
+                       class="navigation-drawer drawer lg:hidden" aria-expanded="true">
         <button is="close-button" aria-label="Close">
             <svg role="presentation" stroke-width="2" focusable="false" width="19" height="19" class="icon icon-close"
                  viewBox="0 0 24 24">

@@ -204,9 +204,10 @@
                                                 for="input-template--17549462143134__main--note" class="floating-label">Order
                                                 note</label></div>
                                     </cart-note>
-                                    <button type="submit" class="button button--xl w-full" name="checkout"
+                                    <button type="button" class="button button--xl w-full" name="checkout"
                                             is="custom-button">
                                         <div>
+                                            <a href="{{ route('cart.checkout') }}">
                                             <div class="text-with-icon justify-center">
                                                 <svg role="presentation" fill="none" focusable="false" stroke-width="2"
                                                      width="18" height="18" class="icon icon-picto-lock"
@@ -222,9 +223,11 @@
                                                         d="M12 17.714a2.143 2.143 0 1 0 0-4.286 2.143 2.143 0 0 0 0 4.286Z"
                                                         stroke="currentColor"></path>
                                                 </svg>
-                                                Thanh toán
-                                            </div>
+                                              Thanh toán
+                                            </div></a>
+
                                         </div>
+
                                         <span class="button__loader">
         <span></span>
         <span></span>

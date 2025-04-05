@@ -3,62 +3,6 @@
 
 @endsection
 
-@section('css')
-    <style>
-        /* Phần bao bên ngoài */
-        .sort-container {
-            display: inline-block;
-            font-family: sans-serif; /* Hoặc font bạn muốn */
-        }
-
-        /* Label "Sort by:" */
-        .sort-container label {
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        /* Select chính */
-        .sort-select {
-            /* Kích thước, padding, border... */
-            font-size: 14px;
-            padding: 6px 8px;
-            min-width: 180px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-
-            /* Xóa kiểu mặc định của trình duyệt (mũi tên, background...) */
-            appearance: none;
-            -moz-appearance: none;    /* Firefox */
-            -webkit-appearance: none; /* Safari & Chrome */
-
-            /* Nền trắng + icon mũi tên */
-            background-color: #fff;
-            background-image: url("data:image/svg+xml,%3Csvg%20width%3D'8'%20height%3D'6'%20viewBox%3D'0%200%208%206'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cpath%20d%3D'm1%201.5%203%203%203-3'%20fill%3D'none'%20stroke%3D'%23333'%20stroke-width%3D'1.5'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 8px 6px;
-
-            /* Con trỏ chuột + hiệu ứng focus */
-            cursor: pointer;
-        }
-
-        .sort-select:focus {
-            outline: none;
-            border-color: #999;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-    </style>
-@endsection
-
 @section('content')
     <div ng-controller="productCategory">
         <section id="shopify-section-template--17549462175902__banner"
@@ -519,6 +463,16 @@
             }
 
             $scope.searchProduct = function () {
+                const url = window.location.pathname;
+                const segments = url.split('/');
+                const folder = segments[1];
+
+                let page = 'category';
+
+                if(folder == 'collections') {
+                    page = 'collections';
+                }
+
                 jQuery.ajax({
                     type: "GET",
                     url: "{{route('front.ajax-search-products')}}",
@@ -527,6 +481,7 @@
                     },
                     data: {
                         categoryId: {{ $category->id }},
+                        page: page,
                         availability: $scope.availability,
                         priceGte: $scope.priceGte,
                         priceLte: $scope.priceLte,

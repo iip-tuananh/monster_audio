@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
+    public const SUPPORT = 1;
+    public const CONTACT = 2;
+
     protected $table = 'contacts';
 
     public static function searchByFilter($request) {

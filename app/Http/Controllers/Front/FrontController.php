@@ -8,6 +8,7 @@ use App\Model\Admin\Block;
 use App\Model\Admin\Category;
 use App\Model\Admin\CategorySpecial;
 use App\Model\Admin\Product;
+use App\Model\Admin\ProductCategorySpecial;
 use App\Model\Common\User;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class FrontController extends Controller
         //     ->orderBy('order_number')->get();
         $data['categorySpecial'] = CategorySpecial::query()->with([
                 'products' => function($q) {
-                    $q->where('status', 1);
+                    $q->where('state', 1);
                 },
                 'image',
             ])
@@ -150,10 +151,12 @@ class FrontController extends Controller
                 break;
         }
 
-        if($request->categoryId) {
+        if($request->page == 'collections') {
+            $productIds = ProductCategorySpecial::query()->where('category_special_id', $request->categoryId)->pluck('product_id')->toArray();
+            $products->whereIn('id', $productIds);
+        } else {
             $products->where('cate_id', $request->categoryId);
         }
-
 
         $products = $products->get();
 
@@ -163,5 +166,100 @@ class FrontController extends Controller
         $json->data = view('site.partials.product_list', compact('products'))->render();
 
         return Response::json($json);
+    }
+
+    public function collections(Request $request) {
+       $categoríesSpecial = CategorySpecial::query()->with([
+            'products' => function($q) {
+                $q->where('state', 1);
+            },
+            'image',
+        ])
+            ->has('products')
+            ->where('type',10)
+            ->orderBy('order_number')->get();
+
+        return view('site.collection', compact('categoríesSpecial'));
+    }
+
+    public function getCollectionList($slug)
+    {
+        $category = CategorySpecial::findBySlug($slug);
+        $productIds = ProductCategorySpecial::query()->where('category_special_id', $category->id)->pluck('product_id')->toArray();
+        $products = Product::query()->with(['image', 'galleries.image'])
+            ->whereIn('id', $productIds)
+            ->latest()->get();
+
+        return view('site.product_category', compact('products', 'category'));
+    }
+
+    public function support() {
+        return view('site.support');
+    }
+    public function submitSupport(Request $request) {
+        $rule  =  [
+            'contact.name' => 'required',
+            'contact.body'  => 'required',
+            'contact.email'  => 'required|email|max:255',
+        ];
+
+        $validate = Validator::make(
+            $request->all(),
+            $rule,
+            [
+                'contact.name' => 'Vui lòng nhập họ tên',
+                'contact.email' => 'Vui lòng nhập email',
+                'contact.body' => 'Vui lòng nhập nội dung',
+            ]
+        );
+
+        if ($validate->fails()) {
+            return $this->responseErrors('Gửi yêu cầu thất bại!', $validate->errors());
+        }
+
+        $contact = new Contact();
+        $contact->user_name = $request->contact['name'];
+        $contact->email = $request->contact['email'];
+        $contact->content = $request->contact['body'];
+        $contact->type = Contact::SUPPORT;
+
+        $contact->save();
+
+        return $this->responseSuccess('Gửi yêu cầu thành công!');
+    }
+
+    public function contact() {
+        return view('site.contact');
+    }
+    public function submitContact(Request $request) {
+        $rule  =  [
+            'contact.name' => 'required',
+            'contact.body'  => 'required',
+            'contact.email'  => 'required|email|max:255',
+        ];
+
+        $validate = Validator::make(
+            $request->all(),
+            $rule,
+            [
+                'contact.name' => 'Vui lòng nhập họ tên',
+                'contact.email' => 'Vui lòng nhập email',
+                'contact.body' => 'Vui lòng nhập nội dung',
+            ]
+        );
+
+        if ($validate->fails()) {
+            return $this->responseErrors('Gửi yêu cầu thất bại!', $validate->errors());
+        }
+
+        $contact = new Contact();
+        $contact->user_name = $request->contact['name'];
+        $contact->email = $request->contact['email'];
+        $contact->content = $request->contact['body'];
+        $contact->type = Contact::CONTACT;
+
+        $contact->save();
+
+        return $this->responseSuccess('Gửi yêu cầu thành công!');
     }
 }
