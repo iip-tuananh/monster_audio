@@ -23,8 +23,9 @@
 </div>
 <script>
     app.controller('EditCategorySpecial', function ($rootScope, $scope, $http) {
-        $rootScope.$on("editCategorySpecial", function (event, data){
+        $rootScope.$on("editCategorySpecial", function (event, data, $compile){
             $scope.form = new CategorySpecial(data, {scope: $scope});
+            $scope.form.highlight = data.highlight
             $scope.$applyAsync();
             $scope.loading.submit = false;
             $scope.types = @json(\App\Model\Admin\CategorySpecial::TYPES);

@@ -1,6 +1,31 @@
 <div class="row">
     <div class="col-sm-12">
-        <div class="row">
+        <div class="row" >
+            <div class="col-md-12 col-sm-12 col-xs-12">
+{{--                <div class="form-group">--}}
+{{--                    <div class="custom-control custom-switch" style="text-align: right">--}}
+{{--                        <input type="checkbox"--}}
+{{--                               class="custom-control-input"--}}
+{{--                               id="highlightSwitch"--}}
+{{--                               ng-checked="form.highlight == 1"--}}
+{{--                               ng-model="form.highlight">--}}
+{{--                        <label class="custom-control-label" for="highlightSwitch">--}}
+{{--                            Hiển thị nổi bật--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+                <div class="form-group">
+                    <div class="bordexr-checkbox-section" style="text-align: right">
+                        <div class="border-checkbox-group border-checkbox-group-primary">
+                            <input class="border-checkbox" type="checkbox" ng-checked="form.highlight == 1"
+                                   id="highlight" ng-model="form.highlight" >
+                            <label class="border-checkbox-label m-0" for="highlight">Hiển thị nổi bật</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group custom-group">
                     <label class="form-label required-label">Mã</label>

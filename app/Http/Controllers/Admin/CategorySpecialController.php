@@ -111,12 +111,17 @@ class CategorySpecialController extends Controller
             $object->type = $request->type;
             $object->order_number = $request->order_number;
             $object->show_home_page = $request->show_home_page;
+            $object->highlight = $request->highlight;
 //            $object->end_date = $request->end_date;
             $object->save();
 
             if ($request->image) {
                 // FileHelper::uploadFile($request->image, 'category_special', $object->id, ThisModel::class, 'image', 99);
                 FileHelper::uploadFileToCloudflare($request->image, $object->id, ThisModel::class, 'image');
+            }
+
+            if($request->highlight) {
+                CategorySpecial::query()->whereNotIn('id', [$object->id])->update(['highlight' => 0]);
             }
 
             DB::commit();
@@ -176,6 +181,7 @@ class CategorySpecialController extends Controller
             $object->code = $request->code;
             $object->name = $request->name;
             $object->type = $request->type;
+            $object->highlight = $request->highlight;
             $object->order_number = $request->order_number;
             $object->show_home_page = $request->show_home_page;
 //            $object->end_date = $request->end_date;
@@ -191,6 +197,11 @@ class CategorySpecialController extends Controller
                 // FileHelper::uploadFile($request->image, 'category_special', $object->id, ThisModel::class, 'image', 99);
                 FileHelper::uploadFileToCloudflare($request->image, $object->id, ThisModel::class, 'image');
             }
+
+            if($request->highlight) {
+                CategorySpecial::query()->whereNotIn('id', [$object->id])->update(['highlight' => 0]);
+            }
+
 
             DB::commit();
             $json->success = true;

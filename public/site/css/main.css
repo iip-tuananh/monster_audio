@@ -152,6 +152,7 @@
     --section-inner-spacing-inline: var(--container-gutter);
     --section-stack-spacing-block: var(--spacing-8);
     /* Grid gutter */
+    --container-inner-width: 1200px; /* hoặc giá trị phù hợp */
     --grid-gutter: var(--spacing-5);
     /* Product list settings */
     --product-list-row-gap: var(--spacing-8);
@@ -255,6 +256,8 @@
     --cursor-zoom-in-svg-url: url(//mymonsteraudio.com/cdn/shop/t/9/assets/cursor-zoom-in.svg?v=154953035094101115921723046902);
     --cursor-zoom-out-svg-url: url(//mymonsteraudio.com/cdn/shop/t/9/assets/cursor-zoom-out.svg?v=16155520337305705181723046902);
     --checkmark-svg-url: url(//mymonsteraudio.com/cdn/shop/t/9/assets/checkmark.svg?v=77552481021870063511723046902);
+
+
 }
 
 [dir="rtl"]:root {

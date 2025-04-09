@@ -139,8 +139,7 @@
                             class="header__logo-image header__logo-image--transparent"></a>
 
                 <div class="header__secondary-nav">
-                    <div class="header__icon-list">
-                        <a href="#" class="hidden tap-area sm:block"
+                    <div class="header__icon-list"><a href="#" class="hidden tap-area sm:block"
                                                       aria-controls="search-drawer">
                             <span class="sr-only">Open search</span>
                             <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
@@ -151,7 +150,7 @@
                             </svg>
                         </a>
 
-                        <a href="/gio-hang.html" data-no-instant class="relative tap-area" aria-controls="cart-drawer">
+                        <a href="/gio-hang.html" data-no-instant class="relative tap-area" >
                             <span class="sr-only">Open cart</span>
                             <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
                                  class="icon icon-cart" viewBox="0 0 22 22">
@@ -170,8 +169,9 @@
             </div>
         </store-header>
     </height-observer>
+
     <navigation-drawer mobile-opening="left" open-from="left" id="header-sidebar-menu"
-                       class="navigation-drawer drawer lg:hidden" aria-expanded="true">
+                       class="navigation-drawer drawer lg:hidden" aria-expanded="true"  >
         <button is="close-button" aria-label="Close">
             <svg role="presentation" stroke-width="2" focusable="false" width="19" height="19" class="icon icon-close"
                  viewBox="0 0 24 24">
@@ -226,118 +226,52 @@
                                 Shop
                             </button>
                         </li>
-                        <li class="h3 sm:h4">
-                            <button class="text-with-icon w-full justify-between" aria-expanded="false"
-                                    data-panel="2-0">
-                                <span>Featured Products</span>
-                                <span class="circle-chevron group-hover:colors group-expanded:colors"><svg
+                        @foreach($categories as $key => $category)
+                            <li class="h3 sm:h4">
+                                <button class="text-with-icon w-full justify-between" aria-expanded="false"
+                                        data-panel="2-{{$key}}">
+                                    <span>{{ $category->name }}</span>
+                                    <span class="circle-chevron group-hover:colors group-expanded:colors"><svg
                                             role="presentation" focusable="false" width="5" height="8"
                                             class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">
         <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
       </svg></span>
-                            </button>
-                        </li>
-                        <li class="h3 sm:h4">
-                            <button class="text-with-icon w-full justify-between" aria-expanded="false"
-                                    data-panel="2-1">
-                                <span>Series</span>
-                                <span class="circle-chevron group-hover:colors group-expanded:colors"><svg
-                                            role="presentation" focusable="false" width="5" height="8"
-                                            class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">
-        <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </svg></span>
-                            </button>
-                        </li>
+                                </button>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
             <div class="panel">
-                <div class="panel__wrapper" hidden>
-                    <ul class="v-stack gap-4">
-                        <li class="text-with-icon lg:hidden">
-                            <button class="text-with-icon h6 text-subdued" data-panel="1">
-                                <svg role="presentation" focusable="false" width="7" height="10"
-                                     class="icon icon-chevron-left reverse-icon" viewBox="0 0 7 10">
-                                    <path d="M6 1 2 5l4 4" fill="none" stroke="currentColor" stroke-width="2"></path>
-                                </svg>
-                                Featured Products
-                            </button>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/products/rockin-roller-360"><span><span
-                                            class="reversed-link">Rockin Roller 360</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/products/monster-vision156"><span><span
-                                            class="reversed-link">Rockin Vision 156</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/products/monster-x6"><span><span class="reversed-link">Monster X6</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/products/monster-luna"><span><span
-                                            class="reversed-link">Monster Luna</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/products/rockin-roller-4max"><span><span class="reversed-link">Rockin 4MAX</span></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel__wrapper" hidden>
-                    <ul class="v-stack gap-4">
-                        <li class="text-with-icon lg:hidden">
-                            <button class="text-with-icon h6 text-subdued" data-panel="1">
-                                <svg role="presentation" focusable="false" width="7" height="10"
-                                     class="icon icon-chevron-left reverse-icon" viewBox="0 0 7 10">
-                                    <path d="M6 1 2 5l4 4" fill="none" stroke="currentColor" stroke-width="2"></path>
-                                </svg>
-                                Series
-                            </button>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/collections/rockin"><span><span class="reversed-link">Rockin' Series</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/collections/lifestyle"><span><span
-                                            class="reversed-link">Lifestyle Series</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/collections/ez-play"><span><span
-                                            class="reversed-link">EZ-Play Series</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/collections/companion"><span><span
-                                            class="reversed-link">Companion Series</span></span>
-                            </a>
-                        </li>
-                        <li class="h3 sm:h5">
-                            <a class="group block w-full"
-                               href="/collections/concert"><span><span
-                                            class="reversed-link">Concert Series</span></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                @foreach($categories as $category)
+                    <div class="panel__wrapper" hidden>
+                        <ul class="v-stack gap-4">
+                            <li class="text-with-icon lg:hidden">
+                                <button class="text-with-icon h6 text-subdued" data-panel="1">
+                                    <svg role="presentation" focusable="false" width="7" height="10"
+                                         class="icon icon-chevron-left reverse-icon" viewBox="0 0 7 10">
+                                        <path d="M6 1 2 5l4 4" fill="none" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                    {{ $category->name }}
+                                </button>
+                            </li>
+                            @foreach($category->childs as $child)
+                                <li class="h3 sm:h5">
+                                    <a class="group block w-full"
+                                       href="{{ route('front.show-product-list', ['categorySlug' => $child->slug]) }}"><span><span
+                                                class="reversed-link">{{ $child->name }}</span></span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </navigation-drawer>
+
     <script>
         document.documentElement.style.setProperty('--header-height', Math.round(document.getElementById('shopify-section-sections--17549455556766__header').clientHeight) + 'px');
     </script>

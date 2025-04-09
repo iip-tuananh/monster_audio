@@ -89,6 +89,18 @@ class FrontController extends Controller
         // $block = Block::query()->find(1);
         // $data['block'] = $block;
 
+        $data['categoryHighlight'] = CategorySpecial::query()->with([
+            'products' => function($q) {
+                $q->where('state', 1);
+            },
+            'image',
+        ])
+            ->has('products')
+            ->where('type',10)
+            ->where('highlight', 1)
+            ->where('show_home_page', 1)
+            ->first();
+
         return view('site.home', $data);
     }
 
@@ -97,7 +109,7 @@ class FrontController extends Controller
         $category = Category::findBySlug($categorySlug);
         $products = Product::query()->with(['image', 'galleries.image'])
             ->where('cate_id', $category->id)
-            ->latest()->get();
+            ->latest()->paginate(10);
 
         return view('site.product_category', compact('products', 'category'));
     }
@@ -151,19 +163,21 @@ class FrontController extends Controller
                 break;
         }
 
-        if($request->page == 'collections') {
+        if($request->page_type == 'collections') {
             $productIds = ProductCategorySpecial::query()->where('category_special_id', $request->categoryId)->pluck('product_id')->toArray();
             $products->whereIn('id', $productIds);
         } else {
             $products->where('cate_id', $request->categoryId);
         }
 
-        $products = $products->get();
+        $products = $products->paginate(10);
+        $products->appends($request->all());
 
         $json = new \stdClass();
         $json->success = true;
         $json->message = "Thao tác thành công!";
         $json->data = view('site.partials.product_list', compact('products'))->render();
+        $json->data_paginate = $products->links('site.pagination.paginate')->render();
 
         return Response::json($json);
     }
@@ -188,7 +202,7 @@ class FrontController extends Controller
         $productIds = ProductCategorySpecial::query()->where('category_special_id', $category->id)->pluck('product_id')->toArray();
         $products = Product::query()->with(['image', 'galleries.image'])
             ->whereIn('id', $productIds)
-            ->latest()->get();
+            ->latest()->paginate(10);
 
         return view('site.product_category', compact('products', 'category'));
     }

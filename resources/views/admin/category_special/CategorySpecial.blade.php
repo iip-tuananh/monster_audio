@@ -10,6 +10,14 @@
 
         }
 
+        get highlight() {
+            return this._highlight;
+        }
+
+        set highlight(value) {
+            this._highlight= !!value;
+        }
+
         get end_date() {
             return this._end_date ? moment(this._end_date).format('DD/MM/YYYY') : '';
         }
@@ -37,6 +45,7 @@
                 name: this.name,
                 code: this.code,
                 type: this.type,
+                highlight: this.highlight ? 1 : 0,
                 order_number: this.order_number,
                 show_home_page: this.show_home_page,
                 end_date: this._end_date,

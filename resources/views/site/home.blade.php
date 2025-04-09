@@ -9,7 +9,76 @@
     {{ url('' . $banners[0]->image->path) }}
 @endsection
 @section('css')
+
 @endsection
+<style>
+    .my-slider .slide-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 250px;
+    }
+
+    @media screen and (min-width: 1000px) {
+        .my-slider .slide-item {
+            min-height: 300px;
+        }
+    }
+
+    /* CSS cho mỗi slide */
+    .slide-item {
+        position: relative;
+        min-height: 200px;                /* Giảm chiều cao slide */
+        background-size: contain;         /* Hiển thị hình nền gọn trong slide */
+        background-position: center;      /* Căn giữa background */
+        background-repeat: no-repeat;     /* Không lặp lại hình nền */
+    }
+
+    /* Định dạng cho overlay chứa text */
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Căn giữa tuyệt đối */
+        text-align: center;
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.4);     /* Overlay mờ để chữ nổi bật */
+        border-radius: 8px;
+    }
+
+    /* Style cho tiêu đề (title category) */
+    .text-overlay h2 {
+        font-size: 2.5rem;                /* Chữ to hơn một chút */
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: #fff;
+    }
+
+    /* Style cho tên sản phẩm */
+    .text-overlay p {
+        font-size: 1.2rem;                /* Kích thước chữ cho tên sản phẩm */
+        font-weight: bold;
+        margin-bottom: 16px;
+        color: #fff;
+    }
+
+    /* Style cho nút button */
+    .text-overlay button {
+        background-color: red;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Hiệu ứng hover cho button */
+    .text-overlay button:hover {
+        background-color: darkred;
+    }
+</style>
 @section('content')
     <section id="shopify-section-template--17549462503582__slideshow" class="shopify-section shopify-section--slideshow">
         <style>
@@ -194,14 +263,14 @@
             </slideshow-carousel>
         </x-slideshow>
     </section>
-    {{-- <section id="shopify-section-template--17549462503582__collection-list"
-        class="shopify-section shopify-section--collection-list">
+
+    <section id="shopify-section-template--17549462503582__collection-list" class="shopify-section ">
         <style>
             #shopify-section-template--17549462503582__collection-list {
                 --section-background-hash: 0;
             }
 
-            #shopify-section-template--17549462503582__collection-list+* {
+            #shopify-section-template--17549462503582__collection-list + * {
                 --previous-section-background-hash: 0;
             }
         </style>
@@ -218,74 +287,74 @@
 
             @media screen and (min-width: 1000px) {
                 #shopify-section-template--17549462503582__collection-list .collection-list {
-                    --collection-list-grid: auto / auto-flow calc(var(--container-inner-width) / 4 - (var(--grid-gutter) / 3 * 2));
+                    --collection-list-grid: auto / auto-flow 384px;
                 }
             }
 
             @media screen and (min-width: 1400px) {
                 #shopify-section-template--17549462503582__collection-list .collection-list {
-                    --collection-list-grid: auto / auto-flow calc(var(--container-inner-width) / 4 - (var(--grid-gutter) / 4 * 3));
+                    --collection-list-grid: auto / auto-flow 382px;
                 }
             }
         </style>
+
         <div class="section   section-blends section-full">
             <div class="section-stack">
-                <section-header class="section-header ">
-                    <a href="#" class="text-with-icon group">
-                        <span class="reversed-link">View all Products</span>
-                        <span class="circle-chevron group-hover:colors">
-                            <svg role="presentation" focusable="false" width="5" height="8"
-                                class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">
-                                <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-                            </svg>
+                <section-header class="section-header "><a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="text-with-icon group">
+                        <span class="reversed-link">{{ $categoryHighlight->name }}</span>
+                        <span class="circle-chevron group-hover:colors"><svg role="presentation" focusable="false" width="5" height="8" class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">
+        <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </svg>
                         </span>
-                    </a>
-                </section-header>
+                    </a></section-header>
                 <div class="floating-controls-container">
                     <scroll-carousel selector=".collection-card"
-                        id="scroll-area-template--17549462503582__collection-list" class="scroll-area bleed ">
+                                     id="scroll-area-template--17549462503582__collection-list" class="scroll-area bleed ">
                         <collection-list class="collection-list">
-                            @foreach ($newProducts as $product)
-                            <a href="{{route('front.show-product-detail', $product->slug)}}" class="collection-card  shadow" reveal-js>
-                                <div class="content-over-media group rounded-sm"
-                                    style="--content-over-media-overlay: 0 0 0 / 0.3">
-                                    <img src="{{$product->image ? $product->image->path : ''}}"
-                                        alt=""
-                                        srcset="{{$product->image ? $product->image->path : ''}}"
-                                        width="1024" height="1536" loading="lazy"
-                                        sizes="(max-width: 699px) 73vw, 400px" class="zoom-image">
-                                    <div class="collection-card__content-wrapper text-custom place-self-start-center text-center"
-                                        style="--text-color: 255 255 255">
-                                        <div class="collection-card__content prose">
-                                            <p class="subheading">{{$product->category->name}}</p>
-                                            <p class="h2">{{$product->name}}</p>
-                                        </div>
-                                        <svg role="presentation" focusable="false" width="40" height="40"
-                                            class="icon icon-circle-button-right-clipped" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z"
-                                                fill="currentColor"></path>
-                                        </svg>
+
+                            @php
+                                $sizes = [300, 400, 500, 600, 700, 800, 1000];
+                            @endphp
+
+                            @foreach($categoryHighlight->products as $productHighlight)
+                                @php
+
+                                    $srcset = collect($sizes)->map(function($size) use ($productHighlight) {
+                                        return (@$productHighlight->image->path ?? '' ). "?width={$size} {$size}w";
+                                    })->implode(', ');
+                                @endphp
+                                <a href="{{ route('front.show-product-detail', ['slug' => $productHighlight->slug]) }}" class="collection-card shadow is-selected" reveal-js="" style="opacity: 1;">
+                                    <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: 0 0 0 / 0.3">
+                                        <img src="{{ @$productHighlight->image->path ?? '' }}?width=1024" alt="{{ $productHighlight->name }}"
+                                             srcset="{{ $srcset }}" width="1024" height="1536" loading="eager"
+                                             sizes="(max-width: 699px) 73vw, 400px" class="zoom-image" style="opacity: 1;">
+                                        <div class="collection-card__content-wrapper text-custom place-self-start-center text-center" style="--text-color: 255 255 255; opacity: 1;"><div class="collection-card__content prose">
+                                                <p class="subheading">{{ $productHighlight->category->name }}</p><p class="h2">{{ $productHighlight->name }}</p>
+                                            </div><svg role="presentation" focusable="false" width="40" height="40" class="icon icon-circle-button-right-clipped" viewBox="0 0 24 24">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z" fill="currentColor"></path>
+                                            </svg></div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+
                             @endforeach
+
                         </collection-list>
                     </scroll-carousel>
-                    <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group"
-                        aria-controls="scroll-area-template--17549462503582__collection-list" disabled>
+
+                    <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list" disabled="">
                         <span class="sr-only">Previous</span>
                         <span class="animated-arrow animated-arrow--reverse"></span>
                     </button>
-                    <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group"
-                        aria-controls="scroll-area-template--17549462503582__collection-list">
+
+                    <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list">
                         <span class="sr-only">Next</span>
                         <span class="animated-arrow"></span>
-                    </button>
-                </div>
+                    </button></div>
             </div>
         </div>
-    </section> --}}
+
+
+    </section>
     <section id="shopify-section-template--17549462503582__media-grid"
         class="shopify-section shopify-section--media-grid">
         <style>
@@ -1695,65 +1764,82 @@
                                 </div>
                             @endif
                             @if ($key == 1)
-                            <div class="sc-jXbVAB kNtuek pf-54_ pf-r pf-c-cm" style="--s-xs:15px;--s-lg:0px"
-                                data-pf-type="Row">
-                                <div class="pf-c" style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-55_">
-                                        <div data-slider="{'slidesToShow':{'all':1,'laptop':1,'tablet':1,'mobile':1},'slidesToScroll':{'all':1,'laptop':1,'tablet':1,'mobile':1},'loop':true,'autoPlay':true,'autoPlayDelay':5000,'pauseOnHover':false,'maxHeight':false,'id':'a8b6c674-91ca-4b6a-aecd-6202a7354fb2'}"
-                                            class="sc-hTUXFl sc-lizKaK csSHAS jMCEl pf-56_ pf-bg-lazy glider-n-1 "
-                                            style="visibility:hidden;height:627.296875px;opacity:0"
-                                            data-pf-type="Slider2">
-                                            <div class="glider" style="--g-xs:0px">
-                                                @foreach ($category->products as $product)
-                                                <div class="glide-wrapper">
-                                                    <div style="height:100%"
-                                                        class="sc-eoVZcn sc-dWZrec boRCl bepTSx pf-57_ pf-bg-lazy"
-                                                        data-pf-type="Slide2" style="background-image: url({{ $product->image ? $product->image->path : '' }});">
-                                                        <div class="glide-container">
-                                                            <div class="sc-jXbVAB kNtuek pf-58_ pf-r pf-r-eh"
-                                                                style="--s-xs:15px" data-pf-type="Row">
-                                                                <div class="pf-c"
-                                                                    style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">
-                                                                    <div data-pf-type="Column"
-                                                                        class="sc-lnPyOc gUmbDa pf-59_">
-                                                                        <h3 data-pf-type="Heading"
-                                                                            class="sc-eZjPq gpuBwB pf-60_ pf-heading-1-h3">
-                                                                            <span data-pf-type="Text"
-                                                                                class="sc-dQEsWe LHlFs pf-62_">{{ $product->category->name }}</span>
-                                                                        </h3>
-                                                                        <h3 data-pf-type="Heading"
-                                                                            class="sc-eZjPq gpuBwB pf-63_ pf-heading-1-h3">
-                                                                            <span data-pf-type="Text"
-                                                                                    class="sc-dQEsWe LHlFs pf-65_">{{ $product->name }}</span></h3>
-                                                                        <p class="sc-kMriOJ cVLihF pf-66_ pf-text-1"
-                                                                            data-pf-type="Paragraph"><span
-                                                                                data-pf-type="Text"
-                                                                                class="sc-dQEsWe LHlFs pf-68_">
-                                                                               {!! $product->intro !!}
-                                                                            </span></p>
-                                                                        <a href="{{ route('front.show-product-detail', $product->slug) }}"
-                                                                            target="_self" data-pf-type="Button"
-                                                                            class="sc-fXSgRJ faABcD pf-69_ pf-button-1"><span
-                                                                                data-pf-type="Text"
-                                                                                class="sc-dQEsWe LHlFs pf-71_">View
-                                                                                More</span></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+{{--                            <div class="sc-jXbVAB kNtuek pf-54_ pf-r pf-c-cm" style="--s-xs:15px;--s-lg:0px"--}}
+{{--                                data-pf-type="Row">--}}
+{{--                                <div class="pf-c" style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">--}}
+{{--                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-55_">--}}
+{{--                                        <div data-slider="{'slidesToShow':{'all':1,'laptop':1,'tablet':1,'mobile':1},'slidesToScroll':{'all':1,'laptop':1,'tablet':1,'mobile':1},'loop':true,'autoPlay':true,'autoPlayDelay':5000,'pauseOnHover':false,'maxHeight':false,'id':'a8b6c674-91ca-4b6a-aecd-6202a7354fb2'}"--}}
+{{--                                            class="sc-hTUXFl sc-lizKaK csSHAS jMCEl pf-56_ pf-bg-lazy glider-n-1 "--}}
+{{--                                            style="visibility:hidden;height:627.296875px;opacity:0"--}}
+{{--                                            data-pf-type="Slider2">--}}
+{{--                                            <div class="glider" style="--g-xs:0px">--}}
+{{--                                                @foreach ($category->products as $product)--}}
+{{--                                                <div class="glide-wrapper">--}}
+{{--                                                    <div style="height:100%;--}}
+{{--                                                     background-image: url('{{  $product->category ? $product->category->image->path : ''  }}') !important;--}}
+{{--                                                     "--}}
+{{--                                                        class="sc-eoVZcn sc-dWZrec boRCl bepTSx pf-57_ pf-bg-lazy"--}}
+{{--                                                        data-pf-type="Slide2">--}}
+{{--                                                        <div class="glide-container">--}}
+{{--                                                            <div class="sc-jXbVAB kNtuek pf-58_ pf-r pf-r-eh"--}}
+{{--                                                                style="--s-xs:15px" data-pf-type="Row">--}}
+{{--                                                                <div class="pf-c"--}}
+{{--                                                                    style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">--}}
+{{--                                                                    <div data-pf-type="Column"--}}
+{{--                                                                        class="sc-lnPyOc gUmbDa pf-59_">--}}
+{{--                                                                        <h3 data-pf-type="Heading"--}}
+{{--                                                                            class="sc-eZjPq gpuBwB pf-60_ pf-heading-1-h3">--}}
+{{--                                                                            <span data-pf-type="Text"--}}
+{{--                                                                                class="sc-dQEsWe LHlFs pf-62_">{{ $product->category->name }}</span>--}}
+{{--                                                                        </h3>--}}
+{{--                                                                        <h3 data-pf-type="Heading"--}}
+{{--                                                                            class="sc-eZjPq gpuBwB pf-63_ pf-heading-1-h3">--}}
+{{--                                                                            <span data-pf-type="Text"--}}
+{{--                                                                                    class="sc-dQEsWe LHlFs pf-65_">{{ $product->name }}</span></h3>--}}
+{{--                                                                        <p class="sc-kMriOJ cVLihF pf-66_ pf-text-1"--}}
+{{--                                                                            data-pf-type="Paragraph"><span--}}
+{{--                                                                                data-pf-type="Text"--}}
+{{--                                                                                class="sc-dQEsWe LHlFs pf-68_">--}}
+{{--                                                                               {!! $product->intro !!}--}}
+{{--                                                                            </span></p>--}}
+{{--                                                                        <a href="{{ route('front.show-product-detail', $product->slug) }}"--}}
+{{--                                                                            target="_self" data-pf-type="Button"--}}
+{{--                                                                            class="sc-fXSgRJ faABcD pf-69_ pf-button-1"><span--}}
+{{--                                                                                data-pf-type="Text"--}}
+{{--                                                                                class="sc-dQEsWe LHlFs pf-71_">View--}}
+{{--                                                                                More</span></a>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                @endforeach--}}
+{{--                                            </div>--}}
+{{--                                            <button type="button" aria-label="Previous"--}}
+{{--                                                class="glider-prev glider-nav glider-nav-1"></button><button--}}
+{{--                                                type="button" aria-label="Next"--}}
+{{--                                                class="glider-next glider-nav glider-nav-1"></button>--}}
+{{--                                            <div class="glider-dots glider-d-1"></div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+
+                                    <div class="my-slider">
+                                        @foreach ($category->products as $product)
+                                            <div class="slide-item" style="background-image: url('{{ $product->image->path ?? '' }}');">
+                                                <div class="text-overlay">
+                                                    <h2>{{ $product->category->name ?? '' }}</h2>
+                                                    <p>{{ $product->name }}</p>
+                                                    <a href="{{ route('front.show-product-detail', $product->slug) }}">
+                                                        <button>Show now</button>
+                                                    </a>
                                                 </div>
-                                                @endforeach
                                             </div>
-                                            <button type="button" aria-label="Previous"
-                                                class="glider-prev glider-nav glider-nav-1"></button><button
-                                                type="button" aria-label="Next"
-                                                class="glider-next glider-nav glider-nav-1"></button>
-                                            <div class="glider-dots glider-d-1"></div>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                </div>
-                            </div>
                             @endif
                             @if ($key == 2)
                             <div class="sc-jXbVAB kNtuek pf-87_ pf-r pf-c-cm" style="--s-xs:15px;--s-lg:0px"
@@ -1782,7 +1868,7 @@
                                                                                 {{ $product->category->name }}
                                                                             </h2>
                                                                             <p>
-                                                                                {{ $product->intro }}
+                                                                                {!! $product->intro !!}
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -1809,7 +1895,7 @@
                                                                                 {{ $product->category->name }}
                                                                             </h2>
                                                                             <p>
-                                                                                {{ $product->intro }}
+                                                                                {!! $product->intro !!}
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -2079,4 +2165,39 @@
     </div>
 @endsection
 @push('script')
+    <!-- Slick CSS -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <!-- jQuery (nếu chưa có) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Slick JS -->
+    <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.my-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 600,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+    </script>
 @endpush

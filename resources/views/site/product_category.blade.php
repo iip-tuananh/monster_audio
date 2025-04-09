@@ -364,12 +364,22 @@
                                 </product-list>
 
                             </reveal-items>
-
-
                             <reveal-items selector=".product-list > *" ng-if="searching" ng-bind-html="productListHtml">
 
                             </reveal-items>
                         </div>
+                    </div>
+
+                    <nav class="collection__pagination pagination" role="navigation" aria-label="Pagination navigation" ng-if="!searching">
+                        {{ $products->links('site.pagination.paginate') }}
+
+                    </nav>
+
+
+                    <nav class="collection__pagination pagination" role="navigation" aria-label="Pagination navigation"  ng-if="searching" ng-bind-html="paginationHtml">
+                    </nav>
+
+                    <div >
                     </div>
                 </div>
             </div>
@@ -417,33 +427,9 @@
         </cart-notification-drawer>
 
 
-
-
-
-
-
     </div>
 
-    <template id="popover-default-template">
-        <button part="outside-close-button" is="close-button" aria-label="Close">
-            <svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close"
-                 viewBox="0 0 24 24">
-                <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>
-            </svg>
-        </button>
 
-        <div part="overlay"></div>
-
-        <div part="content">
-            <header part="title">
-                <slot name="title"></slot>
-            </header>
-
-            <div part="body">
-                <slot></slot>
-            </div>
-        </div>
-    </template>
 @endsection
 
 @push('scripts')
@@ -462,15 +448,15 @@
                 $scope.searchProduct();
             }
 
-            $scope.searchProduct = function () {
+            $scope.searchProduct = function (page = 1) {
                 const url = window.location.pathname;
                 const segments = url.split('/');
                 const folder = segments[1];
 
-                let page = 'category';
+                let page_type = 'category';
 
                 if(folder == 'collections') {
-                    page = 'collections';
+                    page_type = 'collections';
                 }
 
                 jQuery.ajax({
@@ -482,6 +468,7 @@
                     data: {
                         categoryId: {{ $category->id }},
                         page: page,
+                        page_type: page_type,
                         availability: $scope.availability,
                         priceGte: $scope.priceGte,
                         priceLte: $scope.priceLte,
@@ -496,6 +483,7 @@
                             $scope.searching = true;
                             $scope.errors = null;
                             $scope.productListHtml = $sce.trustAsHtml(response.data);
+                            $scope.paginationHtml = $sce.trustAsHtml(response.data_paginate);
 
                             // window.location.href = "/dat-hang-thanh-cong/";
                         } else {
@@ -512,6 +500,16 @@
                     },
                 });
             }
+
+            jQuery(document).on('click', '.pagination__item', function(e) {
+                e.preventDefault();
+
+                let href = jQuery(this).data('href');
+                let params = new URLSearchParams(href.split('?')[1]);
+                let page = params.get('page') || 1;
+
+                $scope.searchProduct(page);
+            });
 
 
             $scope.addToCart = function (productId, event) {

@@ -59,6 +59,11 @@
     </script>
 
     <style>/* Typography (heading) */
+        :root {
+            --container-inner-width: 1200px; /* hoặc giá trị phù hợp */
+            --grid-gutter: 16px;
+        }
+
         @font-face {
             font-family: "DIN Next";
             font-weight: 700;
@@ -164,7 +169,7 @@
             --spacing-96: 24rem; /* 384px */
 
             /* Container */
-            --container-max-width: 1600px;
+            /*--container-max-width: 1600px;*/
             --container-narrow-max-width: 1350px;
             --container-gutter: var(--spacing-5);
             --section-outer-spacing-block: var(--spacing-12);
@@ -584,560 +589,560 @@
 
     <script src="/site/js/pagefly-slideshow-v1-v2.js" defer="defer"></script>
 
-    {{-- <script src="/site/js/pagefly-product-media.js" defer="defer"></script>
+{{--    --}}{{-- <script src="/site/js/pagefly-product-media.js" defer="defer"></script>--}}
 
-    <script src="/site/js/pagefly-product.js" defer="defer"></script>
-
-
-    {{-- <script id='pagefly-helper-data' type='application/json'>
-        {
-            "page_optimization": {
-                "assets_prefetching": false
-            },
-            "elements_asset_mapper": {
-                "Accordion": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-accordion.js",
-                "Accordion3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-accordion3.js",
-                "CountDown": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-countdown.js",
-                "GMap1": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",
-                "GMap2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",
-                "GMapBasicV2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",
-                "GMapAdvancedV2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",
-                "HTML.Video": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo.js",
-                "HTML.Video2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",
-                "HTML.Video3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",
-                "BackgroundVideo": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",
-                "Instagram": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram.js",
-                "Instagram2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram.js",
-                "Insta3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram3.js",
-                "Tabs": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-tab.js",
-                "Tabs3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-tab3.js",
-                "ProductBox": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-cart.js",
-                "FBPageBox2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-facebook.js",
-                "FBLikeButton2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-facebook.js",
-                "TwitterFeed2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-twitter.js",
-                "Paragraph4": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-paragraph4.js",
-                "AliReviews": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "BackInStock": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "GloboBackInStock": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "GrowaveWishlist": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "InfiniteOptionsShopPad": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "InkybayProductPersonalizer": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "LimeSpot": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Loox": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Opinew": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Powr": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "ProductReviews": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "PushOwl": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "ReCharge": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Rivyo": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "TrackingMore": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Vitals": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",
-                "Wiser": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js"
-            },
-            "custom_elements_mapper": {
-                "pf-click-action-element": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-click-action-element.js",
-                "pf-dialog-element": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-dialog-element.js"
-            }
-        }
-    </script> --}}
-    <!-- END app block -->
-    {{-- <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
-    <script>(function () {
-            if ("sendBeacon" in navigator && "performance" in window) {
-                var session_token = document.cookie.match(/_shopify_s=([^;]*)/);
-
-                function handle_abandonment_event(e) {
-                    var entries = performance.getEntries().filter(function (entry) {
-                        return /monorail-edge.shopifysvc.com/.test(entry.name);
-                    });
-                    if (!window.abandonment_tracked && entries.length === 0) {
-                        window.abandonment_tracked = true;
-                        var currentMs = Date.now();
-                        var navigation_start = performance.timing.navigationStart;
-                        var payload = {
-                            shop_id: 31987892355,
-                            url: window.location.href,
-                            navigation_start,
-                            duration: currentMs - navigation_start,
-                            session_token: session_token && session_token.length === 2 ? session_token[1] : "",
-                            page_type: "collection"
-                        };
-                        window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({
-                            schema_id: "online_store_buyer_site_abandonment/1.1",
-                            payload: payload,
-                            metadata: {event_created_at_ms: currentMs, event_sent_at_ms: currentMs}
-                        }));
-                    }
-                }
-
-                window.addEventListener('pagehide', handle_abandonment_event);
-            }
-        }());</script> --}}
-    {{-- <script id="web-pixels-manager-setup">(function e(e, d, r, n, o, i) {
-            if (void 0 === i && (i = {}), !Boolean(null === (t = null === (a = window.Shopify) || void 0 === a ? void 0 : a.analytics) || void 0 === t ? void 0 : t.replayQueue)) {
-                var a, t;
-                window.Shopify = window.Shopify || {};
-                var s = window.Shopify;
-                s.analytics = s.analytics || {};
-                var l = s.analytics;
-                l.replayQueue = [], l.publish = function (e, d, r) {
-                    return l.replayQueue.push([e, d, r]), !0
-                };
-                try {
-                    self.performance.mark("wpm:start")
-                } catch (e) {
-                }
-                var u = function () {
-                        var e = {
-                            modern: /Edge?\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Firefox\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Chrom(ium|e)\/(9{2}|\d{3,})\.\d+(\.\d+|)|(Maci|X1{2}).+ Version\/(15\.\d+|(1[6-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(9{2}|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(15[._]\d+|(1[6-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Android.+Firefox\/(13[2-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|SamsungBrowser\/([2-9]\d|\d{3,})\.\d+/,
-                            legacy: /Edge?\/(1[6-9]|[2-9]\d|\d{3,})\.\d+(\.\d+|)|Firefox\/(5[4-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)|Chrom(ium|e)\/(5[1-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)([\d.]+$|.*Safari\/(?![\d.]+ Edge\/[\d.]+$))|(Maci|X1{2}).+ Version\/(10\.\d+|(1[1-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(3[89]|[4-9]\d|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(10[._]\d+|(1[1-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Mobile Safari.+OPR\/([89]\d|\d{3,})\.\d+\.\d+|Android.+Firefox\/(13[2-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+(UC? ?Browser|UCWEB|U3)[ /]?(15\.([5-9]|\d{2,})|(1[6-9]|[2-9]\d|\d{3,})\.\d+)\.\d+|SamsungBrowser\/(5\.\d+|([6-9]|\d{2,})\.\d+)|Android.+MQ{2}Browser\/(14(\.(9|\d{2,})|)|(1[5-9]|[2-9]\d|\d{3,})(\.\d+|))(\.\d+|)|K[Aa][Ii]OS\/(3\.\d+|([4-9]|\d{2,})\.\d+)(\.\d+|)/
-                        }, d = e.modern, r = e.legacy, n = navigator.userAgent;
-                        return n.match(d) ? "modern" : n.match(r) ? "legacy" : "unknown"
-                    }(), c = "modern" === u ? "modern" : "legacy", f = (null != o ? o : {modern: "", legacy: ""})[c],
-                    m = function (e) {
-                        return [e.baseUrl, "/wpm", "/b", e.hashVersion, "modern" === e.buildTarget ? "m" : "l", ".js"].join("")
-                    }({baseUrl: r, hashVersion: n, buildTarget: c}), p = function (e) {
-                        var d = e.version, r = e.bundleTarget, n = e.surface, o = e.pageUrl, i = e.monorailEndpoint;
-                        return {
-                            emit: function (e) {
-                                var a = e.status, t = e.errorMsg, s = (new Date).getTime(), l = JSON.stringify({
-                                    metadata: {event_sent_at_ms: s},
-                                    events: [{
-                                        schema_id: "web_pixels_manager_load/3.1",
-                                        payload: {
-                                            version: d,
-                                            bundle_target: r,
-                                            page_url: o,
-                                            status: a,
-                                            surface: n,
-                                            error_msg: t
-                                        },
-                                        metadata: {event_created_at_ms: s}
-                                    }]
-                                });
-                                if (!i) return console && console.warn && console.warn("[Web Pixels Manager] No Monorail endpoint provided, skipping logging."), !1;
-                                try {
-                                    return self.navigator.sendBeacon.bind(self.navigator)(i, l)
-                                } catch (e) {
-                                }
-                                var u = new XMLHttpRequest;
-                                try {
-                                    return u.open("POST", i, !0), u.setRequestHeader("Content-Type", "text/plain"), u.send(l), !0
-                                } catch (e) {
-                                    return console && console.warn && console.warn("[Web Pixels Manager] Got an unhandled error while logging to Monorail."), !1
-                                }
-                            }
-                        }
-                    }({
-                        version: n,
-                        bundleTarget: u,
-                        surface: e.surface,
-                        pageUrl: self.location.href,
-                        monorailEndpoint: e.monorailEndpoint
-                    });
-                try {
-                    i.browserTarget = u, function (e) {
-                        var d = e.src, r = e.async, n = void 0 === r || r, o = e.onload, i = e.onerror, a = e.sri,
-                            t = e.scriptDataAttributes, s = void 0 === t ? {} : t, l = document.createElement("script"),
-                            u = document.querySelector("head"), c = document.querySelector("body");
-                        if (l.async = n, l.src = d, a && (l.integrity = a, l.crossOrigin = "anonymous"), s) for (var f in s) if (Object.prototype.hasOwnProperty.call(s, f)) try {
-                            l.dataset[f] = s[f]
-                        } catch (e) {
-                        }
-                        if (o && l.addEventListener("load", o), i && l.addEventListener("error", i), u) u.appendChild(l); else {
-                            if (!c) throw new Error("Did not find a head or body element to append the script");
-                            c.appendChild(l)
-                        }
-                    }({
-                        src: m, async: !0, onload: function () {
-                            if (!function () {
-                                var e, d;
-                                return Boolean(null === (d = null === (e = window.Shopify) || void 0 === e ? void 0 : e.analytics) || void 0 === d ? void 0 : d.initialized)
-                            }()) {
-                                var r = window.webPixelsManager.init(e) || void 0;
-                                if (r) {
-                                    d(r);
-                                    var n = window.Shopify.analytics;
-                                    n.replayQueue.forEach((function (e) {
-                                        var d = e[0], n = e[1], o = e[2];
-                                        r.publishCustomEvent(d, n, o)
-                                    })), n.replayQueue = [], n.publish = r.publishCustomEvent, n.visitor = r.visitor, n.initialized = !0
-                                }
-                            }
-                        }, onerror: function () {
-                            return p.emit({status: "failed", errorMsg: "".concat(m, " has failed to load")})
-                        }, sri: function (e) {
-                            var d = /^sha384-[A-Za-z0-9+/=]+$/;
-                            return "string" == typeof e && d.test(e)
-                        }(f) ? f : "", scriptDataAttributes: i
-                    }), p.emit({status: "loading"})
-                } catch (e) {
-                    p.emit({status: "failed", errorMsg: (null == e ? void 0 : e.message) || "Unknown error"})
-                }
-            }
-        })({
-            shopId: 31987892355,
-            storefrontBaseUrl: "https://mymonsteraudio.com",
-            extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",
-            // monorailEndpoint: "https://monorail-edge.shopifysvc.com/unstable/produce_batch",
-            surface: "storefront-renderer",
-            enabledBetaFlags: [],
-            webPixelsConfigList: [{
-                "id": "376930462",
-                "configuration": "{\"locale\":\"en_US\",\"client\":\"monster\",\"environment\":\"production\",\"deployment_zone\":\"main_site\"}",
-                "eventPayloadVersion": "v1",
-                "runtimeContext": "STRICT",
-                "scriptVersion": "4492434ddebd18327f58be8b29d07da2",
-                "type": "APP",
-                "apiClientId": 1888040,
-                "privacyPurposes": ["ANALYTICS", "MARKETING"]
-            }, {
-                "id": "shopify-app-pixel",
-                "configuration": "{}",
-                "eventPayloadVersion": "v1",
-                "runtimeContext": "STRICT",
-                "scriptVersion": "0411",
-                "apiClientId": "shopify-pixel",
-                "type": "APP",
-                "privacyPurposes": ["ANALYTICS", "MARKETING"]
-            }, {
-                "id": "shopify-custom-pixel",
-                "eventPayloadVersion": "v1",
-                "runtimeContext": "LAX",
-                "scriptVersion": "0411",
-                "apiClientId": "shopify-pixel",
-                "type": "CUSTOM",
-                "privacyPurposes": ["ANALYTICS", "MARKETING"]
-            }],
-            isMerchantRequest: false,
-            effectiveTopLevelDomain: "",
-            initData: {
-                "shop": {
-                    "name": "My Monster Audio",
-                    "paymentSettings": {"currencyCode": "USD"},
-                    "myshopifyDomain": "mymonsteraudio.myshopify.com",
-                    "countryCode": "US",
-                    "storefrontUrl": "https://mymonsteraudio.com"
-                }, "customer": null, "cart": null, "checkout": null, "productVariants": [], "purchasingCompany": null
-            },
-        }, function pageEvents(webPixelsManagerAPI) {
-            webPixelsManagerAPI.publish("page_viewed", {});
-            webPixelsManagerAPI.publish("collection_viewed", {
-                "collection": {
-                    "id": "299650023582",
-                    "title": "Lifestyle Series",
-                    "productVariants": [{
-                        "price": {"amount": 129.99, "currencyCode": "USD"},
-                        "product": {
-                            "title": "Monster Decora",
-                            "vendor": "A nostalgic 30 watt home speaker with wireless Bluetooth connectivity, wireless Qi charger and multiple input",
-                            "id": "4551791378563",
-                            "untranslatedTitle": "Monster Decora",
-                            "url": "/products/monster-decora",
-                            "type": "Lifestyle"
-                        },
-                        "id": "32188695969923",
-                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Angle_2_e0e8605c-d3e7-45d1-a454-14b9ef18d409.jpg?v=1581988190"},
-                        "sku": "MNDECORA-HZL",
-                        "title": "Default Title",
-                        "untranslatedTitle": "Default Title"
-                    }, {
-                        "price": {"amount": 129.99, "currencyCode": "USD"},
-                        "product": {
-                            "title": "Monster Trio",
-                            "vendor": "Multi Qi Charger Speaker with smart Watch Compatible Dock.",
-                            "id": "4550559137923",
-                            "untranslatedTitle": "Monster Trio",
-                            "url": "/products/trio",
-                            "type": "Lifestyle"
-                        },
-                        "id": "32185174163587",
-                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Front_778ef9ec-d168-4a49-8a96-f4815c6e532d.jpg?v=1581964553"},
-                        "sku": "MNTRIO",
-                        "title": "Default Title",
-                        "untranslatedTitle": "Default Title"
-                    }, {
-                        "price": {"amount": 129.99, "currencyCode": "USD"},
-                        "product": {
-                            "title": "Monster Retro",
-                            "vendor": "Larger than the Decora, this retro 30 watt home speaker comes with multiple inputs, built-in qi charger, and Bluetooth connectivity.",
-                            "id": "4550751453315",
-                            "untranslatedTitle": "Monster Retro",
-                            "url": "/products/monster-retro",
-                            "type": "Lifestyle"
-                        },
-                        "id": "32185854984323",
-                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Angle_2.jpg?v=1581969072"},
-                        "sku": "MNRETRO-DW",
-                        "title": "Default Title",
-                        "untranslatedTitle": "Default Title"
-                    }]
-                }
-            });
-        }, "https://mymonsteraudio.com/cdn", "9bea40f4w74d83a37pc4328d8bm553b069e", {
-            "modern": "",
-            "legacy": ""
-        }, {
-            "shopId": "31987892355",
-            "storefrontBaseUrl": "https://mymonsteraudio.com",
-            "extensionBaseUrl": "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",
-            "surface": "storefront-renderer",
-            "enabledBetaFlags": "[]",
-            "isMerchantRequest": "false",
-            "hashVersion": "9bea40f4w74d83a37pc4328d8bm553b069e"
-        });</script>
-    <script>
-        window.ShopifyAnalytics = window.ShopifyAnalytics || {};
-        window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
-        window.ShopifyAnalytics.meta.currency = 'USD';
-        var meta = {
-            "products": [{
-                "id": 4551791378563,
-                "gid": "gid:\/\/shopify\/Product\/4551791378563",
-                "vendor": "A nostalgic 30 watt home speaker with wireless Bluetooth connectivity, wireless Qi charger and multiple input",
-                "type": "Lifestyle",
-                "variants": [{
-                    "id": 32188695969923,
-                    "price": 12999,
-                    "name": "Monster Decora",
-                    "public_title": null,
-                    "sku": "MNDECORA-HZL"
-                }]
-            }, {
-                "id": 4550559137923,
-                "gid": "gid:\/\/shopify\/Product\/4550559137923",
-                "vendor": "Multi Qi Charger Speaker with smart Watch Compatible Dock.",
-                "type": "Lifestyle",
-                "variants": [{
-                    "id": 32185174163587,
-                    "price": 12999,
-                    "name": "Monster Trio",
-                    "public_title": null,
-                    "sku": "MNTRIO"
-                }]
-            }, {
-                "id": 4550751453315,
-                "gid": "gid:\/\/shopify\/Product\/4550751453315",
-                "vendor": "Larger than the Decora, this retro 30 watt home speaker comes with multiple inputs, built-in qi charger, and Bluetooth connectivity.",
-                "type": "Lifestyle",
-                "variants": [{
-                    "id": 32185854984323,
-                    "price": 12999,
-                    "name": "Monster Retro",
-                    "public_title": null,
-                    "sku": "MNRETRO-DW"
-                }]
-            }], "page": {"pageType": "collection", "resourceType": "collection", "resourceId": 299650023582}
-        };
-        for (var attr in meta) {
-            window.ShopifyAnalytics.meta[attr] = meta[attr];
-        }
-    </script>
-    <script class="analytics">
-        (function () {
-            var customDocumentWrite = function (content) {
-                var jquery = null;
-
-                if (window.jQuery) {
-                    jquery = window.jQuery;
-                } else if (window.Checkout && window.Checkout.$) {
-                    jquery = window.Checkout.$;
-                }
-
-                if (jquery) {
-                    jquery('body').append(content);
-                }
-            };
-
-            var hasLoggedConversion = function (token) {
-                if (token) {
-                    return document.cookie.indexOf('loggedConversion=' + token) !== -1;
-                }
-                return false;
-            }
-
-            var setCookieIfConversion = function (token) {
-                if (token) {
-                    var twoMonthsFromNow = new Date(Date.now());
-                    twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
-
-                    document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
-                }
-            }
-
-            var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
-            if (trekkie.integrations) {
-                return;
-            }
-            trekkie.methods = [
-                'identify',
-                'page',
-                'ready',
-                'track',
-                'trackForm',
-                'trackLink'
-            ];
-            trekkie.factory = function (method) {
-                return function () {
-                    var args = Array.prototype.slice.call(arguments);
-                    args.unshift(method);
-                    trekkie.push(args);
-                    return trekkie;
-                };
-            };
-            for (var i = 0; i < trekkie.methods.length; i++) {
-                var key = trekkie.methods[i];
-                trekkie[key] = trekkie.factory(key);
-            }
-            trekkie.load = function (config) {
-                trekkie.config = config || {};
-                trekkie.config.initialDocumentCookie = document.cookie;
-                var first = document.getElementsByTagName('script')[0];
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.onerror = function (e) {
-                    var scriptFallback = document.createElement('script');
-                    scriptFallback.type = 'text/javascript';
-                    scriptFallback.onerror = function (error) {
-                        var Monorail = {
-                            produce: function produce(monorailDomain, schemaId, payload) {
-                                var currentMs = new Date().getTime();
-                                var event = {
-                                    schema_id: schemaId,
-                                    payload: payload,
-                                    metadata: {
-                                        event_created_at_ms: currentMs,
-                                        event_sent_at_ms: currentMs
-                                    }
-                                };
-                                return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));
-                            },
-                            sendRequest: function sendRequest(endpointUrl, payload) {
-                                // Try the sendBeacon API
-                                if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' && typeof window.Blob === 'function' && !Monorail.isIos12()) {
-                                    var blobData = new window.Blob([payload], {
-                                        type: 'text/plain'
-                                    });
-
-                                    if (window.navigator.sendBeacon(endpointUrl, blobData)) {
-                                        return true;
-                                    } // sendBeacon was not successful
-
-                                } // XHR beacon
-
-                                var xhr = new XMLHttpRequest();
-
-                                try {
-                                    xhr.open('POST', endpointUrl);
-                                    xhr.setRequestHeader('Content-Type', 'text/plain');
-                                    xhr.send(payload);
-                                } catch (e) {
-                                    console.log(e);
-                                }
-
-                                return false;
-                            },
-                            isIos12: function isIos12() {
-                                return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window.navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;
-                            }
-                        };
-                        Monorail.produce('monorail-edge.shopifysvc.com',
-                            'trekkie_storefront_load_errors/1.1',
-                            {
-                                shop_id: 31987892355,
-                                theme_id: 139435016350,
-                                app_name: "storefront",
-                                context_url: window.location.href,
-                                source_url: "//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js"
-                            });
-
-                    };
-                    scriptFallback.async = true;
-                    scriptFallback.src = '//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js';
-                    first.parentNode.insertBefore(scriptFallback, first);
-                };
-                script.async = true;
-                script.src = '//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js';
-                first.parentNode.insertBefore(script, first);
-            };
-            trekkie.load(
-                {
-                    "Trekkie": {
-                        "appName": "storefront",
-                        "development": false,
-                        "defaultAttributes": {
-                            "shopId": 31987892355,
-                            "isMerchantRequest": null,
-                            "themeId": 139435016350,
-                            "themeCityHash": "16609850660500432183",
-                            "contentLanguage": "en",
-                            "currency": "USD"
-                        },
-                        "isServerSideCookieWritingEnabled": true,
-                        "monorailRegion": "shop_domain"
-                    },
-                    "Session Attribution": {},
-                    "S2S": {
-                        "facebookCapiEnabled": false,
-                        "source": "trekkie-storefront-renderer",
-                        "apiClientId": 580111
-                    }
-                }
-            );
-
-            var loaded = false;
-            trekkie.ready(function () {
-                if (loaded) return;
-                loaded = true;
-
-                window.ShopifyAnalytics.lib = window.trekkie;
-
-                var originalDocumentWrite = document.write;
-                document.write = customDocumentWrite;
-                try {
-                    window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
-                } catch (error) {
-                }
-                ;
-                document.write = originalDocumentWrite;
-
-                window.ShopifyAnalytics.lib.page(null, {
-                    "pageType": "collection",
-                    "resourceType": "collection",
-                    "resourceId": 299650023582,
-                    "shopifyEmitted": true
-                });
-
-                var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
-                var token = match ? match[1] : undefined;
-                if (!hasLoggedConversion(token)) {
-                    setCookieIfConversion(token);
-                    window.ShopifyAnalytics.lib.track("Viewed Product Category", {
-                        "currency": "USD",
-                        "category": "Collection: lifestyle",
-                        "collectionName": "lifestyle",
-                        "collectionId": 299650023582,
-                        "nonInteraction": true
-                    }, undefined, undefined, {"shopifyEmitted": true});
-                }
-            });
+{{--    <script src="/site/js/pagefly-product.js" defer="defer"></script>--}}
 
 
-            var eventsListenerScript = document.createElement('script');
-            eventsListenerScript.async = true;
-            eventsListenerScript.src = "//mymonsteraudio.com/cdn/shopifycloud/shopify/assets/shop_events_listener-7e40c6290cd8fa1230e4aaf3237dddc1b481b77fa56e4b2df23c8bb8ad35e726.js";
-            document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+{{--    --}}{{-- <script id='pagefly-helper-data' type='application/json'>--}}
+{{--        {--}}
+{{--            "page_optimization": {--}}
+{{--                "assets_prefetching": false--}}
+{{--            },--}}
+{{--            "elements_asset_mapper": {--}}
+{{--                "Accordion": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-accordion.js",--}}
+{{--                "Accordion3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-accordion3.js",--}}
+{{--                "CountDown": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-countdown.js",--}}
+{{--                "GMap1": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",--}}
+{{--                "GMap2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",--}}
+{{--                "GMapBasicV2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",--}}
+{{--                "GMapAdvancedV2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-gmap.js",--}}
+{{--                "HTML.Video": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo.js",--}}
+{{--                "HTML.Video2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",--}}
+{{--                "HTML.Video3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",--}}
+{{--                "BackgroundVideo": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-htmlvideo2.js",--}}
+{{--                "Instagram": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram.js",--}}
+{{--                "Instagram2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram.js",--}}
+{{--                "Insta3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-instagram3.js",--}}
+{{--                "Tabs": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-tab.js",--}}
+{{--                "Tabs3": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-tab3.js",--}}
+{{--                "ProductBox": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-cart.js",--}}
+{{--                "FBPageBox2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-facebook.js",--}}
+{{--                "FBLikeButton2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-facebook.js",--}}
+{{--                "TwitterFeed2": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-twitter.js",--}}
+{{--                "Paragraph4": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-paragraph4.js",--}}
+{{--                "AliReviews": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "BackInStock": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "GloboBackInStock": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "GrowaveWishlist": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "InfiniteOptionsShopPad": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "InkybayProductPersonalizer": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "LimeSpot": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Loox": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Opinew": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Powr": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "ProductReviews": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "PushOwl": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "ReCharge": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Rivyo": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "TrackingMore": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Vitals": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js",--}}
+{{--                "Wiser": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-3rd-elements.js"--}}
+{{--            },--}}
+{{--            "custom_elements_mapper": {--}}
+{{--                "pf-click-action-element": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-click-action-element.js",--}}
+{{--                "pf-dialog-element": "https://cdn.shopify.com/extensions/77e7b71d-5d40-4aab-88ec-f1b41fd94a94/pagefly-page-builder-149/assets/pagefly-dialog-element.js"--}}
+{{--            }--}}
+{{--        }--}}
+{{--    </script> --}}
+{{--    <!-- END app block -->--}}
+{{--    --}}{{-- <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">--}}
+{{--    <script>(function () {--}}
+{{--            if ("sendBeacon" in navigator && "performance" in window) {--}}
+{{--                var session_token = document.cookie.match(/_shopify_s=([^;]*)/);--}}
 
-        })();</script>
-    <script
-            defer
-            src="/site/js/shopify-perf-kit-1.5.0.min.js"
-            data-application="storefront-renderer"
-            data-shop-id="31987892355"
-            data-render-region="gcp-asia-southeast1"
-            data-page-type="collection"
-            data-theme-instance-id="139435016350"
-            data-monorail-region="shop_domain"
-            data-resource-timing-sampling-rate="10"
-    ></script> --}}
+{{--                function handle_abandonment_event(e) {--}}
+{{--                    var entries = performance.getEntries().filter(function (entry) {--}}
+{{--                        return /monorail-edge.shopifysvc.com/.test(entry.name);--}}
+{{--                    });--}}
+{{--                    if (!window.abandonment_tracked && entries.length === 0) {--}}
+{{--                        window.abandonment_tracked = true;--}}
+{{--                        var currentMs = Date.now();--}}
+{{--                        var navigation_start = performance.timing.navigationStart;--}}
+{{--                        var payload = {--}}
+{{--                            shop_id: 31987892355,--}}
+{{--                            url: window.location.href,--}}
+{{--                            navigation_start,--}}
+{{--                            duration: currentMs - navigation_start,--}}
+{{--                            session_token: session_token && session_token.length === 2 ? session_token[1] : "",--}}
+{{--                            page_type: "collection"--}}
+{{--                        };--}}
+{{--                        window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({--}}
+{{--                            schema_id: "online_store_buyer_site_abandonment/1.1",--}}
+{{--                            payload: payload,--}}
+{{--                            metadata: {event_created_at_ms: currentMs, event_sent_at_ms: currentMs}--}}
+{{--                        }));--}}
+{{--                    }--}}
+{{--                }--}}
+
+{{--                window.addEventListener('pagehide', handle_abandonment_event);--}}
+{{--            }--}}
+{{--        }());</script> --}}
+{{--    --}}{{-- <script id="web-pixels-manager-setup">(function e(e, d, r, n, o, i) {--}}
+{{--            if (void 0 === i && (i = {}), !Boolean(null === (t = null === (a = window.Shopify) || void 0 === a ? void 0 : a.analytics) || void 0 === t ? void 0 : t.replayQueue)) {--}}
+{{--                var a, t;--}}
+{{--                window.Shopify = window.Shopify || {};--}}
+{{--                var s = window.Shopify;--}}
+{{--                s.analytics = s.analytics || {};--}}
+{{--                var l = s.analytics;--}}
+{{--                l.replayQueue = [], l.publish = function (e, d, r) {--}}
+{{--                    return l.replayQueue.push([e, d, r]), !0--}}
+{{--                };--}}
+{{--                try {--}}
+{{--                    self.performance.mark("wpm:start")--}}
+{{--                } catch (e) {--}}
+{{--                }--}}
+{{--                var u = function () {--}}
+{{--                        var e = {--}}
+{{--                            modern: /Edge?\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Firefox\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Chrom(ium|e)\/(9{2}|\d{3,})\.\d+(\.\d+|)|(Maci|X1{2}).+ Version\/(15\.\d+|(1[6-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(9{2}|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(15[._]\d+|(1[6-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Android.+Firefox\/(13[2-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|SamsungBrowser\/([2-9]\d|\d{3,})\.\d+/,--}}
+{{--                            legacy: /Edge?\/(1[6-9]|[2-9]\d|\d{3,})\.\d+(\.\d+|)|Firefox\/(5[4-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)|Chrom(ium|e)\/(5[1-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)([\d.]+$|.*Safari\/(?![\d.]+ Edge\/[\d.]+$))|(Maci|X1{2}).+ Version\/(10\.\d+|(1[1-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(3[89]|[4-9]\d|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(10[._]\d+|(1[1-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Mobile Safari.+OPR\/([89]\d|\d{3,})\.\d+\.\d+|Android.+Firefox\/(13[2-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[1-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+(UC? ?Browser|UCWEB|U3)[ /]?(15\.([5-9]|\d{2,})|(1[6-9]|[2-9]\d|\d{3,})\.\d+)\.\d+|SamsungBrowser\/(5\.\d+|([6-9]|\d{2,})\.\d+)|Android.+MQ{2}Browser\/(14(\.(9|\d{2,})|)|(1[5-9]|[2-9]\d|\d{3,})(\.\d+|))(\.\d+|)|K[Aa][Ii]OS\/(3\.\d+|([4-9]|\d{2,})\.\d+)(\.\d+|)/--}}
+{{--                        }, d = e.modern, r = e.legacy, n = navigator.userAgent;--}}
+{{--                        return n.match(d) ? "modern" : n.match(r) ? "legacy" : "unknown"--}}
+{{--                    }(), c = "modern" === u ? "modern" : "legacy", f = (null != o ? o : {modern: "", legacy: ""})[c],--}}
+{{--                    m = function (e) {--}}
+{{--                        return [e.baseUrl, "/wpm", "/b", e.hashVersion, "modern" === e.buildTarget ? "m" : "l", ".js"].join("")--}}
+{{--                    }({baseUrl: r, hashVersion: n, buildTarget: c}), p = function (e) {--}}
+{{--                        var d = e.version, r = e.bundleTarget, n = e.surface, o = e.pageUrl, i = e.monorailEndpoint;--}}
+{{--                        return {--}}
+{{--                            emit: function (e) {--}}
+{{--                                var a = e.status, t = e.errorMsg, s = (new Date).getTime(), l = JSON.stringify({--}}
+{{--                                    metadata: {event_sent_at_ms: s},--}}
+{{--                                    events: [{--}}
+{{--                                        schema_id: "web_pixels_manager_load/3.1",--}}
+{{--                                        payload: {--}}
+{{--                                            version: d,--}}
+{{--                                            bundle_target: r,--}}
+{{--                                            page_url: o,--}}
+{{--                                            status: a,--}}
+{{--                                            surface: n,--}}
+{{--                                            error_msg: t--}}
+{{--                                        },--}}
+{{--                                        metadata: {event_created_at_ms: s}--}}
+{{--                                    }]--}}
+{{--                                });--}}
+{{--                                if (!i) return console && console.warn && console.warn("[Web Pixels Manager] No Monorail endpoint provided, skipping logging."), !1;--}}
+{{--                                try {--}}
+{{--                                    return self.navigator.sendBeacon.bind(self.navigator)(i, l)--}}
+{{--                                } catch (e) {--}}
+{{--                                }--}}
+{{--                                var u = new XMLHttpRequest;--}}
+{{--                                try {--}}
+{{--                                    return u.open("POST", i, !0), u.setRequestHeader("Content-Type", "text/plain"), u.send(l), !0--}}
+{{--                                } catch (e) {--}}
+{{--                                    return console && console.warn && console.warn("[Web Pixels Manager] Got an unhandled error while logging to Monorail."), !1--}}
+{{--                                }--}}
+{{--                            }--}}
+{{--                        }--}}
+{{--                    }({--}}
+{{--                        version: n,--}}
+{{--                        bundleTarget: u,--}}
+{{--                        surface: e.surface,--}}
+{{--                        pageUrl: self.location.href,--}}
+{{--                        monorailEndpoint: e.monorailEndpoint--}}
+{{--                    });--}}
+{{--                try {--}}
+{{--                    i.browserTarget = u, function (e) {--}}
+{{--                        var d = e.src, r = e.async, n = void 0 === r || r, o = e.onload, i = e.onerror, a = e.sri,--}}
+{{--                            t = e.scriptDataAttributes, s = void 0 === t ? {} : t, l = document.createElement("script"),--}}
+{{--                            u = document.querySelector("head"), c = document.querySelector("body");--}}
+{{--                        if (l.async = n, l.src = d, a && (l.integrity = a, l.crossOrigin = "anonymous"), s) for (var f in s) if (Object.prototype.hasOwnProperty.call(s, f)) try {--}}
+{{--                            l.dataset[f] = s[f]--}}
+{{--                        } catch (e) {--}}
+{{--                        }--}}
+{{--                        if (o && l.addEventListener("load", o), i && l.addEventListener("error", i), u) u.appendChild(l); else {--}}
+{{--                            if (!c) throw new Error("Did not find a head or body element to append the script");--}}
+{{--                            c.appendChild(l)--}}
+{{--                        }--}}
+{{--                    }({--}}
+{{--                        src: m, async: !0, onload: function () {--}}
+{{--                            if (!function () {--}}
+{{--                                var e, d;--}}
+{{--                                return Boolean(null === (d = null === (e = window.Shopify) || void 0 === e ? void 0 : e.analytics) || void 0 === d ? void 0 : d.initialized)--}}
+{{--                            }()) {--}}
+{{--                                var r = window.webPixelsManager.init(e) || void 0;--}}
+{{--                                if (r) {--}}
+{{--                                    d(r);--}}
+{{--                                    var n = window.Shopify.analytics;--}}
+{{--                                    n.replayQueue.forEach((function (e) {--}}
+{{--                                        var d = e[0], n = e[1], o = e[2];--}}
+{{--                                        r.publishCustomEvent(d, n, o)--}}
+{{--                                    })), n.replayQueue = [], n.publish = r.publishCustomEvent, n.visitor = r.visitor, n.initialized = !0--}}
+{{--                                }--}}
+{{--                            }--}}
+{{--                        }, onerror: function () {--}}
+{{--                            return p.emit({status: "failed", errorMsg: "".concat(m, " has failed to load")})--}}
+{{--                        }, sri: function (e) {--}}
+{{--                            var d = /^sha384-[A-Za-z0-9+/=]+$/;--}}
+{{--                            return "string" == typeof e && d.test(e)--}}
+{{--                        }(f) ? f : "", scriptDataAttributes: i--}}
+{{--                    }), p.emit({status: "loading"})--}}
+{{--                } catch (e) {--}}
+{{--                    p.emit({status: "failed", errorMsg: (null == e ? void 0 : e.message) || "Unknown error"})--}}
+{{--                }--}}
+{{--            }--}}
+{{--        })({--}}
+{{--            shopId: 31987892355,--}}
+{{--            storefrontBaseUrl: "https://mymonsteraudio.com",--}}
+{{--            extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",--}}
+{{--            // monorailEndpoint: "https://monorail-edge.shopifysvc.com/unstable/produce_batch",--}}
+{{--            surface: "storefront-renderer",--}}
+{{--            enabledBetaFlags: [],--}}
+{{--            webPixelsConfigList: [{--}}
+{{--                "id": "376930462",--}}
+{{--                "configuration": "{\"locale\":\"en_US\",\"client\":\"monster\",\"environment\":\"production\",\"deployment_zone\":\"main_site\"}",--}}
+{{--                "eventPayloadVersion": "v1",--}}
+{{--                "runtimeContext": "STRICT",--}}
+{{--                "scriptVersion": "4492434ddebd18327f58be8b29d07da2",--}}
+{{--                "type": "APP",--}}
+{{--                "apiClientId": 1888040,--}}
+{{--                "privacyPurposes": ["ANALYTICS", "MARKETING"]--}}
+{{--            }, {--}}
+{{--                "id": "shopify-app-pixel",--}}
+{{--                "configuration": "{}",--}}
+{{--                "eventPayloadVersion": "v1",--}}
+{{--                "runtimeContext": "STRICT",--}}
+{{--                "scriptVersion": "0411",--}}
+{{--                "apiClientId": "shopify-pixel",--}}
+{{--                "type": "APP",--}}
+{{--                "privacyPurposes": ["ANALYTICS", "MARKETING"]--}}
+{{--            }, {--}}
+{{--                "id": "shopify-custom-pixel",--}}
+{{--                "eventPayloadVersion": "v1",--}}
+{{--                "runtimeContext": "LAX",--}}
+{{--                "scriptVersion": "0411",--}}
+{{--                "apiClientId": "shopify-pixel",--}}
+{{--                "type": "CUSTOM",--}}
+{{--                "privacyPurposes": ["ANALYTICS", "MARKETING"]--}}
+{{--            }],--}}
+{{--            isMerchantRequest: false,--}}
+{{--            effectiveTopLevelDomain: "",--}}
+{{--            initData: {--}}
+{{--                "shop": {--}}
+{{--                    "name": "My Monster Audio",--}}
+{{--                    "paymentSettings": {"currencyCode": "USD"},--}}
+{{--                    "myshopifyDomain": "mymonsteraudio.myshopify.com",--}}
+{{--                    "countryCode": "US",--}}
+{{--                    "storefrontUrl": "https://mymonsteraudio.com"--}}
+{{--                }, "customer": null, "cart": null, "checkout": null, "productVariants": [], "purchasingCompany": null--}}
+{{--            },--}}
+{{--        }, function pageEvents(webPixelsManagerAPI) {--}}
+{{--            webPixelsManagerAPI.publish("page_viewed", {});--}}
+{{--            webPixelsManagerAPI.publish("collection_viewed", {--}}
+{{--                "collection": {--}}
+{{--                    "id": "299650023582",--}}
+{{--                    "title": "Lifestyle Series",--}}
+{{--                    "productVariants": [{--}}
+{{--                        "price": {"amount": 129.99, "currencyCode": "USD"},--}}
+{{--                        "product": {--}}
+{{--                            "title": "Monster Decora",--}}
+{{--                            "vendor": "A nostalgic 30 watt home speaker with wireless Bluetooth connectivity, wireless Qi charger and multiple input",--}}
+{{--                            "id": "4551791378563",--}}
+{{--                            "untranslatedTitle": "Monster Decora",--}}
+{{--                            "url": "/products/monster-decora",--}}
+{{--                            "type": "Lifestyle"--}}
+{{--                        },--}}
+{{--                        "id": "32188695969923",--}}
+{{--                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Angle_2_e0e8605c-d3e7-45d1-a454-14b9ef18d409.jpg?v=1581988190"},--}}
+{{--                        "sku": "MNDECORA-HZL",--}}
+{{--                        "title": "Default Title",--}}
+{{--                        "untranslatedTitle": "Default Title"--}}
+{{--                    }, {--}}
+{{--                        "price": {"amount": 129.99, "currencyCode": "USD"},--}}
+{{--                        "product": {--}}
+{{--                            "title": "Monster Trio",--}}
+{{--                            "vendor": "Multi Qi Charger Speaker with smart Watch Compatible Dock.",--}}
+{{--                            "id": "4550559137923",--}}
+{{--                            "untranslatedTitle": "Monster Trio",--}}
+{{--                            "url": "/products/trio",--}}
+{{--                            "type": "Lifestyle"--}}
+{{--                        },--}}
+{{--                        "id": "32185174163587",--}}
+{{--                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Front_778ef9ec-d168-4a49-8a96-f4815c6e532d.jpg?v=1581964553"},--}}
+{{--                        "sku": "MNTRIO",--}}
+{{--                        "title": "Default Title",--}}
+{{--                        "untranslatedTitle": "Default Title"--}}
+{{--                    }, {--}}
+{{--                        "price": {"amount": 129.99, "currencyCode": "USD"},--}}
+{{--                        "product": {--}}
+{{--                            "title": "Monster Retro",--}}
+{{--                            "vendor": "Larger than the Decora, this retro 30 watt home speaker comes with multiple inputs, built-in qi charger, and Bluetooth connectivity.",--}}
+{{--                            "id": "4550751453315",--}}
+{{--                            "untranslatedTitle": "Monster Retro",--}}
+{{--                            "url": "/products/monster-retro",--}}
+{{--                            "type": "Lifestyle"--}}
+{{--                        },--}}
+{{--                        "id": "32185854984323",--}}
+{{--                        "image": {"src": "//mymonsteraudio.com/cdn/shop/products/Angle_2.jpg?v=1581969072"},--}}
+{{--                        "sku": "MNRETRO-DW",--}}
+{{--                        "title": "Default Title",--}}
+{{--                        "untranslatedTitle": "Default Title"--}}
+{{--                    }]--}}
+{{--                }--}}
+{{--            });--}}
+{{--        }, "https://mymonsteraudio.com/cdn", "9bea40f4w74d83a37pc4328d8bm553b069e", {--}}
+{{--            "modern": "",--}}
+{{--            "legacy": ""--}}
+{{--        }, {--}}
+{{--            "shopId": "31987892355",--}}
+{{--            "storefrontBaseUrl": "https://mymonsteraudio.com",--}}
+{{--            "extensionBaseUrl": "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",--}}
+{{--            "surface": "storefront-renderer",--}}
+{{--            "enabledBetaFlags": "[]",--}}
+{{--            "isMerchantRequest": "false",--}}
+{{--            "hashVersion": "9bea40f4w74d83a37pc4328d8bm553b069e"--}}
+{{--        });</script>--}}
+{{--    <script>--}}
+{{--        window.ShopifyAnalytics = window.ShopifyAnalytics || {};--}}
+{{--        window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};--}}
+{{--        window.ShopifyAnalytics.meta.currency = 'USD';--}}
+{{--        var meta = {--}}
+{{--            "products": [{--}}
+{{--                "id": 4551791378563,--}}
+{{--                "gid": "gid:\/\/shopify\/Product\/4551791378563",--}}
+{{--                "vendor": "A nostalgic 30 watt home speaker with wireless Bluetooth connectivity, wireless Qi charger and multiple input",--}}
+{{--                "type": "Lifestyle",--}}
+{{--                "variants": [{--}}
+{{--                    "id": 32188695969923,--}}
+{{--                    "price": 12999,--}}
+{{--                    "name": "Monster Decora",--}}
+{{--                    "public_title": null,--}}
+{{--                    "sku": "MNDECORA-HZL"--}}
+{{--                }]--}}
+{{--            }, {--}}
+{{--                "id": 4550559137923,--}}
+{{--                "gid": "gid:\/\/shopify\/Product\/4550559137923",--}}
+{{--                "vendor": "Multi Qi Charger Speaker with smart Watch Compatible Dock.",--}}
+{{--                "type": "Lifestyle",--}}
+{{--                "variants": [{--}}
+{{--                    "id": 32185174163587,--}}
+{{--                    "price": 12999,--}}
+{{--                    "name": "Monster Trio",--}}
+{{--                    "public_title": null,--}}
+{{--                    "sku": "MNTRIO"--}}
+{{--                }]--}}
+{{--            }, {--}}
+{{--                "id": 4550751453315,--}}
+{{--                "gid": "gid:\/\/shopify\/Product\/4550751453315",--}}
+{{--                "vendor": "Larger than the Decora, this retro 30 watt home speaker comes with multiple inputs, built-in qi charger, and Bluetooth connectivity.",--}}
+{{--                "type": "Lifestyle",--}}
+{{--                "variants": [{--}}
+{{--                    "id": 32185854984323,--}}
+{{--                    "price": 12999,--}}
+{{--                    "name": "Monster Retro",--}}
+{{--                    "public_title": null,--}}
+{{--                    "sku": "MNRETRO-DW"--}}
+{{--                }]--}}
+{{--            }], "page": {"pageType": "collection", "resourceType": "collection", "resourceId": 299650023582}--}}
+{{--        };--}}
+{{--        for (var attr in meta) {--}}
+{{--            window.ShopifyAnalytics.meta[attr] = meta[attr];--}}
+{{--        }--}}
+{{--    </script>--}}
+{{--    <script class="analytics">--}}
+{{--        (function () {--}}
+{{--            var customDocumentWrite = function (content) {--}}
+{{--                var jquery = null;--}}
+
+{{--                if (window.jQuery) {--}}
+{{--                    jquery = window.jQuery;--}}
+{{--                } else if (window.Checkout && window.Checkout.$) {--}}
+{{--                    jquery = window.Checkout.$;--}}
+{{--                }--}}
+
+{{--                if (jquery) {--}}
+{{--                    jquery('body').append(content);--}}
+{{--                }--}}
+{{--            };--}}
+
+{{--            var hasLoggedConversion = function (token) {--}}
+{{--                if (token) {--}}
+{{--                    return document.cookie.indexOf('loggedConversion=' + token) !== -1;--}}
+{{--                }--}}
+{{--                return false;--}}
+{{--            }--}}
+
+{{--            var setCookieIfConversion = function (token) {--}}
+{{--                if (token) {--}}
+{{--                    var twoMonthsFromNow = new Date(Date.now());--}}
+{{--                    twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);--}}
+
+{{--                    document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];--}}
+{{--            if (trekkie.integrations) {--}}
+{{--                return;--}}
+{{--            }--}}
+{{--            trekkie.methods = [--}}
+{{--                'identify',--}}
+{{--                'page',--}}
+{{--                'ready',--}}
+{{--                'track',--}}
+{{--                'trackForm',--}}
+{{--                'trackLink'--}}
+{{--            ];--}}
+{{--            trekkie.factory = function (method) {--}}
+{{--                return function () {--}}
+{{--                    var args = Array.prototype.slice.call(arguments);--}}
+{{--                    args.unshift(method);--}}
+{{--                    trekkie.push(args);--}}
+{{--                    return trekkie;--}}
+{{--                };--}}
+{{--            };--}}
+{{--            for (var i = 0; i < trekkie.methods.length; i++) {--}}
+{{--                var key = trekkie.methods[i];--}}
+{{--                trekkie[key] = trekkie.factory(key);--}}
+{{--            }--}}
+{{--            trekkie.load = function (config) {--}}
+{{--                trekkie.config = config || {};--}}
+{{--                trekkie.config.initialDocumentCookie = document.cookie;--}}
+{{--                var first = document.getElementsByTagName('script')[0];--}}
+{{--                var script = document.createElement('script');--}}
+{{--                script.type = 'text/javascript';--}}
+{{--                script.onerror = function (e) {--}}
+{{--                    var scriptFallback = document.createElement('script');--}}
+{{--                    scriptFallback.type = 'text/javascript';--}}
+{{--                    scriptFallback.onerror = function (error) {--}}
+{{--                        var Monorail = {--}}
+{{--                            produce: function produce(monorailDomain, schemaId, payload) {--}}
+{{--                                var currentMs = new Date().getTime();--}}
+{{--                                var event = {--}}
+{{--                                    schema_id: schemaId,--}}
+{{--                                    payload: payload,--}}
+{{--                                    metadata: {--}}
+{{--                                        event_created_at_ms: currentMs,--}}
+{{--                                        event_sent_at_ms: currentMs--}}
+{{--                                    }--}}
+{{--                                };--}}
+{{--                                return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));--}}
+{{--                            },--}}
+{{--                            sendRequest: function sendRequest(endpointUrl, payload) {--}}
+{{--                                // Try the sendBeacon API--}}
+{{--                                if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' && typeof window.Blob === 'function' && !Monorail.isIos12()) {--}}
+{{--                                    var blobData = new window.Blob([payload], {--}}
+{{--                                        type: 'text/plain'--}}
+{{--                                    });--}}
+
+{{--                                    if (window.navigator.sendBeacon(endpointUrl, blobData)) {--}}
+{{--                                        return true;--}}
+{{--                                    } // sendBeacon was not successful--}}
+
+{{--                                } // XHR beacon--}}
+
+{{--                                var xhr = new XMLHttpRequest();--}}
+
+{{--                                try {--}}
+{{--                                    xhr.open('POST', endpointUrl);--}}
+{{--                                    xhr.setRequestHeader('Content-Type', 'text/plain');--}}
+{{--                                    xhr.send(payload);--}}
+{{--                                } catch (e) {--}}
+{{--                                    console.log(e);--}}
+{{--                                }--}}
+
+{{--                                return false;--}}
+{{--                            },--}}
+{{--                            isIos12: function isIos12() {--}}
+{{--                                return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window.navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;--}}
+{{--                            }--}}
+{{--                        };--}}
+{{--                        Monorail.produce('monorail-edge.shopifysvc.com',--}}
+{{--                            'trekkie_storefront_load_errors/1.1',--}}
+{{--                            {--}}
+{{--                                shop_id: 31987892355,--}}
+{{--                                theme_id: 139435016350,--}}
+{{--                                app_name: "storefront",--}}
+{{--                                context_url: window.location.href,--}}
+{{--                                source_url: "//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js"--}}
+{{--                            });--}}
+
+{{--                    };--}}
+{{--                    scriptFallback.async = true;--}}
+{{--                    scriptFallback.src = '//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js';--}}
+{{--                    first.parentNode.insertBefore(scriptFallback, first);--}}
+{{--                };--}}
+{{--                script.async = true;--}}
+{{--                script.src = '//mymonsteraudio.com/cdn/s/trekkie.storefront.0acbcc60e879fb44c87ca67c62fa1e49f3a2c6ae.min.js';--}}
+{{--                first.parentNode.insertBefore(script, first);--}}
+{{--            };--}}
+{{--            trekkie.load(--}}
+{{--                {--}}
+{{--                    "Trekkie": {--}}
+{{--                        "appName": "storefront",--}}
+{{--                        "development": false,--}}
+{{--                        "defaultAttributes": {--}}
+{{--                            "shopId": 31987892355,--}}
+{{--                            "isMerchantRequest": null,--}}
+{{--                            "themeId": 139435016350,--}}
+{{--                            "themeCityHash": "16609850660500432183",--}}
+{{--                            "contentLanguage": "en",--}}
+{{--                            "currency": "USD"--}}
+{{--                        },--}}
+{{--                        "isServerSideCookieWritingEnabled": true,--}}
+{{--                        "monorailRegion": "shop_domain"--}}
+{{--                    },--}}
+{{--                    "Session Attribution": {},--}}
+{{--                    "S2S": {--}}
+{{--                        "facebookCapiEnabled": false,--}}
+{{--                        "source": "trekkie-storefront-renderer",--}}
+{{--                        "apiClientId": 580111--}}
+{{--                    }--}}
+{{--                }--}}
+{{--            );--}}
+
+{{--            var loaded = false;--}}
+{{--            trekkie.ready(function () {--}}
+{{--                if (loaded) return;--}}
+{{--                loaded = true;--}}
+
+{{--                window.ShopifyAnalytics.lib = window.trekkie;--}}
+
+{{--                var originalDocumentWrite = document.write;--}}
+{{--                document.write = customDocumentWrite;--}}
+{{--                try {--}}
+{{--                    window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);--}}
+{{--                } catch (error) {--}}
+{{--                }--}}
+{{--                ;--}}
+{{--                document.write = originalDocumentWrite;--}}
+
+{{--                window.ShopifyAnalytics.lib.page(null, {--}}
+{{--                    "pageType": "collection",--}}
+{{--                    "resourceType": "collection",--}}
+{{--                    "resourceId": 299650023582,--}}
+{{--                    "shopifyEmitted": true--}}
+{{--                });--}}
+
+{{--                var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)--}}
+{{--                var token = match ? match[1] : undefined;--}}
+{{--                if (!hasLoggedConversion(token)) {--}}
+{{--                    setCookieIfConversion(token);--}}
+{{--                    window.ShopifyAnalytics.lib.track("Viewed Product Category", {--}}
+{{--                        "currency": "USD",--}}
+{{--                        "category": "Collection: lifestyle",--}}
+{{--                        "collectionName": "lifestyle",--}}
+{{--                        "collectionId": 299650023582,--}}
+{{--                        "nonInteraction": true--}}
+{{--                    }, undefined, undefined, {"shopifyEmitted": true});--}}
+{{--                }--}}
+{{--            });--}}
+
+
+{{--            var eventsListenerScript = document.createElement('script');--}}
+{{--            eventsListenerScript.async = true;--}}
+{{--            eventsListenerScript.src = "//mymonsteraudio.com/cdn/shopifycloud/shopify/assets/shop_events_listener-7e40c6290cd8fa1230e4aaf3237dddc1b481b77fa56e4b2df23c8bb8ad35e726.js";--}}
+{{--            document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);--}}
+
+{{--        })();</script>--}}
+{{--    <script--}}
+{{--            defer--}}
+{{--            src="/site/js/shopify-perf-kit-1.5.0.min.js"--}}
+{{--            data-application="storefront-renderer"--}}
+{{--            data-shop-id="31987892355"--}}
+{{--            data-render-region="gcp-asia-southeast1"--}}
+{{--            data-page-type="collection"--}}
+{{--            data-theme-instance-id="139435016350"--}}
+{{--            data-monorail-region="shop_domain"--}}
+{{--            data-resource-timing-sampling-rate="10"--}}
+{{--    ></script> --}}
 </head>
