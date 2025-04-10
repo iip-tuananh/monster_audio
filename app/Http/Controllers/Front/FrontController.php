@@ -70,6 +70,7 @@ class FrontController extends Controller
             ->where('type',10)
             ->where('show_home_page', 1)
             ->orderBy('order_number')->get();
+
         // $data['categorySpecialFlashsale'] = CategorySpecial::query()
         //     ->has('products')
         //     ->where('type',10)
@@ -85,6 +86,9 @@ class FrontController extends Controller
         ->limit(10)->get();
 
         $data['productCategories'] = Category::query()->where('show_home_page', 1)->where('level', 0)->orderBy('sort_order')->get();
+
+
+
         // $data['vouchers'] = Voucher::query()->where('status', 1)->where('quantity', '>', 0)->where('to_date', '>=', now())->orderBy('created_at', 'desc')->get();
         // block khối ảnh cuối trang
         // $block = Block::query()->find(1);
@@ -96,7 +100,6 @@ class FrontController extends Controller
             },
             'image',
         ])
-            ->has('products')
             ->where('type',10)
             ->where('highlight', 1)
             ->where('show_home_page', 1)

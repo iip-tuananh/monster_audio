@@ -81,8 +81,8 @@
 
 
     .container-highlight {
-        width: 90%;
-        max-width: 1200px;
+        /*width: 90%;*/
+        max-width: 1600px;
         margin: 50px auto;
         position: relative; /* Cho phép định vị button "Tất cả" */
 
@@ -115,9 +115,9 @@
 
     .swiper-slide {
         width: 100%;
-        max-width: 350px;
-        aspect-ratio: 350 / 250;
-        margin-right: 20px;
+        max-width: 550px;
+        aspect-ratio: 550 / 450;
+        margin-right: 40px;
         background: #fff;
         border-radius: 8px;
         overflow: hidden;
@@ -451,7 +451,9 @@
 
     <div class="container-highlight">
         <!-- Nút "Tất cả" -->
-        <a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="view-all-btn">{{ $categoryHighlight->name }}</a>
+        @if($categoryHighlight->products->count())
+            <a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="view-all-btn">{{ $categoryHighlight->name }}</a>
+        @endif
         <div class="swiper mySwiper" style="padding-top: 10px">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
@@ -514,9 +516,9 @@
         </style>
         <div class="section   section-blends section-full">
             <media-grid class="media-grid">
-                @foreach ($productCategories as $key => $category)
+                @foreach ($categorySpecial->take(3) as $key => $category)
                 @if ($key == 0)
-                    <a href="{{route('front.show-product-category', $category->slug)}}" class="media-grid__item shadow group" reveal-js
+                    <a href="{{route('front.get-collection-list', $category->slug)}}" class="media-grid__item shadow group" reveal-js
                         style="--media-grid-column-span: 2; --media-grid-row-span: 2">
                         <div id="media-grid-item-1"
                             class="content-over-media rounded bg-custom text-custom"style="--background: 0 0 0; --text-color: 255 255 255;">
@@ -539,7 +541,7 @@
                         </div>
                     </a>
                 @else
-                    <a href="{{route('front.show-product-category', $category->slug)}}"
+                    <a href="{{route('front.get-collection-list', $category->slug)}}"
                         class="media-grid__item shadow group" reveal-js
                         style="--media-grid-column-span: 2; --media-grid-row-span: 1">
                         <div id="media-grid-item-2"
@@ -555,7 +557,7 @@
                                     <p class="h4">
                                         {{$category->name}}
                                     </p>
-                                    <button type="button" class="button button--lg" onclick="window.location.href='{{route('front.show-product-category', $category->slug)}}'"
+                                    <button type="button" class="button button--lg" onclick="window.location.href='{{route('front.get-collection-list', $category->slug)}}'"
                                         style="--button-background: 0 0 0 / var(--button-background-opacity, 1);--button-outline-color: 0 0 0;--button-text-color: 255 255 255;"
                                         is="custom-button">View Product</button>
                                 </div>
@@ -1887,69 +1889,6 @@
                                 </div>
                             @endif
                             @if ($key == 1)
-{{--                            <div class="sc-jXbVAB kNtuek pf-54_ pf-r pf-c-cm" style="--s-xs:15px;--s-lg:0px"--}}
-{{--                                data-pf-type="Row">--}}
-{{--                                <div class="pf-c" style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">--}}
-{{--                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-55_">--}}
-{{--                                        <div data-slider="{'slidesToShow':{'all':1,'laptop':1,'tablet':1,'mobile':1},'slidesToScroll':{'all':1,'laptop':1,'tablet':1,'mobile':1},'loop':true,'autoPlay':true,'autoPlayDelay':5000,'pauseOnHover':false,'maxHeight':false,'id':'a8b6c674-91ca-4b6a-aecd-6202a7354fb2'}"--}}
-{{--                                            class="sc-hTUXFl sc-lizKaK csSHAS jMCEl pf-56_ pf-bg-lazy glider-n-1 "--}}
-{{--                                            style="visibility:hidden;height:627.296875px;opacity:0"--}}
-{{--                                            data-pf-type="Slider2">--}}
-{{--                                            <div class="glider" style="--g-xs:0px">--}}
-{{--                                                @foreach ($category->products as $product)--}}
-{{--                                                <div class="glide-wrapper">--}}
-{{--                                                    <div style="height:100%;--}}
-{{--                                                     background-image: url('{{  $product->category ? $product->category->image->path : ''  }}') !important;--}}
-{{--                                                     "--}}
-{{--                                                        class="sc-eoVZcn sc-dWZrec boRCl bepTSx pf-57_ pf-bg-lazy"--}}
-{{--                                                        data-pf-type="Slide2">--}}
-{{--                                                        <div class="glide-container">--}}
-{{--                                                            <div class="sc-jXbVAB kNtuek pf-58_ pf-r pf-r-eh"--}}
-{{--                                                                style="--s-xs:15px" data-pf-type="Row">--}}
-{{--                                                                <div class="pf-c"--}}
-{{--                                                                    style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">--}}
-{{--                                                                    <div data-pf-type="Column"--}}
-{{--                                                                        class="sc-lnPyOc gUmbDa pf-59_">--}}
-{{--                                                                        <h3 data-pf-type="Heading"--}}
-{{--                                                                            class="sc-eZjPq gpuBwB pf-60_ pf-heading-1-h3">--}}
-{{--                                                                            <span data-pf-type="Text"--}}
-{{--                                                                                class="sc-dQEsWe LHlFs pf-62_">{{ $product->category->name }}</span>--}}
-{{--                                                                        </h3>--}}
-{{--                                                                        <h3 data-pf-type="Heading"--}}
-{{--                                                                            class="sc-eZjPq gpuBwB pf-63_ pf-heading-1-h3">--}}
-{{--                                                                            <span data-pf-type="Text"--}}
-{{--                                                                                    class="sc-dQEsWe LHlFs pf-65_">{{ $product->name }}</span></h3>--}}
-{{--                                                                        <p class="sc-kMriOJ cVLihF pf-66_ pf-text-1"--}}
-{{--                                                                            data-pf-type="Paragraph"><span--}}
-{{--                                                                                data-pf-type="Text"--}}
-{{--                                                                                class="sc-dQEsWe LHlFs pf-68_">--}}
-{{--                                                                               {!! $product->intro !!}--}}
-{{--                                                                            </span></p>--}}
-{{--                                                                        <a href="{{ route('front.show-product-detail', $product->slug) }}"--}}
-{{--                                                                            target="_self" data-pf-type="Button"--}}
-{{--                                                                            class="sc-fXSgRJ faABcD pf-69_ pf-button-1"><span--}}
-{{--                                                                                data-pf-type="Text"--}}
-{{--                                                                                class="sc-dQEsWe LHlFs pf-71_">View--}}
-{{--                                                                                More</span></a>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                @endforeach--}}
-{{--                                            </div>--}}
-{{--                                            <button type="button" aria-label="Previous"--}}
-{{--                                                class="glider-prev glider-nav glider-nav-1"></button><button--}}
-{{--                                                type="button" aria-label="Next"--}}
-{{--                                                class="glider-next glider-nav glider-nav-1"></button>--}}
-{{--                                            <div class="glider-dots glider-d-1"></div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
                                     <div class="my-slider">
                                         @foreach ($category->products as $product)
                                             <div class="slide-item" style="background-image: url('{{ $product->image->path ?? '' }}');">
