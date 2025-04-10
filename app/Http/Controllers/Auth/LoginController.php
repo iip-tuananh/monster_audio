@@ -38,7 +38,7 @@ class LoginController extends Controller
         $validate = Validator::make(
             $request->all(),
             [
-                'account_name' => 'required',
+                'email' => 'required',
                 'password' => 'required',
             ]
         );
@@ -59,7 +59,7 @@ class LoginController extends Controller
         //     $remember = true;
         // }
 
-        if (Auth::attempt(['email' => $request->account_name, 'password' => $request->password, 'status' => 1], $remember)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1], $remember)) {
             // Đăng nhập thành công
             $token = JWTAuth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1]);
 

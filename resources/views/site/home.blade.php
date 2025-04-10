@@ -78,6 +78,97 @@
     .text-overlay button:hover {
         background-color: darkred;
     }
+
+
+    .container-highlight {
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+        position: relative; /* Cho phép định vị button "Tất cả" */
+
+    }
+
+    .view-all-btn {
+        position: absolute;
+        top: -30px;
+        right: 0;
+        background: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        z-index: 10;
+    }
+    .view-all-btn:hover {
+        background: #555;
+    }
+
+    .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto !important;
+        box-sizing: border-box;
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        max-width: 350px;
+        aspect-ratio: 350 / 250;
+        margin-right: 20px;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .img-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .img-container:hover img {
+        transform: scale(1.1);
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .img-container:hover .overlay {
+        opacity: 1;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #333;
+        width: 40px;
+        height: 40px;
+    }
 </style>
 @section('content')
     <section id="shopify-section-template--17549462503582__slideshow" class="shopify-section shopify-section--slideshow">
@@ -264,97 +355,129 @@
         </x-slideshow>
     </section>
 
-    <section id="shopify-section-template--17549462503582__collection-list" class="shopify-section ">
-        <style>
-            #shopify-section-template--17549462503582__collection-list {
-                --section-background-hash: 0;
-            }
+{{--    <section id="shopify-section-template--17549462503582__collection-list" class="shopify-section ">--}}
+{{--        <style>--}}
+{{--            #shopify-section-template--17549462503582__collection-list {--}}
+{{--                --section-background-hash: 0;--}}
+{{--            }--}}
 
-            #shopify-section-template--17549462503582__collection-list + * {
-                --previous-section-background-hash: 0;
-            }
-        </style>
-        <style>
-            #shopify-section-template--17549462503582__collection-list .collection-list {
-                --collection-list-grid: auto / auto-flow 73vw;
-            }
+{{--            #shopify-section-template--17549462503582__collection-list + * {--}}
+{{--                --previous-section-background-hash: 0;--}}
+{{--            }--}}
+{{--        </style>--}}
+{{--        <style>--}}
+{{--            #shopify-section-template--17549462503582__collection-list .collection-list {--}}
+{{--                --collection-list-grid: auto / auto-flow 73vw;--}}
+{{--            }--}}
 
-            @media screen and (min-width: 700px) {
-                #shopify-section-template--17549462503582__collection-list .collection-list {
-                    --collection-list-grid: auto / auto-flow 36vw;
-                }
-            }
+{{--            @media screen and (min-width: 700px) {--}}
+{{--                #shopify-section-template--17549462503582__collection-list .collection-list {--}}
+{{--                    --collection-list-grid: auto / auto-flow 36vw;--}}
+{{--                }--}}
+{{--            }--}}
 
-            @media screen and (min-width: 1000px) {
-                #shopify-section-template--17549462503582__collection-list .collection-list {
-                    --collection-list-grid: auto / auto-flow 384px;
-                }
-            }
+{{--            @media screen and (min-width: 1000px) {--}}
+{{--                #shopify-section-template--17549462503582__collection-list .collection-list {--}}
+{{--                    --collection-list-grid: auto / auto-flow 384px;--}}
+{{--                }--}}
+{{--            }--}}
 
-            @media screen and (min-width: 1400px) {
-                #shopify-section-template--17549462503582__collection-list .collection-list {
-                    --collection-list-grid: auto / auto-flow 382px;
-                }
-            }
-        </style>
+{{--            @media screen and (min-width: 1400px) {--}}
+{{--                #shopify-section-template--17549462503582__collection-list .collection-list {--}}
+{{--                    --collection-list-grid: auto / auto-flow 382px;--}}
+{{--                }--}}
+{{--            }--}}
+{{--        </style>--}}
 
-        <div class="section   section-blends section-full">
-            <div class="section-stack">
-                <section-header class="section-header "><a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="text-with-icon group">
-                        <span class="reversed-link">{{ $categoryHighlight->name }}</span>
-                        <span class="circle-chevron group-hover:colors"><svg role="presentation" focusable="false" width="5" height="8" class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">
-        <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </svg>
-                        </span>
-                    </a></section-header>
-                <div class="floating-controls-container">
-                    <scroll-carousel selector=".collection-card"
-                                     id="scroll-area-template--17549462503582__collection-list" class="scroll-area bleed ">
-                        <collection-list class="collection-list">
+{{--        <div class="section   section-blends section-full">--}}
+{{--            <div class="section-stack">--}}
+{{--                <section-header class="section-header "><a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="text-with-icon group">--}}
+{{--                        <span class="reversed-link">{{ $categoryHighlight->name }}</span>--}}
+{{--                        <span class="circle-chevron group-hover:colors"><svg role="presentation" focusable="false" width="5" height="8" class="icon icon-chevron-right-small reverse-icon" viewBox="0 0 5 8">--}}
+{{--        <path d="m.75 7 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>--}}
+{{--      </svg>--}}
+{{--                        </span>--}}
+{{--                    </a></section-header>--}}
+{{--                <div class="floating-controls-container">--}}
+{{--                    <scroll-carousel selector=".collection-card"--}}
+{{--                                     id="scroll-area-template--17549462503582__collection-list" class="scroll-area bleed ">--}}
+{{--                        <collection-list class="collection-list">--}}
 
-                            @php
-                                $sizes = [300, 400, 500, 600, 700, 800, 1000];
-                            @endphp
+{{--                            @php--}}
+{{--                                $sizes = [300, 400, 500, 600, 700, 800, 1000];--}}
+{{--                            @endphp--}}
 
-                            @foreach($categoryHighlight->products as $productHighlight)
-                                @php
+{{--                            @foreach($categoryHighlight->products as $productHighlight)--}}
+{{--                                @php--}}
 
-                                    $srcset = collect($sizes)->map(function($size) use ($productHighlight) {
-                                        return (@$productHighlight->image->path ?? '' ). "?width={$size} {$size}w";
-                                    })->implode(', ');
-                                @endphp
-                                <a href="{{ route('front.show-product-detail', ['slug' => $productHighlight->slug]) }}" class="collection-card shadow is-selected" reveal-js="" style="opacity: 1;">
-                                    <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: 0 0 0 / 0.3">
-                                        <img src="{{ @$productHighlight->image->path ?? '' }}?width=1024" alt="{{ $productHighlight->name }}"
-                                             srcset="{{ $srcset }}" width="1024" height="1536" loading="eager"
-                                             sizes="(max-width: 699px) 73vw, 400px" class="zoom-image" style="opacity: 1;">
-                                        <div class="collection-card__content-wrapper text-custom place-self-start-center text-center" style="--text-color: 255 255 255; opacity: 1;"><div class="collection-card__content prose">
-                                                <p class="subheading">{{ $productHighlight->category->name }}</p><p class="h2">{{ $productHighlight->name }}</p>
-                                            </div><svg role="presentation" focusable="false" width="40" height="40" class="icon icon-circle-button-right-clipped" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </a>
+{{--                                    $srcset = collect($sizes)->map(function($size) use ($productHighlight) {--}}
+{{--                                        return (@$productHighlight->image->path ?? '' ). "?width={$size} {$size}w";--}}
+{{--                                    })->implode(', ');--}}
+{{--                                @endphp--}}
+{{--                                <a href="{{ route('front.show-product-detail', ['slug' => $productHighlight->slug]) }}" class="collection-card shadow is-selected" reveal-js="" style="opacity: 1;">--}}
+{{--                                    <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: 0 0 0 / 0.3">--}}
+{{--                                        <img src="{{ @$productHighlight->image->path ?? '' }}?width=1024" alt="{{ $productHighlight->name }}"--}}
+{{--                                             srcset="{{ $srcset }}" width="1024" height="1536" loading="eager"--}}
+{{--                                             sizes="(max-width: 699px) 73vw, 400px" class="zoom-image" style="opacity: 1;">--}}
+{{--                                        <div class="collection-card__content-wrapper text-custom place-self-start-center text-center" style="--text-color: 255 255 255; opacity: 1;"><div class="collection-card__content prose">--}}
+{{--                                                <p class="subheading">{{ $productHighlight->category->name }}</p><p class="h2">{{ $productHighlight->name }}</p>--}}
+{{--                                            </div><svg role="presentation" focusable="false" width="40" height="40" class="icon icon-circle-button-right-clipped" viewBox="0 0 24 24">--}}
+{{--                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12ZM10.47 9.53 12.94 12l-2.47 2.47 1.06 1.06 3-3 .53-.53-.53-.53-3-3-1.06 1.06Z" fill="currentColor"></path>--}}
+{{--                                            </svg></div>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
 
-                            @endforeach
+{{--                            @endforeach--}}
 
-                        </collection-list>
-                    </scroll-carousel>
+{{--                        </collection-list>--}}
+{{--                    </scroll-carousel>--}}
 
-                    <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list" disabled="">
-                        <span class="sr-only">Previous</span>
-                        <span class="animated-arrow animated-arrow--reverse"></span>
-                    </button>
+{{--                    <button is="prev-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list" disabled="">--}}
+{{--                        <span class="sr-only">Previous</span>--}}
+{{--                        <span class="animated-arrow animated-arrow--reverse"></span>--}}
+{{--                    </button>--}}
 
-                    <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list">
-                        <span class="sr-only">Next</span>
-                        <span class="animated-arrow"></span>
-                    </button></div>
+{{--                    <button is="next-button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="scroll-area-template--17549462503582__collection-list">--}}
+{{--                        <span class="sr-only">Next</span>--}}
+{{--                        <span class="animated-arrow"></span>--}}
+{{--                    </button></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+
+{{--    </section>--}}
+
+
+    <div class="container-highlight">
+        <!-- Nút "Tất cả" -->
+        <a href="{{ route('front.get-collection-list', ['slug' => $categoryHighlight->slug]) }}" class="view-all-btn">{{ $categoryHighlight->name }}</a>
+        <div class="swiper mySwiper" style="padding-top: 10px">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                @foreach($categoryHighlight->products as $productHighlight)
+                <div class="swiper-slide">
+                    <div class="img-container">
+                        <img src="{{ $productHighlight->image->path ?? '' }}" alt="{{ $productHighlight->name }}">
+                       <a href="{{ route('front.show-product-detail', ['slug' => $productHighlight->slug]) }}">
+                           <div class="overlay">
+                               <h3>{{ $productHighlight->category->name }}</h3>
+                               <p>{{ $productHighlight->name }}</p>
+                           </div>
+                       </a>
+                    </div>
+                </div>
+                @endforeach
+
             </div>
-        </div>
+            <!-- Các nút điều hướng của slider -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div><!-- End .swiper -->
+    </div>
 
 
-    </section>
+
     <section id="shopify-section-template--17549462503582__media-grid"
         class="shopify-section shopify-section--media-grid">
         <style>
@@ -1916,120 +2039,7 @@
                             </div>
                             @endif
                             @endforeach
-                            <div class="sc-jXbVAB kNtuek pf-95_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row">
-                                <div class="pf-c" style="--c-xs:12;--c-sm:12;--c-md:12;--c-lg:12">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-96_">
-                                        <h3 data-pf-type="Heading" class="sc-eZjPq gpuBwB pf-97_ pf-heading-1-h3"><span
-                                                data-pf-type="Text" class="sc-dQEsWe LHlFs pf-99_">Follow Us</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sc-jXbVAB kNtuek pf-100_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row">
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-101_">
-                                        <div class="sc-jXbVAB kNtuek pf-102_ pf-r pf-r-eh" style="--s-xs:15px"
-                                            data-pf-type="Row">
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-103_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-104_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-093e3fce--2_1200x.jpg?v=1582049166"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-093e3fce--2.jpg?v=1582049166 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-105_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-106_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-92b537b6--4_1200x.jpg?v=1582049210"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-92b537b6--4.jpg?v=1582049210 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-107_">
-                                        <div class="sc-jXbVAB kNtuek pf-108_ pf-r pf-r-eh" style="--s-xs:15px"
-                                            data-pf-type="Row">
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-109_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-110_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-09393d4d--5_1200x.jpg?v=1582049220"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-09393d4d--5.jpg?v=1582049220 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-111_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-112_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-c230e176--6_1200x.jpg?v=1582049354"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-c230e176--6.jpg?v=1582049354 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-113_">
-                                        <div class="sc-jXbVAB kNtuek pf-114_ pf-r pf-r-eh" style="--s-xs:15px"
-                                            data-pf-type="Row">
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-115_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-116_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-3866a684--3_1200x.jpg?v=1582049200"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-3866a684--3.jpg?v=1582049200 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                            <div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:6">
-                                                <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-117_"><a
-                                                        data-action="url"
-                                                        href="#" target="_blank"
-                                                        data-pf-type="Image"
-                                                        class="sc-hwdACo sc-jaXxZZ jLwrwq iGFmwC pf-118_ pf-image-1"><img
-                                                            src="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-675f2600--1_1200x.jpg?v=1582049330"
-                                                            srcSet="https://cdn.shopify.com/s/files/1/0319/8789/2355/t/4/assets/pf-675f2600--1.jpg?v=1582049330 1536w"
-                                                            width="480" height="480"
-                                                            sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)"
-                                                            loading="lazy" /></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sc-jXbVAB kNtuek pf-119_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row">
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-120_"></div>
-                                </div>
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-121_"></div>
-                                </div>
-                                <div class="pf-c" style="--c-xs:12;--c-sm:4;--c-md:4;--c-lg:4">
-                                    <div data-pf-type="Column" class="sc-lnPyOc gUmbDa pf-122_"></div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -2167,6 +2177,15 @@
 @push('script')
     <!-- Slick CSS -->
     <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+
+
+    <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
@@ -2198,6 +2217,30 @@
                 autoplay: true,
                 autoplaySpeed: 3000
             });
+        });
+
+
+        // Khởi tạo slider
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 20,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1440: {
+                    slidesPerView: 4,
+                },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
     </script>
 @endpush

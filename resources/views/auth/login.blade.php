@@ -2,8 +2,8 @@
 @section('content')
 <form class="login" method="POST" action="{{ route('login') }}">
     @csrf
-    <input id="account_name" type="text" class="form-control @error('account_name') is-invalid @enderror" name="account_name" value="{{ old('account_name') }}" required autocomplete="" autofocus placeholder="Tên tài khoản">
-    @error('account_name')
+    <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="" autofocus placeholder="Email">
+    @error('email')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </span>

