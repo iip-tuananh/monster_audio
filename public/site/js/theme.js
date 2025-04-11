@@ -962,7 +962,9 @@ var _lockLayerCount, _isLocked, _DialogElement = class _DialogElement2 extends H
     }
 
     disconnectedCallback() {
-        this._abortController.abort(), this.delegate.off(), this.focusTrap?.deactivate({onDeactivate: !1}), __privateGet(this, _isLocked) && (__privateSet(this, _isLocked, !1), document.documentElement.classList.toggle("lock", --__privateWrapper(_DialogElement2, _lockLayerCount)._ > 0))
+        // this._abortController.abort(), this.delegate.off(), this.focusTrap?.deactivate({onDeactivate: !1}),
+        // __privateGet(this, _isLocked) && (__privateSet(this, _isLocked, !1),
+        //     document.documentElement.classList.toggle("lock", --__privateWrapper(_DialogElement2, _lockLayerCount)._ > 0))
     }
 
     show(animate11 = !0) {
@@ -1015,29 +1017,34 @@ var _lockLayerCount, _isLocked, _DialogElement = class _DialogElement2 extends H
         })
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case"id":
-                newValue && this.delegate.off().on("click", `[aria-controls="${this.id}"]`, this._onToggleClicked.bind(this));
-                break;
-            case"open":
-                if (this.controls.forEach(toggle => toggle.setAttribute("aria-expanded", newValue === null ? "false" : "true")), oldValue === null && (newValue === "" || newValue === "immediate")) {
-                    this.removeAttribute("inert"), this._originalParentBeforeAppend = null, this.shouldAppendToBody && this.parentElement !== document.body && (this._originalParentBeforeAppend = this.parentElement, document.body.append(this));
-                    const showTransitionPromise = this._showTransition(newValue !== "immediate") || Promise.resolve();
-                    showTransitionPromise.then(() => {
-                        this.dispatchEvent(new CustomEvent("dialog:after-show", {bubbles: !0}))
-                    }), this.shouldTrapFocus && this.focusTrap.activate({checkCanFocusTrap: () => showTransitionPromise}), this.shouldLock && (__privateSet(_DialogElement2, _lockLayerCount, __privateGet(_DialogElement2, _lockLayerCount) + 1), __privateSet(this, _isLocked, !0), document.documentElement.classList.add("lock"))
-                } else if (oldValue !== null && newValue === null) {
-                    this.setAttribute("inert", "");
-                    const hideTransitionPromise = this._hideTransition() || Promise.resolve();
-                    hideTransitionPromise.then(() => {
-                        this.parentElement === document.body && this._originalParentBeforeAppend && (this._originalParentBeforeAppend.appendChild(this), this._originalParentBeforeAppend = null), this.dispatchEvent(new CustomEvent("dialog:after-hide", {bubbles: !0}))
-                    }), this.focusTrap?.deactivate({checkCanReturnFocus: () => hideTransitionPromise}), this.shouldLock && (__privateSet(this, _isLocked, !1), document.documentElement.classList.toggle("lock", --__privateWrapper(_DialogElement2, _lockLayerCount)._ > 0))
-                }
-                this.dispatchEvent(new CustomEvent("toggle", {bubbles: !0}));
-                break
-        }
-    }
+    // attributeChangedCallback(name, oldValue, newValue) {
+    //     switch (name) {
+    //         case"id":
+    //             newValue && this.delegate.off().on("click", `[aria-controls="${this.id}"]`, this._onToggleClicked.bind(this));
+    //             break;
+    //         case"open":
+    //             if (this.controls.forEach(toggle => toggle.setAttribute("aria-expanded", newValue === null ? "false" : "true")),
+    //             oldValue === null && (newValue === "" || newValue === "immediate")) {
+    //                 this.removeAttribute("inert"),
+    //                     this._originalParentBeforeAppend = null, this.shouldAppendToBody && this.parentElement !== document.body
+    //                 && (this._originalParentBeforeAppend = this.parentElement, document.body.append(this));
+    //                 const showTransitionPromise = this._showTransition(newValue !== "immediate") || Promise.resolve();
+    //                 showTransitionPromise.then(() => {
+    //                     this.dispatchEvent(new CustomEvent("dialog:after-show", {bubbles: !0}))
+    //                 }), this.shouldTrapFocus && this.focusTrap.activate({checkCanFocusTrap: () => showTransitionPromise}),
+    //                 this.shouldLock && (__privateSet(_DialogElement2, _lockLayerCount, __privateGet(_DialogElement2, _lockLayerCount) + 1),
+    //                     __privateSet(this, _isLocked, !0), document.documentElement.classList.add("lock"))
+    //             } else if (oldValue !== null && newValue === null) {
+    //                 this.setAttribute("inert", "");
+    //                 const hideTransitionPromise = this._hideTransition() || Promise.resolve();
+    //                 hideTransitionPromise.then(() => {
+    //                     this.parentElement === document.body && this._originalParentBeforeAppend && (this._originalParentBeforeAppend.appendChild(this), this._originalParentBeforeAppend = null), this.dispatchEvent(new CustomEvent("dialog:after-hide", {bubbles: !0}))
+    //                 }), this.focusTrap?.deactivate({checkCanReturnFocus: () => hideTransitionPromise}), this.shouldLock && (__privateSet(this, _isLocked, !1), document.documentElement.classList.toggle("lock", --__privateWrapper(_DialogElement2, _lockLayerCount)._ > 0))
+    //             }
+    //             this.dispatchEvent(new CustomEvent("toggle", {bubbles: !0}));
+    //             break
+    //     }
+    // }
 
     _showTransition(animate11 = !0) {
     }
@@ -1349,7 +1356,8 @@ var CartDrawer = class extends Drawer {
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = await (await fetch(`${window.Shopify.routes.root}?section_id=${extractSectionId(this)}`)).text(), this.replaceChildren(...tempDiv.querySelector("#cart-drawer").children)
     }
-}, CartNotificationDrawer = class extends Drawer {
+},
+    CartNotificationDrawer = class extends Drawer {
     constructor() {
         super(), this._onVariantAddedListener = this._onVariantAdded.bind(this)
     }

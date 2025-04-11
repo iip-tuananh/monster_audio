@@ -478,7 +478,7 @@
         });// For detecting native share
         document.documentElement.classList.add(`native-share--${navigator.share ? 'enabled' : 'disabled'}`);</script>
     {{-- <script type="module" src="/site/js/vendor.min.js?v=114992621884149252901723046902"></script> --}}
-    {{-- <script type="module" src="/site/js/theme.js?v=45785366765952398841723047854"></script> --}}
+     <script type="module" src="/site/js/theme.js?v=45785366765952398841723047854"></script>
     <script type="module" src="/site/js/sections.js?v=94856139559083518311723047868"></script>
 
     <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>

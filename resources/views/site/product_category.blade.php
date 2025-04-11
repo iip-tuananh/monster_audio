@@ -551,7 +551,7 @@
                         }
                     },
                     error: function () {
-                        jQuery.toast('Thao tác thất bại !')
+                        // jQuery.toast('Thao tác thất bại !')
                     },
                     complete: function () {
                         $scope.$applyAsync();

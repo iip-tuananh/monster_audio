@@ -6,54 +6,55 @@
 
 <body ng-app="App" ng-cloak class="page-transition zoom-image--enabled">
 
-<template id="popover-default-template">
-    <button part="outside-close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">
-            <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>
-        </svg></button>
+{{--<template id="popover-default-template">--}}
+{{--    <button part="outside-close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">--}}
+{{--            <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>--}}
+{{--        </svg></button>--}}
 
-    <div part="overlay"></div>
+{{--    <div part="overlay"></div>--}}
 
-    <div part="content">
-        <header part="title">
-            <slot name="title"></slot>
-        </header>
+{{--    <div part="content">--}}
+{{--        <header part="title">--}}
+{{--            <slot name="title"></slot>--}}
+{{--        </header>--}}
 
-        <div part="body">
-            <slot></slot>
-        </div>
-    </div>
-</template>
-{{--    <template id="drawer-default-template">--}}
-{{--        <style>--}}
-{{--            [hidden] {--}}
-{{--                display: none !important;--}}
-{{--            }--}}
-{{--        </style>--}}
-
-{{--        <button part="outside-close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">--}}
-{{--                <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>--}}
-{{--            </svg></button>--}}
-
-{{--        <div part="overlay"></div>--}}
-
-{{--        <div part="content">--}}
-{{--            <header part="header">--}}
-{{--                <slot name="header"></slot>--}}
-
-{{--                <button part="close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">--}}
-{{--                        <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>--}}
-{{--                    </svg></button>--}}
-{{--            </header>--}}
-
-{{--            <div part="body">--}}
-{{--                <slot></slot>--}}
-{{--            </div>--}}
-
-{{--            <footer part="footer">--}}
-{{--                <slot name="footer"></slot>--}}
-{{--            </footer>--}}
+{{--        <div part="body">--}}
+{{--            <slot></slot>--}}
 {{--        </div>--}}
-{{--    </template>--}}
+{{--    </div>--}}
+{{--</template>--}}
+
+<template id="drawer-default-template">
+        <style>
+            [hidden] {
+                display: none !important;
+            }
+        </style>
+
+        <button part="outside-close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">
+                <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>
+            </svg></button>
+
+        <div part="overlay"></div>
+
+        <div part="content">
+            <header part="header">
+                <slot name="header"></slot>
+
+                <button part="close-button" is="close-button" aria-label="Close"><svg role="presentation" stroke-width="2" focusable="false" width="24" height="24" class="icon icon-close" viewBox="0 0 24 24">
+                        <path d="M17.658 6.343 6.344 17.657M17.658 17.657 6.344 6.343" stroke="currentColor"></path>
+                    </svg></button>
+            </header>
+
+            <div part="body">
+                <slot></slot>
+            </div>
+
+            <footer part="footer">
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+    </template>
 
 
 {{--    <template id="popover-default-template">--}}

@@ -684,39 +684,24 @@
                         src="{{$image}}"
                         alt=""
                         srcset="{{$image}}"
-                        width="1392" height="1335" loading="lazy" id="{{$image}}" sizes="min(100vw, 500px)"
-                        class="rounded-sm shadow-sm ">
+                        width="1392" height="1335" loading="lazy" id="img-{{$key}}" sizes="min(100vw, 500px)"
+                        class="rounded-sm shadow-sm">
                     @endforeach
-                    {{-- <img
-                        src="//mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=660"
-                        alt=""
-                        srcset="//mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=200 200w, //mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=300 300w, //mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=400 400w, //mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=500 500w, //mymonsteraudio.com/cdn/shop/files/0082739654915_F.webp?v=1684515842&amp;width=600 600w"
-                        width="660" height="660" loading="lazy" id="image-1664424486a2b084ab-0"
-                        sizes="min(100vw, 500px)" class="rounded-sm shadow-sm "> --}}
                 </multiple-images-with-text-image-list>
                 <div class="multiple-images-with-text__content-with-nav">
                     <multiple-images-with-text-content-list swipeable="false"
                         class="multiple-images-with-text__content-list">
-                        @foreach ($newProducts as $key1 => $product)
-                        <div class="prose {{ $loop->first ? 'is-selected' : 'reveal-invisible' }}" image-id="{{$product->image ? $product->image->path : ''}}">
-                            <p class="subheading">{{$product->category->name}}</p>
-                            <p class="h1" reveal-on-scroll="true">
-                                <split-lines>{{$product->name}}</split-lines>
-                            </p>
-                            {!! $product->intro !!}
-                            <a class="button button--xl" href="{{route('front.show-product-detail', $product->slug)}}">Buy Now</a>
-                        </div>
+                        @foreach ($newProducts->reverse() as $key1 => $product)
+                            <div class="prose {{ $loop->first ? 'is-selected' : 'reveal-invisible' }}" image-id="img-{{$key1}}">
+                                <p class="subheading">{{ $product->category->name }}</p>
+                                <p class="h1" reveal-on-scroll="true">
+                                    <split-lines>{{ $product->name }}</split-lines>
+                                </p>
+                                {!! $product->intro !!}
+                                <a class="button button--xl" href="{{ route('front.show-product-detail', $product->slug) }}">Buy Now</a>
+                            </div>
                         @endforeach
-                        {{-- <div class="prose reveal-invisible" image-id="image-item_zGKDVp">
-                            <p class="h1" reveal-on-scroll="true">
-                                <split-lines>The Vision</split-lines>
-                            </p>
-                            <p>The Vision is Monster’s most innovative portable Bluetooth wireless speaker complete with a
-                                15.6"" 1080P TV and built-in ATSC Air TV Tuner. Enjoy your favorite video content on the go
-                                via the Antenna feature or plug in your favorite stream device directly through the Vision’s
-                                2 HDMI port.</p>
-                            <a class="button button--xl" href="/products/monster-vision156">Buy Now</a>
-                        </div> --}}
+
                     </multiple-images-with-text-content-list>
                     <div class="prev-next-buttons">
                         <button is="prev-button" class="circle-button ring group">

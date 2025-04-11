@@ -51,6 +51,7 @@ class FrontController extends Controller
             $carry[] = $product->image ? $product->image->path : '';
             return $carry;
         }, []);
+
         // $data['categorySpecialPost'] = CategorySpecial::query()->with([
         //         'posts' => function($q) {
         //             $q->where('status', 1);

@@ -197,13 +197,13 @@
       </svg></span>
                                 </button>
                             </li>
-                            <li class="h3 sm:h4"><a href="/collections" class="group block w-full">
+                            <li class="h3 sm:h4"><a href="{{ route('front.collections') }}" class="group block w-full">
                                     <span><span class="reversed-link">Collections</span></span>
                                 </a></li>
-                            <li class="h3 sm:h4"><a href="/pages/support" class="group block w-full">
+                            <li class="h3 sm:h4"><a href="{{ route('front.support') }}" class="group block w-full">
                                     <span><span class="reversed-link">Support</span></span>
                                 </a></li>
-                            <li class="h3 sm:h4"><a href="/pages/contact" class="group block w-full">
+                            <li class="h3 sm:h4"><a href="{{ route('front.contact') }}" class="group block w-full">
                                     <span><span class="reversed-link">Contact</span></span>
                                 </a></li>
                         </ul>
