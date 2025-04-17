@@ -57,7 +57,7 @@
                                                                 <div data-pf-type="Form2.Field"
                                                                      class="sc-biHcxt iRidsy pf-21_"><label
                                                                         data-pf-type="FormLabel"
-                                                                        class="sc-ByBTK dXFovK pf-22_">Full Name<sup>*</sup></label><input
+                                                                        class="sc-ByBTK dXFovK pf-22_">Họ tên<sup>*</sup></label><input
                                                                         type="text" name="contact[name]"
                                                                         placeholder="Enter your name" required=""
                                                                         value="" data-pf-type="FormInput"
@@ -65,9 +65,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="invalid-feedback d-block error" role="alert">
-                                                    <span ng-if="errors && errors['contact.email']">
-                                                        <% errors['contact.name'][0] %>
-                                                    </span>
+                                                            <span ng-if="errors && errors['contact.email']">
+                                                                <% errors['contact.name'][0] %>
+                                                            </span>
                                                         </div>
                                                     </div>
 
@@ -99,7 +99,7 @@
                                                                 <div data-pf-type="Form2.Field"
                                                                      class="sc-biHcxt iRidsy pf-31_"><label
                                                                         data-pf-type="FormLabel"
-                                                                        class="sc-ByBTK dXFovK pf-32_">Message<sup>*</sup></label><textarea
+                                                                        class="sc-ByBTK dXFovK pf-32_">Tin nhắn<sup>*</sup></label><textarea
                                                                         name="contact[body]" required=""
                                                                         placeholder="Enter your message" rows="6"
                                                                         data-pf-type="FormInput"
@@ -122,7 +122,7 @@
                                                                         class="sc-hJFzke UNids pf-36_"
                                                                 ><i
                                                                         class="sc-Arkif eJDRKz pf-37_ pfa pfa-envelope"
-                                                                        data-pf-type="Icon"></i>Submit
+                                                                        data-pf-type="Icon"></i>Gửi đi
                                                                 </button>
                                                             </div>
                                                         </div>

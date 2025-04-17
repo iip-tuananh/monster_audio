@@ -55,15 +55,15 @@
                             </svg>
                         </button>
 
-                        <a href="/search" class="tap-area sm:hidden" aria-controls="search-drawer">
-                            <span class="sr-only">Open search</span>
-                            <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
-                                 class="icon icon-search" viewBox="0 0 22 22">
-                                <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>
-                                <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
+{{--                        <a href="/search" class="tap-area sm:hidden" aria-controls="search-drawer">--}}
+{{--                            <span class="sr-only">Open search</span>--}}
+{{--                            <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"--}}
+{{--                                 class="icon icon-search" viewBox="0 0 22 22">--}}
+{{--                                <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>--}}
+{{--                                <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round"--}}
+{{--                                      stroke-linejoin="round"></path>--}}
+{{--                            </svg>--}}
+{{--                        </a>--}}
                         <nav class="header__link-list justify-center wrap" role="navigation">
                             <ul class="contents" role="list">
 
@@ -118,11 +118,11 @@
                                     </details>
                                 </li>
 
-                                <li><a href="{{ route('front.collections') }}" class="bold link-faded-reverse">Collections</a></li>
+                                <li><a href="{{ route('front.collections') }}" class="bold link-faded-reverse">Bộ sưu tập</a></li>
 
-                                <li><a href="{{ route('front.support') }}" class="bold link-faded-reverse">Support</a></li>
+                                <li><a href="{{ route('front.support') }}" class="bold link-faded-reverse">Hỗ trợ</a></li>
 
-                                <li><a href="{{ route('front.contact') }}" class="bold link-faded-reverse">Contact</a></li>
+                                <li><a href="{{ route('front.contact') }}" class="bold link-faded-reverse">Liên hệ</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -139,16 +139,17 @@
                             class="header__logo-image header__logo-image--transparent"></a>
 
                 <div class="header__secondary-nav">
-                    <div class="header__icon-list"><a href="#" class="hidden tap-area sm:block"
-                                                      aria-controls="search-drawer">
-                            <span class="sr-only">Open search</span>
-                            <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"
-                                 class="icon icon-search" viewBox="0 0 22 22">
-                                <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>
-                                <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
+                    <div class="header__icon-list">
+{{--                        <a href="#" class="hidden tap-area sm:block"--}}
+{{--                                                      aria-controls="search-drawer">--}}
+{{--                            <span class="sr-only">Open search</span>--}}
+{{--                            <svg role="presentation" stroke-width="2" focusable="false" width="22" height="22"--}}
+{{--                                 class="icon icon-search" viewBox="0 0 22 22">--}}
+{{--                                <circle cx="11" cy="10" r="7" fill="none" stroke="currentColor"></circle>--}}
+{{--                                <path d="m16 15 3 3" stroke="currentColor" stroke-linecap="round"--}}
+{{--                                      stroke-linejoin="round"></path>--}}
+{{--                            </svg>--}}
+{{--                        </a>--}}
 
                         <a href="/gio-hang.html" data-no-instant class="relative tap-area" >
                             <span class="sr-only">Open cart</span>
@@ -184,7 +185,7 @@
                     <div class="panel__scroller v-stack gap-8">
                         <ul class="v-stack gap-4">
                             <li class="h3 sm:h4"><a href="/" class="group block w-full">
-                                    <span><span class="reversed-link">Home</span></span>
+                                    <span><span class="reversed-link">Trang chủ</span></span>
                                 </a></li>
                             <li class="h3 sm:h4">
                                 <button class="text-with-icon w-full group justify-between" aria-expanded="false"
@@ -198,20 +199,20 @@
                                 </button>
                             </li>
                             <li class="h3 sm:h4"><a href="{{ route('front.collections') }}" class="group block w-full">
-                                    <span><span class="reversed-link">Collections</span></span>
+                                    <span><span class="reversed-link">Bộ sưu tập</span></span>
                                 </a></li>
                             <li class="h3 sm:h4"><a href="{{ route('front.support') }}" class="group block w-full">
-                                    <span><span class="reversed-link">Support</span></span>
+                                    <span><span class="reversed-link">Hỗ trợ</span></span>
                                 </a></li>
                             <li class="h3 sm:h4"><a href="{{ route('front.contact') }}" class="group block w-full">
-                                    <span><span class="reversed-link">Contact</span></span>
+                                    <span><span class="reversed-link">Liên hệ</span></span>
                                 </a></li>
                         </ul>
                     </div>
-                    <div class="panel-footer v-stack gap-5">
-                        <div class="panel-footer__localization-wrapper h-stack gap-6 border-t md:hidden"><a
-                                    href="/account" class="panel-footer__account-link bold text-sm">Account</a></div>
-                    </div>
+{{--                    <div class="panel-footer v-stack gap-5">--}}
+{{--                        <div class="panel-footer__localization-wrapper h-stack gap-6 border-t md:hidden"><a--}}
+{{--                                    href="/account" class="panel-footer__account-link bold text-sm">Account</a></div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="panel gap-8">

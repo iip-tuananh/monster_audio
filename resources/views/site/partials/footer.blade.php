@@ -14,9 +14,11 @@
             <div class="footer__wrapper">
                 <div class="footer__block-list">
                     <div class="footer__block footer__block--newsletter">
-                        <div class="v-stack gap-6"><p class="h3">Be the first one to know</p>
-                            <div class="prose text-subdued"><p>Subscribe to newsletter</p></div>
-                            <form method="post" action="/contact#footer-newsletter" id="footer-newsletter"
+                        <div class="v-stack gap-6"><p class="h3">Trở thành người đầu tiên nhận thông tin mới nhất</p>
+                            <div class="prose text-subdued"><p>Đăng ký nhận bản tin
+
+                                </p></div>
+                            <form method="#" action="#" id="footer-newsletter"
                                   accept-charset="UTF-8" class="footer__newsletter-form form"><input type="hidden"
                                                                                                      name="form_type"
                                                                                                      value="customer"/><input
@@ -50,7 +52,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="footer__block footer__block--menu"><p class="bold">Products Menu</p>
+                    <div class="footer__block footer__block--menu"><p class="bold">Danh mục sản phẩm</p>
                         @php
                             $productCategories = \App\Model\Admin\Category::query()->with(['childs'])
                                        ->where(['type' => 1, 'parent_id' => 0])
@@ -73,7 +75,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer__block footer__block--menu"><p class="bold">New Products</p>
+                    <div class="footer__block footer__block--menu"><p class="bold">Sản phẩm mới</p>
                         <ul class="v-stack gap-3" role="list">
                             @foreach($newProducts as $newProduct)
                                 <li>
@@ -83,7 +85,7 @@
 
                         </ul>
                     </div>
-                    <div class="footer__block footer__block--text"><p class="bold">About</p>
+                    <div class="footer__block footer__block--text"><p class="bold">Về chúng tôi</p>
                         <div class="prose text-subdued">
                             <p>{{ $config->web_des }}
                             </p></div>

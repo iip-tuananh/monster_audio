@@ -27,7 +27,7 @@
             </style>
 
             <div class="section   section-blends section-full"><div class="section-stack section-stack--horizontal "><div class="section-stack__intro">
-                        <div class="prose "><p class="subheading">Contact Us</p><h2 class="h2">Do you have any question?</h2></div>
+                        <div class="prose "><p class="subheading">Liên hệ với chúng tôi</p><h2 class="h2">Bạn có bất kỳ câu hỏi nào?</h2></div>
                     </div><div class="section-stack__main">
                         <div class="contact-form rounded bg-secondary">
                             <form
@@ -38,7 +38,7 @@
                                         <div class="form-control">
                                             <input id="input-template--17549462569118__contact_nDpjJ8--contactname" class="input is-floating"
                                                    type="text" name="contact[name]" placeholder=" "  autocomplete="name" required="">
-                                            <label for="input-template--17549462569118__contact_nDpjJ8--contactname" class="floating-label">Name</label>
+                                            <label for="input-template--17549462569118__contact_nDpjJ8--contactname" class="floating-label">Họ tên</label>
 
                                             <div class="invalid-feedback d-block error" role="alert">
                                                     <span ng-if="errors && errors['contact.name']">
@@ -61,7 +61,7 @@
                                     <div class="form-control">
                                         <textarea id="input-template--17549462569118__contact_nDpjJ8--contactbody" class="textarea is-floating" is="resizable-textarea"
                                                   name="contact[body]" placeholder=" " rows="4" required=""></textarea>
-                                        <label for="input-template--17549462569118__contact_nDpjJ8--contactbody" class="floating-label">Message</label>
+                                        <label for="input-template--17549462569118__contact_nDpjJ8--contactbody" class="floating-label">Tin nhắn</label>
                                         <div class="invalid-feedback d-block error" role="alert">
                                                     <span ng-if="errors && errors['contact.body']">
                                                         <% errors['contact.body'][0] %>
@@ -71,7 +71,7 @@
                                 </div>
 
                                 <div class="justify-self-start">
-                                    <button type="button" class="button button--xl" is="custom-button" ng-click="submit()"><div>Send message</div><span class="button__loader">
+                                    <button type="button" class="button button--xl" is="custom-button" ng-click="submit()"><div>Gửi</div><span class="button__loader">
         <span></span>
         <span></span>
         <span></span>
