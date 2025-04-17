@@ -1863,8 +1863,7 @@
                                                                 class="sc-dQEsWe LHlFs pf-28_">600 WATT</span></p> --}}
                                                         <a href="{{ route('front.show-product-detail', $product->slug) }}" target="_blank" data-pf-type="Button"
                                                             class="sc-fXSgRJ faABcD pf-29_ pf-button-1"><span
-                                                                data-pf-type="Text" class="sc-dQEsWe LHlFs pf-31_">More
-                                                                Info</span></a>
+                                                                data-pf-type="Text" class="sc-dQEsWe LHlFs pf-31_">Chi tiết</span></a>
                                                     </div>
                                                 </div>
                                                 @endforeach

@@ -100,7 +100,7 @@
             <div class="container">
                 <div class="collection collection--filters-sidebar">
                     <facet-drawer header-bordered id="facets-drawer" class="facets-drawer drawer" open-from="left">
-                        <p class="h5" slot="header">Filters</p>
+                        <p class="h5" slot="header">Bộ lọc</p>
                         <form id="facet-form" is="facet-form" section-id="template--17549462175902__main" method="GET"
                               action="/collections/lifestyle" class="facets-vertical"><input type="hidden" name="page"
                                                                                              value="">
@@ -108,7 +108,7 @@
                             <details id="accordion-sort-by" class=" accordion  group" aria-expanded="false"
                                      is="accordion-disclosure">
                                 <summary>
-                                    <div class="accordion__toggle bold"><span>Sort by</span><span
+                                    <div class="accordion__toggle bold"><span>Sắp xếp</span><span
                                                 class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate"><svg
                                                     role="presentation" focusable="false" width="8" height="6"
                                                     class="icon icon-chevron-bottom-small" viewBox="0 0 8 6">

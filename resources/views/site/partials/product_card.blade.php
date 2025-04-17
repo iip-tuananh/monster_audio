@@ -64,7 +64,7 @@
                                 data-name="{{ $product->name }}"
                                 ng-click="addToCart({{ $product->id }},  $event)"
                         >
-                            <div>+ Quick add</div>
+                            <div>+ Thêm vào giỏ</div>
                             <span class="button__loader">
                             <span></span>
                             <span></span>
